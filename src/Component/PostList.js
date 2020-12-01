@@ -1,16 +1,14 @@
 import React,{Component} from 'react';
 import Post from './Post.js'
 
-const Data=require('../data/data.json');
 class App extends Component
 {
   render()
   {
     return(
-     Data.map(d=>
+     this.props.postList.reverse().map(d=>
      {
      	var li=d.caption.split(' ')
-     	console.log(li)
 		li=li.map((c)=>
 		{
 			var a=c
@@ -26,8 +24,8 @@ class App extends Component
 
 		})
 		var caption = li.join(' ')
-		console.log(caption)
-     	return	<Post path={d.path} key={d.postno} postno={d.postno} uid={d.uid} caption={caption} like={d.like} comment={d.comment}/>
+		console.log(d.likes)
+     	return	<Post fun={this.props.fun} path={d.path} key={d._id} postno={d._id} uid={this.props.user.id} caption={caption} like={d.likes.length} likes={d.likes} comment={d.comments.length} comments={d.comments} share={d.noOfShare}/>
      })
     )
   }

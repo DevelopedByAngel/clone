@@ -3,7 +3,7 @@ import $ from 'jquery';
 import  '../stylesheet/Menu.css'
 const Menu=(props)=>
 {
-	const {route,now}=props;
+	const {route,fun}=props;
 	const ok=()=>
 	{
 		if($('.line').css('height')!=='25px')
@@ -34,7 +34,7 @@ const Menu=(props)=>
 				      </span>
 			      </button>
 		      </div>
-	      <p className='nav-link Feed' onClick={()=>route('feed')}>Feed</p>
+	      <p className='nav-link Feed' onClick={()=>routeFeed(route,fun)}>Feed</p>
 	      <p className='nav-link Profile' onClick={()=>route('profile')}>Profile</p>
 	      <p className='nav-link Settings' onClick={()=>route('settings')}>Settings</p>
 	      <p className='nav-link Store' onClick={()=>route('store')}>Store</p>
@@ -42,6 +42,10 @@ const Menu=(props)=>
 	    );
 
 }
-
+const routeFeed=(route,fun)=>
+{
+	fun.feeds();
+	route('feed')
+}
 export default Menu;
 

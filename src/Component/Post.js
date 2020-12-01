@@ -11,6 +11,20 @@ class App extends Component
 			file:{}
 		}
 	}
+	like=()=>
+	{
+		if(!this.props.likes.includes(this.props.fun.state.user.id))
+		{
+			this.props.fun.like(this.props.postno)
+			$('.like'+this.props.postno+' + .number').text(parseInt($('.like'+this.props.postno+' + .number').text())+1)
+			$('.like'+this.props.postno).css('color','green')
+		}
+	}
+	share=()=>
+	{
+		this.props.fun.share(this.props.postno)
+		$('.share'+this.props.postno+' + .number').text(parseInt($('.share + .number').text())+1)
+	}
 	re(caption)
 	{
 		var li=caption.split(' ')
@@ -32,21 +46,25 @@ class App extends Component
 	}
 	componentDidMount()
 	{
-		console.log($('.caption').text())
+		console.log('mounted')
+		if(this.props.likes.includes(this.props.fun.state.user.id))
+		{
+			$('.like'+this.props.postno).css('color','green')
+		}
 		$('.caption'+this.props.uid+'_'+this.props.postno).html(this.props.caption)
-
 	}
   render()
   {
     return(
-     <div className="Post" id={this.props.uid}>
+     <div className="Post" id={this.props.postno}>
 	     <div className="post" >
 		     <img className="post-img" alt="" src={"http://localhost:3000/"+this.props.path} />
 		     <div className="details">
 			     <p className={"caption"+this.props.uid+"_"+this.props.postno}>{this.props.caption}</p>
 			     <p className="details-inner">
-				     <span className="like" >Likes </span><span className="number">{this.props.like}   </span>
-				     <span className="comment">Comments  </span><span className="number">{this.props.comment}</span>
+				     <span className={"like"+this.props.postno} onClick={()=>this.like()} >Likes </span><span className="number">{this.props.like}   </span>
+				     <span className={"comment"+this.props.postno}>Comments  </span><span className="number">{this.props.comment}   </span>
+				     <span className={"share"+this.props.postno} onClick={()=>this.share()}>Share</span><span className="number">{this.props.share}</span>
 			     </p>
 		     </div>
 	     </div>
