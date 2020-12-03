@@ -1,4 +1,7 @@
 import React,{Component} from 'react';
+import Signup from './Component/Signup.js'
+import Login from './Component/Login.js'
+import UploadDP from './Component/UploadDP.js'
 import PostList from './Component/PostList.js'
 import Add from './Component/Add.js'
 import Menu from './Component/Menu.js'
@@ -6,21 +9,22 @@ import Search from './Component/Search.js'
 import ProfileHeader from './Component/ProfileHeader.js'
 import Store from './Component/Store.js'
 import Settings from './Component/Settings.js'
-import Profile from './fetch/profile.js'
+import Profile from './fetch/profile.js';
+import UsersList from './Component/UsersList.js'
 class App extends Component
 {
    constructor(props) {
     super(props);
-        this.login('angel__francis','angel@111')
 
     this.state =
     {
-      route:'feed',
+      route:'login',
       user:{
         name:'',
         profileImg:'https://developedbyangel.github.io/SAS/logo.PNG'
       },
-      postList:[]
+      postList:[],
+      users:[]
     }
   }
   login=(id,password)=>
@@ -41,6 +45,7 @@ class App extends Component
       console.log(r)
       this.setState({user:r.user})
       this.setState({postList:r.post})
+      this.RouteChange('profile')
     })
   }
   signup=(id,email,password)=>
@@ -266,28 +271,62 @@ class App extends Component
   RouteChange=(route)=>
   {
 
+      console.log("routing to "+route)
       this.setState({route:route})
   }
-  search(search)
+  search=(e,q)=>
   {
-    console.log(search)
+    e.preventDefault();
+    console.log(q)
+    fetch('http://localhost:3000/search/'+q,
+    {
+      method:'GET',
+      headers: {'Content-Type':'application/json'}
+      })
+    .then(res=>res.json())
+    .then(r=>
+    {
+      if(r)
+      {
+        console.log(r)
+        this.setState({users:r})
+        this.RouteChange('usersList')
+      }
+    })
+    .catch(err=>alert(err.message))
+  }
+  updateuser(user)
+  {
+    this.setState({user:user})
+  }
+  updatePostList(list)
+  {
+    this.setState({postList:list})
   }
   render()
   {
     return(
      <div className="App">
-     <Search search={this.search} profileImg={this.state.user.profileImg}/>
+     <Search search={this.search} profileImg={this.state.user.path}/>
      <Menu route={this.RouteChange} fun={this}/>
      {
-      (this.state.route === 'feed')
+      (this.state.route==='signup')
+     ?<Signup fun={this}/>
+      :(this.state.route==='login')
+      ?<Login fun={this}/>
+      :(this.state.route==='uploadDP')
+      ?<UploadDP fun={this}/>
+     :(this.state.route==='usersList')
+     ?<UsersList userID={this.state.user.id} users={this.state.users}/>
+     :(this.state.route === 'feed')
      ?
      <div className="PostList">
      <PostList postList={this.state.postList} user={this.state.user} fun={this}/>
      </div>
      :(this.state.route === 'profile')
      ?<div>
-     <ProfileHeader/>
-     <PostList postList={this.state.postList} user={this.state.user}/>
+     <ProfileHeader fun={this}/>
+     <PostList postList={this.state.postList} user={this.state.user} fun={this}/>
      </div>
      :(this.state.route === 'settings')
      ?<Settings/>

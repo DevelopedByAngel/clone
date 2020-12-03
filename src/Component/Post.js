@@ -13,6 +13,7 @@ class App extends Component
 	}
 	like=()=>
 	{
+		console.log('liking')
 		if(!this.props.likes.includes(this.props.fun.state.user.id))
 		{
 			this.props.fun.like(this.props.postno)
@@ -58,6 +59,7 @@ class App extends Component
     return(
      <div className="Post" id={this.props.postno}>
 	     <div className="post" >
+	   <span className='user-name'>{this.props.user}</span>  
 		     <img className="post-img" alt="" src={"http://localhost:3000/"+this.props.path} />
 		     <div className="details">
 			     <p className={"caption"+this.props.uid+"_"+this.props.postno}>{this.props.caption}</p>

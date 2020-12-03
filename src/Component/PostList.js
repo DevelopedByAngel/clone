@@ -25,7 +25,7 @@ class App extends Component
 		})
 		var caption = li.join(' ')
 		console.log(d.likes)
-     	return	<Post fun={this.props.fun} path={d.path} key={d._id} postno={d._id} uid={this.props.user.id} caption={caption} like={d.likes.length} likes={d.likes} comment={d.comments.length} comments={d.comments} share={d.noOfShare}/>
+     	return	<Post fun={this.props.fun} path={d.path} key={d._id} user={d.user} postno={d._id} uid={this.props.user.id} caption={caption} like={d.likes.length} likes={d.likes} comment={d.comments.length} comments={d.comments} share={d.noOfShare}/>
      })
     )
   }
