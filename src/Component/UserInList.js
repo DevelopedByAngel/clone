@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import $ from 'jquery'
 class UserInList extends Component
 {
  
@@ -6,26 +7,74 @@ class UserInList extends Component
 	{
 		super(props);
 		this.state = {
-			status:''
+			status:'',
+			ok:""
+		}
+	}
+	click(status)
+	{
+		console.log(status);
+		if (status=="Request")
+		{
+			this.props.fun.request(this.props.user.id)
+			$('.status'+this.props.user.id).text("⚠️ ")
+				
+		}
+		else if (status=="Accept Request")
+		{
+			this.props.fun.acceptRequest(this.props.user.id)
+			$('.status'+this.props.user.id).text("⚠️ ")
+			
+		}
+		else if (status=="Unfriend")
+		{
+			console.log("Ok")
+			var a=window.confirm("remove from friends")
+			if(a)
+			{
+				this.props.fun.Unfriend(this.props.user.id)
+				$('.status'+this.props.user.id).text("⚠️ ")
+			
+			}
+		}
+		else if(status == "Request Pending")
+		{
+			console.log("sending request")
+			this.props.fun.cancelRequest(this.props.user.id)
+			$('.status'+this.props.user.id).text("⚠️ ")
+		}
+		else
+		{
+			console.log('unkonwn')
 		}
 	}
 	componentDidMount()
 	{
-		console.log(this.props)
-		if(this.props.user.friends.length>0 && this.props.user.friends.includes(this.props.userID))
-			this.setState({status:"Friend"})
-		else if(this.props.user.pending>0 && this.props.user.pending.includes(this.props.userID))
-			this.setState({status:"Accept Request"})
-		else if(this.props.user.request.length>0 && this.props.user.request.includes(this.props.userID))
-			this.setState({status:"Request Pending"})
-		else
-			this.setState({status:"Request"})
+		
+	}
+	componentDidUpdate(prevProps)
+	{
+		if (prevProps.user!=this.props.user)
+		this.setState({ok:"ok"})
 	}
   render()
   {
+  	console.log(this.props.user.pending)
+  	var status = ''
+	if(this.props.user.id === this.props.userID)
+		status="Me"
+	else if(this.props.user.friends && this.props.user.friends.length>0 && this.props.user.friends.includes(this.props.userID))
+		status="Unfriend"
+	else if(this.props.user.request && this.props.user.request.length>0 && this.props.user.request.includes(this.props.userID))
+		status="Request Pending"
+	else if(this.props.user.pending && this.props.user.pending.length>0 && this.props.user.pending.includes(this.props.userID))
+		status="Accept Request"
+	else
+		status="Request"
+	console.log(status)
     return(
-    	<div><span>{this.props.user.id}   </span>
-    	<span className="ok {this.state.status}">{this.state.status}</span>
+    	<div><span onClick={()=>this.props.fun.viewProfile(this.props.user.id)}>{this.props.user.id}   </span>
+    	<span className={"status"+this.props.user.id} onClick={() => this.click($('.status'+this.props.user.id).text())}>{status}</span>
     	</div>)
   }
 }

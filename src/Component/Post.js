@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import $ from 'jquery';
 import  '../stylesheet/Post.css'
-class App extends Component
+class Post extends Component
 {
 	constructor(props)
 	{
@@ -21,10 +21,15 @@ class App extends Component
 			$('.like'+this.props.postno).css('color','green')
 		}
 	}
+	comment=()=>
+	{
+		this.props.fun.updatePost(this.props.post)
+		this.props.fun.RouteChange("comment")
+	}
 	share=()=>
 	{
 		this.props.fun.share(this.props.postno)
-		$('.share'+this.props.postno+' + .number').text(parseInt($('.share + .number').text())+1)
+		$('.share'+this.props.postno+' + .number').text(parseInt($('.share'+this.props.postno+' + .number').text())+1)
 	}
 	re(caption)
 	{
@@ -65,7 +70,7 @@ class App extends Component
 			     <p className={"caption"+this.props.uid+"_"+this.props.postno}>{this.props.caption}</p>
 			     <p className="details-inner">
 				     <span className={"like"+this.props.postno} onClick={()=>this.like()} >Likes </span><span className="number">{this.props.like}   </span>
-				     <span className={"comment"+this.props.postno}>Comments  </span><span className="number">{this.props.comment}   </span>
+				     <span className={"comment"+this.props.postno} onClick={()=>this.comment()}>Comments  </span><span className="number">{this.props.comment}   </span>
 				     <span className={"share"+this.props.postno} onClick={()=>this.share()}>Share</span><span className="number">{this.props.share}</span>
 			     </p>
 		     </div>
@@ -75,6 +80,6 @@ class App extends Component
   }
 }
 
-export default App;
+export default Post;
 
 

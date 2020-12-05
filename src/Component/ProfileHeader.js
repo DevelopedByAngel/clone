@@ -3,13 +3,13 @@ import $ from 'jquery';
 import  '../stylesheet/Menu.css'
 const ProfileHeader=(props)=>
 {
-	const {fun}=props
-
+	const {user}=props
+	console.log(props)
 	return (
 	      <div className="ProfileHeader">
-	      <img src={"http://localhost:3000/"+fun.state.user.path}/>
-	      <span>{fun.state.user.id}</span>
-	      <span className="friends">friends {fun.state.user.friends.length}</span>
+	      <img src={"http://localhost:3000/"+user.path}/>
+	      <span>{user.id}</span>
+	      <span className="friends">friends {user.friends.length}</span>
 		    </div>
 	    );
 

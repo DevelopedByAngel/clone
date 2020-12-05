@@ -35,7 +35,7 @@ const Menu=(props)=>
 			      </button>
 		      </div>
 	      <p className='nav-link Feed' onClick={()=>routeFeed(route,fun)}>Feed</p>
-	      <p className='nav-link Profile' onClick={()=>route('profile')}>Profile</p>
+	      <p className='nav-link Profile' onClick={()=>fun.getUser()}>Profile</p>
 	      <p className='nav-link Hashtag' onClick={()=>route('hashtags')}>Hashatag</p>
 	      <p className='nav-link Settings' onClick={()=>route('settings')}>Settings</p>
 	      <p className='nav-link Store' onClick={()=>route('store')}>Store</p>

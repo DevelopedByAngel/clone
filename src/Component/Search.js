@@ -14,7 +14,7 @@ const Search=(props)=>
 	      </div>
 	      <div className="search">
 	      <form onSubmit={(e)=>search(e,query)}>
-	      <input className="search-field" onChange={(e)=>query=e.target.value} required /><ImSearch className="search-icon"/>
+	      <input className="search-field" onChange={(e)=>query=e.target.value} type="text" required /><ImSearch className="search-icon"/>
 	      </form>
 	      </div>
 	      </div>

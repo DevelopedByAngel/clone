@@ -5,11 +5,11 @@ class UsersList extends Component
 
   render()
   {
-  	console.log(this.props.userID)
+  	console.log(this.props.users)
     return(
      this.props.users.map((u,i)=>
      {
-     	return	<UserInList key={i} user={u} userID={this.props.userID}/>
+     	return	<UserInList key={i} fun={this.props.fun} user={u} userID={this.props.userID}/>
      })
     )
   }
