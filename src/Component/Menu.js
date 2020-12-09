@@ -4,6 +4,7 @@ import  '../stylesheet/Menu.css'
 const Menu=(props)=>
 {
 	const {route,fun}=props;
+	var query='';
 	const ok=()=>
 	{
 		if($('.line').css('height')!=='25px')
@@ -36,7 +37,10 @@ const Menu=(props)=>
 		      </div>
 	      <p className='nav-link Feed' onClick={()=>routeFeed(route,fun)}>Feed</p>
 	      <p className='nav-link Profile' onClick={()=>fun.getUser()}>Profile</p>
-	      <p className='nav-link Hashtag' onClick={()=>route('hashtags')}>Hashatag</p>
+	      <p className='nav-link Hashtag' onClick={()=>route('hashtags')}>Hashtag</p>
+	      <form onSubmit={(e)=>fun.search(e,'#'+query)}>
+	      <input className="search-nav" onChange={(e)=>query=e.target.value} type="text" required />
+	      </form>
 	      <p className='nav-link Settings' onClick={()=>route('settings')}>Settings</p>
 	      <p className='nav-link Store' onClick={()=>route('store')}>Store</p>
 	      </div>

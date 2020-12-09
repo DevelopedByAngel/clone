@@ -16,7 +16,7 @@
   transition:all 0.25s linear;
   z-index:2;
 }
-.nav-link
+.nav-link,.search-nav
 {
   /*border-bottom:1px solid black;*/
   width:100%;

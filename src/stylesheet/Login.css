@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter&display=swap");
+* {
+	font-family: "Bitter", serif;
+}
+body {
+	background: rgb(252 255 236);
+}
+.Login {
+	display: flex;
+	flex-direction: row;
+}
+.overlay {
+	position: absolute;
+	top: 0px;
+	height: 60vh;
+	width: 100vw;
+	/*background:red;*/
+	transition: all 0.5s linear;
+}
+.circlesvg {
+	overflow: visible;
+}
+linearGradient {
+	transition: all 0.5s linear;
+}
+ellipse {
+	transition: all 0.5s linear;
+	box-shadow: inset 2px 0px 10px white;
+}
+.login-div {
+	width: 100vw;
+	height: 30vh;
+	position: absolute;
+	top: 10vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.loginform {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.input-span {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	padding: 0.5rem 0 0.5rem 0;
+}
+.input-label {
+	font-size: 0.9rem;
+	position: absolute;
+	top: 1rem;
+	left: 1.75rem;
+	color: #a6b5a0;
+	transition: all 0.1s linear;
+}
+.submit {
+	background: rgb(146 219 34);
+	outline: none;
+	height: 2rem;
+	width: 6rem;
+	margin: 0.5rem;
+	border: none;
+	border-radius: 0.25rem;
+	color: rgb(252 255 236);
+	box-shadow: inset 0px -4px 5px green;
+}
+.submit:hover {
+	box-shadow: inset 0px -2px 5px green;
+}
+.submit:active {
+	box-shadow: inset 0px 0px 5px green;
+}
+.svg {
+	fill: rgb(58, 156, 126);
+	stroke: rgb(58, 156, 126);
+	transform: scale(1.2);
+	margin-right: 0.5rem;
+}
+.password-svg {
+	fill: none;
+}
+.input-field {
+	background: none;
+	height: 1.5rem;
+	width: 10rem;
+	border-radius: 0.1rem;
+	border: none;
+	outline: none;
+	border-bottom: 0.1rem solid rgb(58, 156, 126);
+	color: rgb(58, 156, 126);
+	font-family: "Bitter", serif;
+}
+.input-field:focus {
+	box-shadow: 0px 0px 0px 0.1rem #3a9c7e61;
+	border-bottom: none;
+}
+.input-field:not(:-moz-placeholder-shown) + label {
+	color: transparent;
+	background: transparent;
+}
+.input-field:not(:-ms-input-placeholder) + label {
+	color: transparent;
+	background: transparent;
+}
+.input-field:not(:placeholder-shown) + label {
+	color: transparent;
+	background: transparent;
+}
+.input-field:focus + label {
+	color: #3a9c7e61;
+	background-color: rgb(252 255 236);
+	font-weight: bold;
+	font-size: 0.7rem;
+	top: 0rem;
+}
+.input-field:-webkit-autofill {
+	box-shadow: inset 0px 0px 0px 1000px rgb(252 255 236);
+	background-color: red !important;
+	-webkit-text-fill-color: #000000;
+}
