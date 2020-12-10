@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitter&display=swap");
 * {
 	font-family: "Bitter", serif;
+	transition: all 0.25s linear;
 }
 body {
 	background: rgb(252 255 236);
@@ -12,6 +13,7 @@ body {
 .overlay {
 	position: absolute;
 	top: 0px;
+	z-index: -1;
 	height: 60vh;
 	width: 100vw;
 	/*background:red;*/
@@ -32,7 +34,7 @@ ellipse {
 	height: 30vh;
 	position: absolute;
 	top: 10vh;
-	display: flex;
+	display: none;
 	flex-direction: row;
 	justify-content: center;
 }
@@ -42,7 +44,8 @@ ellipse {
 	flex-direction: column;
 	align-items: center;
 }
-.loginform {
+.loginform,
+.signupform {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -62,6 +65,7 @@ ellipse {
 	top: 1rem;
 	left: 1.75rem;
 	color: #a6b5a0;
+	cursor: text; /* for typing cursor*/
 	transition: all 0.1s linear;
 }
 .submit {

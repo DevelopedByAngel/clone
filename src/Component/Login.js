@@ -4,8 +4,8 @@ import $ from "jquery";
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 import "../stylesheet/Login.css";
-import { MdEmail } from "react-icons/md";
 import { HiOutlineKey } from "react-icons/hi";
+import { FaUserAlt } from "react-icons/fa";
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -46,8 +46,9 @@ class Login extends Component {
 					top: "0px",
 					bottom: "unset",
 				});
-				$("ellipse").attr({ rx: "320", ry: "320" });
-				$(".login-div").css({ display: "block" });
+				$("ellipse").attr({ rx: "280", ry: "280" });
+				$(".signup-div").css({ display: "flex" });
+				$(".login-div").css({ display: "none" });
 			}, 300);
 		} else {
 			$(".overlay").css("height", "100vh");
@@ -63,8 +64,9 @@ class Login extends Component {
 					top: "unset",
 					bottom: "0px",
 				});
-				$(".login-div").css({ display: "none" });
-				$("ellipse").attr({ rx: "320", ry: "320" });
+				$(".signup-div").css({ display: "none" });
+				$(".login-div").css({ display: "flex" });
+				$("ellipse").attr({ rx: "270", ry: "270" });
 			}, 300);
 		}
 	}
@@ -124,7 +126,7 @@ class Login extends Component {
 							</defs>
 							<ellipse
 								cx="50%"
-								cy="10%"
+								cy="0%"
 								rx="320"
 								ry="320"
 								filter="url(#f1)"
@@ -140,19 +142,25 @@ class Login extends Component {
 								onSubmit={(e) => this.onsubmit(e)}
 							>
 								<span className="id-input input-span">
-									<MdEmail className="email-svg svg" />
+									<FaUserAlt className="id-svg svg" />
 									<input
 										className="input-field"
 										type="text"
 										id="email"
 										placeholder="   "
 										required="true"
-										name="email"
+										name="id"
 										pattern="^[a-zA-Z0-9._]+$"
 										spellcheck="false"
 										onChange={(e) => this.emailchange(e)}
 									></input>
 									<label
+										onClick={(e) =>
+											$(e.target)
+												.parent()
+												.children("input")
+												.focus()
+										}
 										className="input-label id"
 										htmlFor="email"
 									>
@@ -172,6 +180,12 @@ class Login extends Component {
 										onChange={(e) => this.passwordChange(e)}
 									></input>
 									<label
+										onClick={(e) =>
+											$(e.target)
+												.parent()
+												.children("input")
+												.focus()
+										}
 										className="input-label password"
 										htmlFor="password"
 									>
@@ -211,7 +225,7 @@ class Login extends Component {
 							</button>
 						</div>
 					</div>
-					<Signup fun={this.props.fun} />
+					<Signup fun={this.props.fun} ch={this.ch} />
 				</div>
 			</div>
 		);

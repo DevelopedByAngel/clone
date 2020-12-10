@@ -1,0 +1,9 @@
+.signup-div {
+	width: 100vw;
+	height: 47vh;
+	position: absolute;
+	bottom: 0vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}

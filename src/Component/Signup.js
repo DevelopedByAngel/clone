@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { MdCheck } from "react-icons/md";
 import "../stylesheet/Login.css";
 import "../stylesheet/Signup.css";
+import { MdEmail } from "react-icons/md";
+import { FaUserAlt } from "react-icons/fa";
+import { HiOutlineKey } from "react-icons/hi";
+import { BiCheckDouble } from "react-icons/bi";
+import $ from "jquery";
 class Signup extends Component {
 	constructor(props) {
 		super(props);
@@ -43,42 +48,103 @@ class Signup extends Component {
 	render() {
 		return (
 			<div className="Signup">
-				<div className="main">
+				<div className="signup-div">
 					<div className="form">
 						<form
 							className="signupform"
 							onSubmit={(e) => this.onsubmit(e)}
 						>
-							<h1>We will need</h1>
-							<span>
-								<label htmlFor="name">ID</label>
-								<br />
+							<span className="id-input input-span">
+								<FaUserAlt className="id-svg svg" />
 								<input
+									className="input-field"
 									type="text"
-									name="name"
+									required="true"
+									placeholder="   "
+									name="id"
 									pattern="^[^\s]+$"
 								></input>
-								<br />
-								<MdCheck />
+								<label
+									onClick={(e) =>
+										$(e.target)
+											.parent()
+											.children("input")
+											.focus()
+									}
+									className="input-label id"
+									htmlFor="name"
+								>
+									user ID
+								</label>
 							</span>
-							<span>
-								<label htmlFor="email">Email</label>
-								<br />
+							<span className="email-input input-span">
+								<MdEmail className="email-svg svg" />
 								<input
+									className="input-field"
+									placeholder="   "
+									required="true"
 									type="email"
 									name="email"
 									onChange={(e) => this.emailchange(e)}
 								></input>
-								<br />
+								<label
+									onClick={(e) =>
+										$(e.target)
+											.parent()
+											.children("input")
+											.focus()
+									}
+									className="input-label email"
+									htmlFor="email"
+								>
+									Email
+								</label>
 							</span>
-							<span>
-								<label htmlFor="password">Password</label>
-								<br />
-								<input type="password" name="password"></input>
-								<br />
+							<span className="password-input input-span">
+								<HiOutlineKey className="password-svg svg" />
+								<input
+									className="input-field"
+									placeholder="   "
+									type="password"
+									name="password"
+								></input>
+								<label
+									onClick={(e) =>
+										$(e.target)
+											.parent()
+											.children("input")
+											.focus()
+									}
+									className="input-label password"
+									htmlFor="password"
+								>
+									Password
+								</label>
+							</span>
+							<span className="check-password-input input-span">
+								<BiCheckDouble className="check-svg svg" />
+								<input
+									className="input-field"
+									placeholder="   "
+									type="password"
+									name="password"
+								></input>
+								<label
+									onClick={(e) =>
+										$(e.target)
+											.parent()
+											.children("input")
+											.focus()
+									}
+									className="input-label password"
+									htmlFor="password"
+								>
+									Confirm Password
+								</label>
 							</span>
 							<button
-								type="signup-button submit"
+								className="signup-button submit"
+								type="submit"
 								value="Sign Up"
 								id="submit"
 							>
@@ -90,7 +156,7 @@ class Signup extends Component {
 							type="submit"
 							value="Sign up"
 							id="submit"
-							onClick={() => this.ch()}
+							onClick={() => this.props.ch()}
 						>
 							Login
 						</button>
