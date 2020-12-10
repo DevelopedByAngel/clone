@@ -34,10 +34,9 @@ class Login extends Component {
 	ch() {
 		if ($(".overlay").css("bottom") == "0px") {
 			$(".overlay").css("height", "100vh");
-			$("ellipse").attr({ rx: "0", ry: "0" });
+			// $("ellipse").attr({ rx: "0", ry: "0" });
 			$("ellipse").css({
-				transform: " rotateX(0deg)",
-				"transform-origin": "50% 60%",
+				transform: " rotateZ(0deg)",
 			});
 
 			setTimeout(() => {
@@ -46,16 +45,15 @@ class Login extends Component {
 					top: "0px",
 					bottom: "unset",
 				});
-				$("ellipse").attr({ rx: "280", ry: "280" });
+				// $("ellipse").attr({ rx: "280", ry: "280" });
 				$(".signup-div").css({ display: "flex" });
 				$(".login-div").css({ display: "none" });
 			}, 300);
 		} else {
 			$(".overlay").css("height", "100vh");
-			$("ellipse").attr({ rx: "0", ry: "0" });
+			// $("ellipse").attr({ rx: "0", ry: "0" });
 			$("ellipse").css({
-				transform: " rotateX(180deg)",
-				"transform-origin": "50% 60%",
+				transform: " rotateZ(360deg)",
 			});
 
 			setTimeout(() => {
@@ -66,7 +64,7 @@ class Login extends Component {
 				});
 				$(".signup-div").css({ display: "none" });
 				$(".login-div").css({ display: "flex" });
-				$("ellipse").attr({ rx: "270", ry: "270" });
+				// $("ellipse").attr({ rx: "280", ry: "280" });
 			}, 300);
 		}
 	}
