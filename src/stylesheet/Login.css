@@ -12,13 +12,17 @@ body {
 	flex-direction: row;
 }
 .overlay {
-	position: absolute;
-	top: 0px;
-	z-index: -1;
-	height: 60vh;
-	width: 100vw;
-	/*background:red;*/
-	transition: all 0.5s linear;
+	    position: absolute;
+    top: 0px;
+    z-index: 3;
+    height: auto;
+    background-image: url(https://i.postimg.cc/5NzK5tdZ/logo.png);
+    background-position: center;
+    width: 100vw;
+    background-size: 70%;
+    /* backdrop-filter: opacity(1%); */
+    background-repeat: no-repeat;
+    transition: all 0.5s linear;
 }
 .circlesvg {
 	overflow: visible;
@@ -30,15 +34,42 @@ ellipse {
 	transition: all 0.5s linear;
 	box-shadow: inset 2px 0px 10px white;
 	transform-origin: 50% 100%;
+	opacity:80%;
 }
 .login-div {
 	width: 100vw;
 	height: 30vh;
 	position: absolute;
-	top: 10vh;
+	bottom: 10vh;
 	display: none;
 	flex-direction: row;
 	justify-content: center;
+}
+.choose
+{
+	position: absolute;
+	bottom:10vh;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	width:100vw;
+	height:30vh;
+}
+.choose-item
+{
+	padding:3rem;
+	font-family: "Bitter", serif;
+	font-weight: bolder;
+	letter-spacing:0.1rem;
+	color: rgb(58, 156, 126);
+}
+.choose-item:first-child
+{
+	border-right: 5px double rgb(58, 156, 126);
+}
+.div
+{
+	z-index:2;
 }
 .form {
 	width: 100%;

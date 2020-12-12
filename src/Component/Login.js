@@ -32,45 +32,49 @@ class Login extends Component {
 		}, 4000);
 	};
 	ch() {
-		if ($(".overlay").css("bottom") == "0px") {
-			$(".overlay").css("height", "100vh");
-			// $("ellipse").attr({ rx: "0", ry: "0" });
+		$('ellipse').css({ opacity:"100%"})
+		if ($(".login-div").css("display") == "flex") {
 			$("ellipse").css({
 				transform: " rotateZ(0deg)",
 			});
 
 			setTimeout(() => {
-				$(".overlay").css({
-					height: "60vh",
-					top: "0px",
-					bottom: "unset",
-				});
-				// $("ellipse").attr({ rx: "280", ry: "280" });
+				
 				$(".signup-div").css({ display: "flex" });
 				$(".login-div").css({ display: "none" });
+				$('ellipse').css({ opacity:"80%"})
 			}, 300);
 		} else {
-			$(".overlay").css("height", "100vh");
-			// $("ellipse").attr({ rx: "0", ry: "0" });
 			$("ellipse").css({
 				transform: " rotateZ(360deg)",
 			});
 
 			setTimeout(() => {
-				$(".overlay").css({
-					height: "60vh",
-					top: "unset",
-					bottom: "0px",
-				});
+				
 				$(".signup-div").css({ display: "none" });
 				$(".login-div").css({ display: "flex" });
-				// $("ellipse").attr({ rx: "280", ry: "280" });
+				$('ellipse').css({ opacity:"80%"})
 			}, 300);
 		}
+	}
+	choose(c)
+	{
+		if(c==="signup")
+		{
+			$(".signup-div").css({ display: "flex" });
+			$(".login-div").css({ display: "none" });
+		}
+		else
+		{
+			$(".signup-div").css({ display: "none" });
+			$(".login-div").css({ display: "flex" });
+		}
+		$('.choose').css({ display:'none'})
 	}
 	render() {
 		return (
 			<div className="Login">
+			
 				<div className="main">
 					<div className="overlay">
 						<svg className="circlesvg" height="40vh" width="100%">
@@ -132,8 +136,15 @@ class Login extends Component {
 							/>
 						</svg>
 					</div>
-
-					<div className="login-div">
+		<section className="choose div">
+				<span className="choose-item" onClick={()=>this.choose("signup")}>
+				Sign up
+				</span>
+				<span className="choose-item" onClick={()=>this.choose("login")}>
+				Login
+				</span>
+				</section>
+					<div className="login-div div">
 						<div className="form">
 							<form
 								className="loginform"
@@ -212,6 +223,7 @@ class Login extends Component {
 									/>
 								</button>
 							</form>
+							<span style={{color:'rgb(58, 156, 126)',fontSize:'0.8rem'}}>Don't have an account??</span>
 							<button
 								className="signup-button submit"
 								type="submit"

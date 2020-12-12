@@ -48,7 +48,7 @@ class Signup extends Component {
 	render() {
 		return (
 			<div className="Signup">
-				<div className="signup-div">
+				<div className="signup-div div">
 					<div className="form">
 						<form
 							className="signupform"
@@ -151,6 +151,7 @@ class Signup extends Component {
 								Sign Up
 							</button>
 						</form>
+						<span style={{color:'rgb(58, 156, 126)',fontSize:'0.8rem'}}>Already have an account??</span>
 						<button
 							className="login-button submit"
 							type="submit"
