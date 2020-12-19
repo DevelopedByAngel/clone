@@ -11,16 +11,19 @@ class Signup extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email: "angelfrancis1806@gmail.com",
-			id: "angel",
-			password: "angel",
+			email: "",
+			id: "",
+			password: "",
 		};
 	}
 	emailchange = (email) => {
 		this.setState({ email: email.target.value });
 	};
-	namechange = (name) => {
-		this.setState({ name: name.target.value });
+	idchange = (id) => {
+		this.setState({ id: id.target.value });
+	};
+	passwordchange = (password) => {
+		this.setState({ password: password.target.value });
 	};
 	onsubmit = (e) => {
 		e.preventDefault();
@@ -63,6 +66,7 @@ class Signup extends Component {
 									placeholder="   "
 									name="id"
 									pattern="^[^\s]+$"
+									onChange={(e) =>this.idchange(e)}
 								></input>
 								<label
 									onClick={(e) =>
@@ -107,6 +111,7 @@ class Signup extends Component {
 									placeholder="   "
 									type="password"
 									name="password"
+									onChange={(e) => this.passwordchange(e)}
 								></input>
 								<label
 									onClick={(e) =>
@@ -125,6 +130,7 @@ class Signup extends Component {
 								<BiCheckDouble className="check-svg svg" />
 								<input
 									className="input-field"
+									pattern={"^"+this.state.password}
 									placeholder="   "
 									type="password"
 									name="password"
