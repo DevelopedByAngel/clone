@@ -11,7 +11,6 @@ import Search from "./Component/Search.js";
 import ProfileHeader from "./Component/ProfileHeader.js";
 import Store from "./Component/Store.js";
 import Settings from "./Component/Settings.js";
-import Profile from "./fetch/profile.js";
 import UsersList from "./Component/UsersList.js";
 import FriendsList from "./Component/FriendsList.js";
 import $ from "jquery";
@@ -72,6 +71,7 @@ class App extends Component {
       .then((r) => {
         this.setState({ user: r.user });
         this.setState({ postList: r.post });
+        this.RouteChange("uploadDP");
       })
       .catch((err) => alert(err.message));
   };

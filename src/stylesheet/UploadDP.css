@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+.DPform
+{
+	display:none;
+}
+.preview
+{
+	width:90vw;
+	height:90vw;
+	border:1px solid transparent;
+	border-radius:50%;
+	overflow: hidden;
+	border:5px solid green;
+}
+.preview img
+{
+	width:100%;
+}
+.user-details .id
+{
+	font-family: 'Sacramento', cursive !important;
+	font-size:4rem;
+}
+.Add
+{
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+}
