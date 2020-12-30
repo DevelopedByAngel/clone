@@ -5,13 +5,10 @@ const ProfileHeader = (props) => {
 	const { user, fun } = props;
 	var add = [];
 	var img;
-	if(user.path)
-	{
-		img="http://localhost:3000/" + user.path
-	}
-	else
-	{
-		img="https://i.postimg.cc/t4LMTMx4/blue-user-head-png-18-1.png"
+	if (user.path) {
+		img = "http://localhost:3000/" + user.path;
+	} else {
+		img = "https://i.postimg.cc/t4LMTMx4/blue-user-head-png-18-1.png";
 	}
 	if (fun.state.route === "profile") {
 		add.push(
@@ -24,7 +21,7 @@ const ProfileHeader = (props) => {
 		);
 		add.push(
 			<span className="acept" onClick={() => accept(fun, user.request)}>
-				accept 
+				accept
 				<span className="number">{user.request.length}</span>
 			</span>
 		);
@@ -40,14 +37,20 @@ const ProfileHeader = (props) => {
 				</div>
 			</div>
 			<div className="people">
-			<span
-				className="friends"
-				onClick={() => friends(fun, user.friends)}
-			>
-				friends 
-				<span className="number">{user.friends.length}</span>
-			</span>
-			{add}
+				<div className="common">
+					<span
+						className="friends"
+						onClick={() => friends(fun, user.friends)}
+					>
+						friends
+						<span className="number">{user.friends.length}</span>
+					</span>
+					<span className="posts">
+						posts
+						<span className="number">{user.post.length}</span>
+					</span>
+				</div>
+				<div className="self">{add}</div>
 			</div>
 		</div>
 	);

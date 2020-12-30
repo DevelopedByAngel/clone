@@ -32,49 +32,43 @@ class Login extends Component {
 		}, 4000);
 	};
 	ch() {
-		$('ellipse').css({ opacity:"100%"})
+		$("ellipse").css({ opacity: "100%" });
 		if ($(".login-div").css("display") == "flex") {
 			$("ellipse").css({
-				transform: " rotateZ(0deg)",
+				transform: " rotateZ(180deg)",
 			});
+			$("ellipse").attr({ cy: "-70%" });
 
 			setTimeout(() => {
-				
 				$(".signup-div").css({ display: "flex" });
 				$(".login-div").css({ display: "none" });
-				$('ellipse').css({ opacity:"80%"})
+				$("ellipse").css({ opacity: "80%" });
 			}, 300);
 		} else {
 			$("ellipse").css({
-				transform: " rotateZ(360deg)",
+				transform: " rotateZ(-180deg)",
 			});
-
+			$("ellipse").attr({ cy: "-50%" });
 			setTimeout(() => {
-				
 				$(".signup-div").css({ display: "none" });
 				$(".login-div").css({ display: "flex" });
-				$('ellipse').css({ opacity:"80%"})
+				$("ellipse").css({ opacity: "80%" });
 			}, 300);
 		}
 	}
-	choose(c)
-	{
-		if(c==="signup")
-		{
+	choose(c) {
+		if (c === "signup") {
 			$(".signup-div").css({ display: "flex" });
 			$(".login-div").css({ display: "none" });
-		}
-		else
-		{
+		} else {
 			$(".signup-div").css({ display: "none" });
 			$(".login-div").css({ display: "flex" });
 		}
-		$('.choose').css({ display:'none'})
+		$(".choose").css({ display: "none" });
 	}
 	render() {
 		return (
 			<div className="Login">
-			
 				<div className="main">
 					<div className="overlay">
 						<svg className="circlesvg" height="40vh" width="100%">
@@ -125,25 +119,34 @@ class Login extends Component {
 										mode="normal"
 									/>
 								</filter>
+								<pattern id="img1" patternUnits="userSpaceOnUse" width="100" height="100">
+    <image href={require("../assests/home.png")} x="0" y="0" width="100" height="100" />
+  </pattern>
 							</defs>
 							<ellipse
 								cx="50%"
-								cy="0%"
+								cy="-50%"
 								rx="320"
 								ry="320"
 								filter="url(#f1)"
-								fill="url(#grad1)"
+								fill="url(#img1)"
 							/>
 						</svg>
 					</div>
-		<section className="choose div">
-				<span className="choose-item" onClick={()=>this.choose("signup")}>
-				Sign up
-				</span>
-				<span className="choose-item" onClick={()=>this.choose("login")}>
-				Login
-				</span>
-				</section>
+					<section className="choose div">
+						<span
+							className="choose-item"
+							onClick={() => this.choose("signup")}
+						>
+							Sign up
+						</span>
+						<span
+							className="choose-item"
+							onClick={() => this.choose("login")}
+						>
+							Login
+						</span>
+					</section>
 					<div className="login-div div">
 						<div className="form">
 							<form
@@ -223,7 +226,14 @@ class Login extends Component {
 									/>
 								</button>
 							</form>
-							<span style={{color:'rgb(58, 156, 126)',fontSize:'0.8rem'}}>Don't have an account??</span>
+							<span
+								style={{
+									color: "rgb(58, 156, 126)",
+									fontSize: "0.8rem",
+								}}
+							>
+								Don't have an account??
+							</span>
 							<button
 								className="signup-button submit"
 								type="submit"

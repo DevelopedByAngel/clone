@@ -380,7 +380,7 @@ class App extends Component {
         <div
           className="back"
           onClick={() => this.back()}
-          style={{ width: "10px", height: "10px", backgroundColor: "red" }}
+          style={{ width: "10px", height: "10px", backgroundColor: "red" ,position:"fixed"}}
         ></div>
         {this.state.route === "home" ? (
           <Login fun={this} />

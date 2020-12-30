@@ -2,7 +2,7 @@
 	width: 100vw;
 	height: 47vh;
 	position: absolute;
-	bottom: 0vh;
+	top: 10vh;
 	display: none;
 	flex-direction: row;
 	justify-content: center;
