@@ -7,6 +7,21 @@
 body {
 	background: rgb(252 255 236);
 }
+.first
+{
+	width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: 10;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background: whitesmoke;
+    transition: all 0.25s linear;
+}
 .Login {
 	display: flex;
 	flex-direction: row;

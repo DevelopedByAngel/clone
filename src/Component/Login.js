@@ -6,6 +6,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import "../stylesheet/Login.css";
 import { HiOutlineKey } from "react-icons/hi";
 import { FaUserAlt } from "react-icons/fa";
+import logo from "./../assests/logo.PNG"
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -70,6 +71,9 @@ class Login extends Component {
 		return (
 			<div className="Login">
 				<div className="main">
+				<div className="first" onLoad={()=>{setTimeout(()=>{$('.first').css('opacity','0%')},2000);setTimeout(()=>{$('.first').hide()},2500)}}>
+				<img className="first-img" src={logo}/>
+				</div>
 					<div className="overlay">
 						<svg className="circlesvg" height="40vh" width="100%">
 							<defs>
@@ -119,9 +123,20 @@ class Login extends Component {
 										mode="normal"
 									/>
 								</filter>
-								<pattern id="img1" patternUnits="userSpaceOnUse" width="100" height="100">
-    <image href={require("../assests/home.png")} x="0" y="0" width="100" height="100" />
-  </pattern>
+								<pattern
+									id="img1"
+									patternUnits="userSpaceOnUse"
+									width="100"
+									height="100"
+								>
+									<image
+										href="https://i.postimg.cc/BZhScPY4/home.png"
+										x="0"
+										y="0"
+										width="100"
+										height="100"
+									/>
+								</pattern>
 							</defs>
 							<ellipse
 								cx="50%"
@@ -129,7 +144,7 @@ class Login extends Component {
 								rx="320"
 								ry="320"
 								filter="url(#f1)"
-								fill="url(#img1)"
+								fill="url(#grad1)"
 							/>
 						</svg>
 					</div>

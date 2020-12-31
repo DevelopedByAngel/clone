@@ -10,19 +10,33 @@ const ProfileHeader = (props) => {
 	} else {
 		img = "https://i.postimg.cc/t4LMTMx4/blue-user-head-png-18-1.png";
 	}
+
+	var postsLength, friendsLength, requestLength, pendingLength;
+	user.post.length > 1000
+		? (postsLength = user.post.length.toFixed(1) + "K")
+		: (postsLength = user.post.length);
+	user.friends.length >= 1000
+		? (friendsLength = (user.friends.length / 1000).toFixed(1) + "K")
+		: (friendsLength = user.friends.length);
+	user.request.length >= 1000
+		? (requestLength = (user.request.length / 1000).toFixed(1) + "K")
+		: (requestLength = user.request.length);
+	user.pending.length >= 1000
+		? (pendingLength = (user.pending.length / 1000).toFixed(1) + "K")
+		: (pendingLength = user.pending.length);
 	if (fun.state.route === "profile") {
 		add.push(
 			<span
 				className="pending"
 				onClick={() => pending(fun, user.pending)}
 			>
-				pending <span className="number">{user.pending.length}</span>
+				Pending <span className="number">{pendingLength}</span>
 			</span>
 		);
 		add.push(
-			<span className="acept" onClick={() => accept(fun, user.request)}>
-				accept
-				<span className="number">{user.request.length}</span>
+			<span className="accept" onClick={() => accept(fun, user.request)}>
+				Accept
+				<span className="number">{requestLength}</span>
 			</span>
 		);
 	}
@@ -42,12 +56,12 @@ const ProfileHeader = (props) => {
 						className="friends"
 						onClick={() => friends(fun, user.friends)}
 					>
-						friends
-						<span className="number">{user.friends.length}</span>
+						Friends
+						<span className="number">{friendsLength}</span>
 					</span>
 					<span className="posts">
-						posts
-						<span className="number">{user.post.length}</span>
+						Posts
+						<span className="number">{postsLength}</span>
 					</span>
 				</div>
 				<div className="self">{add}</div>
@@ -56,19 +70,25 @@ const ProfileHeader = (props) => {
 	);
 };
 const friends = (fun, user) => {
-	console.log("frieds");
-	console.log(user);
-	fun.updateUsers(user);
-	fun.RouteChange("friends");
+	if (user.length > 0) {
+		console.log("friends");
+		console.log(user);
+		fun.updateUsers(user);
+		fun.RouteChange("friends");
+	}
 };
 const pending = (fun, user) => {
-	console.log("pending");
-	fun.updateUsers(user);
-	fun.RouteChange("friends");
+	if (user.length > 0) {
+		console.log("pending");
+		fun.updateUsers(user);
+		fun.RouteChange("friends");
+	}
 };
 const accept = (fun, user) => {
-	console.log("accept");
-	fun.updateUsers(user);
-	fun.RouteChange("friends");
+	if (user.length > 0) {
+		console.log("accept");
+		fun.updateUsers(user);
+		fun.RouteChange("friends");
+	}
 };
 export default ProfileHeader;
