@@ -14,6 +14,7 @@ import Settings from "./Component/Settings.js";
 import UsersList from "./Component/UsersList.js";
 import FriendsList from "./Component/FriendsList.js";
 import $ from "jquery";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +35,9 @@ class App extends Component {
     };
     this.prevState = {};
   }
+  onlyUnique(value, index, self) {
+  return self.indexOf(value) === index;
+}
   login = (id, password) => {
     console.log("log");
     fetch("http://localhost:3000/login", {
@@ -374,6 +378,7 @@ class App extends Component {
     console.log(this.prevState);
     this.setState(this.prevState);
   }
+
   render() {
     return (
       <div className="App">

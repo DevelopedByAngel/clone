@@ -44,6 +44,10 @@
 {
 	font-weight:bold;
 }
+.details-inner span:first-child
+{
+	position:relative;
+}
 .details-inner .number
 {
 	color:white;
@@ -52,4 +56,17 @@
 .like,.comment
 {
 	font-style:italic;
+}
+.liked-svg
+{
+	fill:green;
+}
+.details-inner > span
+{
+ margin-right:1.5rem;
+}
+.details-inner > span > svg
+{
+	height:1.5rem;
+	width:1.5rem;
 }

@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
 import $ from 'jquery';
 import  '../stylesheet/Post.css'
-import { RiPlantFill } from "react-icons/ri";
-
-
+import { RiLeafLine } from "react-icons/ri";
+import { RiLeafFill } from "react-icons/ri";
+import {BiCommentEdit} from "react-icons/bi";
+import {HiShare} from "react-icons/hi";
 class Post extends Component
 {
 	constructor(props)
@@ -11,17 +12,25 @@ class Post extends Component
 		super(props);
 		this.state=
 		{
-			file:{}
+			file:{},
+			liked:false
 		}
+
 	}
 	like=()=>
 	{
 		console.log('liking')
-		if(!this.props.likes.includes(this.props.fun.state.user.id))
+		if(!this.props.likes.includes(this.props.fun.state.user.id) && !this.state.liked)
 		{
 			this.props.fun.like(this.props.postno)
 			$('.like'+this.props.postno+' + .number').text(parseInt($('.like'+this.props.postno+' + .number').text())+1)
-			$('.like'+this.props.postno+' .like-svg').css({"fill":"green","stroke":"green"})
+
+		$('.like'+this.props.postno+' .like-svg').css({transform: "scale3d(2, 2, 2)",opacity: "0",position: "absolute", fill: "green",left:"0px",top:"0px"})
+		$('.like'+this.props.postno+' .liked-svg').css({display: "inline"})
+		setTimeout(() => {
+			$('.like'+this.props.postno+' .like-svg').css({display: "none" })
+		},250)
+			this.setState({liked: true})
 		}
 	}
 	comment=()=>
@@ -58,9 +67,13 @@ class Post extends Component
 		console.log('mounted')
 		if(this.props.likes.includes(this.props.fun.state.user.id))
 		{
-			$('.like'+this.props.postno).css('color','green')
+			console.log('likes'+this.props.postno)
+			$('.like'+this.props.postno+' .like-svg').css({display: "none" })
+			$('.like'+this.props.postno+' .liked-svg').css({display: "inline"})
+			this.setState({liked: true})
 		}
 		$('.caption'+this.props.uid+'_'+this.props.postno).html(this.props.caption)
+		
 	}
   render()
   {
@@ -72,9 +85,9 @@ class Post extends Component
 		     <div className="details">
 			     <p className={"caption"+this.props.uid+"_"+this.props.postno}>{this.props.caption}</p>
 			     <p className="details-inner">
-				     <span className={"like"+this.props.postno} onClick={()=>this.like()} ><RiPlantFill className="like-svg"/> </span><span className="number">{this.props.like}   </span>
-				     <span className={"comment"+this.props.postno} onClick={()=>this.comment()}>Comments  </span><span className="number">{this.props.comment}   </span>
-				     <span className={"share"+this.props.postno} onClick={()=>this.share()}>Share</span><span className="number">{this.props.share}</span>
+				     <span className={"like"+this.props.postno} onClick={()=>this.like()} ><RiLeafFill className="liked-svg" style={{display:"none"}}/><RiLeafLine className="like-svg" /><span className="number">{this.props.like}   </span> </span>
+				     <span className={"comment"+this.props.postno} onClick={()=>this.comment()}><BiCommentEdit/> <span className="number">{this.props.comment}   </span> </span>
+				     <span className={"share"+this.props.postno} onClick={()=>this.share()}><HiShare/><span className="number">{this.props.share}</span></span>
 			     </p>
 		     </div>
 	     </div>
