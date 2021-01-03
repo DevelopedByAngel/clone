@@ -1,72 +1,90 @@
-.hashtag 
-{
+.hashtag {
 	color: blue;
 }
-.post-img
-{
-	width:100%;
+.post-img {
+	width: 100%;
 
 	/*visibility:hidden;*/
 }
-.post
-{
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	background-repeat:no-repeat;
-	background-size:cover;
+.post {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.Post {
+	background: rgba(255, 255, 255, 1);
+	border-bottom-left-radius: 7vw;
+	border-bottom-right-radius: 7vw;
+	overflow: hidden;
+	box-shadow: inset 5px 5px 10px 0px rgba(255, 255, 255, 0.5),
+		inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5);
 
+	width: 90vw;
 }
-.Post
-{
-	background:rgba(255,255,255,1);
-	border-bottom-left-radius:7vw;
-	border-bottom-right-radius:7vw;
-	overflow:hidden;
-		box-shadow:inset 5px 5px 10px 0px rgba(255,255,255,0.5),inset -5px -5px 10px 0px rgba(255,255,255,0.5);
-
-	width:90vw;
+.user-name-div {
+	position:absolute;
+	left:0px;
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
 }
-.details
+.blur-user-name
 {
-	width:100vw;
-	background:rgb(145,201,163);
-	border:1vw solid white;
-	padding:0px 0vw 0px 15vw;
+	    padding: 0.5rem;
+    background: rgba(255 ,255, 255 ,0.5);
+    border: 0px solid transparent;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom-right-radius: 1rem;
+    filter: blur(1px);
+    color: transparent;
 }
-.PostList
-{
-	display:flex;
-	align-items:center;
+.user-name {
+	    position: absolute;
+	    padding:0.5rem;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom-right-radius: 1rem;
+    text-shadow: 0 0 0px white, 0 0 3px white, 0 0 5px white,
+		0 0px 10px white;
+		font-weight:bolder;
+}
+.details {
+	width: 100vw;
+	display: none;
+	background: rgb(145, 201, 163);
+	border: 1vw solid white;
+	padding: 0px 0vw 0px 15vw;
+}
+.PostList {
+	display: flex;
+	align-items: center;
 	flex-direction: column;
 }
-.details-inner
-{
-	font-weight:bold;
+.details-inner {
+	font-weight: bold;
 }
-.details-inner span:first-child
-{
-	position:relative;
+.details-inner span:first-child {
+	position: relative;
 }
-.details-inner .number
-{
-	color:white;
-	font-weight:bold;
+.details-inner .number {
+	color: white;
+	font-weight: bold;
 }
-.like,.comment
-{
-	font-style:italic;
+.like,
+.comment {
+	font-style: italic;
 }
-.liked-svg
-{
-	fill:green;
+.liked-svg {
+	fill: green;
 }
-.details-inner > span
-{
- margin-right:1.5rem;
+.details-inner > span {
+	margin-right: 1.5rem;
 }
-.details-inner > span > svg
-{
-	height:1.5rem;
-	width:1.5rem;
+.details-inner > span > svg {
+	height: 1.5rem;
+	width: 1.5rem;
 }

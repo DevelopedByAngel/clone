@@ -36,8 +36,8 @@ class App extends Component {
     this.prevState = {};
   }
   onlyUnique(value, index, self) {
-  return self.indexOf(value) === index;
-}
+    return self.indexOf(value) === index;
+  }
   login = (id, password) => {
     console.log("log");
     fetch("http://localhost:3000/login", {
@@ -385,7 +385,12 @@ class App extends Component {
         <div
           className="back"
           onClick={() => this.back()}
-          style={{ width: "10px", height: "10px", backgroundColor: "red" ,position:"fixed"}}
+          style={{
+            width: "10px",
+            height: "10px",
+            backgroundColor: "red",
+            position: "fixed",
+          }}
         ></div>
         {this.state.route === "home" ? (
           <Login fun={this} />
@@ -398,11 +403,13 @@ class App extends Component {
             {this.state.route === "viewProfile" ? (
               <div>
                 <ProfileHeader user={this.state.viewProfile} fun={this} />
-                <PostList
-                  postList={this.state.postList}
-                  user={this.state.viewProfile}
-                  fun={this}
-                />
+                <div className="PostList">
+                  <PostList
+                    postList={this.state.postList}
+                    user={this.state.viewProfile}
+                    fun={this}
+                  />
+                </div>
               </div>
             ) : this.state.route === "comment" ? (
               <div className="comment">
@@ -428,11 +435,13 @@ class App extends Component {
             ) : this.state.route === "profile" ? (
               <div>
                 <ProfileHeader user={this.state.user} fun={this} />
-                <PostList
-                  postList={this.state.postList}
-                  user={this.state.user}
-                  fun={this}
-                />
+                <div className="PostList">
+                  <PostList
+                    postList={this.state.postList}
+                    user={this.state.user}
+                    fun={this}
+                  />
+                </div>
               </div>
             ) : this.state.route === "settings" ? (
               <Settings />
