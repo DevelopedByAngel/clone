@@ -14,14 +14,15 @@ class Post extends Component {
 		};
 	}
 	like = () => {
+
 		console.log("liking");
 		if (
 			!this.props.likes.includes(this.props.fun.state.user.id) &&
 			!this.state.liked
 		) {
 			this.props.fun.like(this.props.postno);
-			$(".like" + this.props.postno + " + .number").text(
-				parseInt($(".like" + this.props.postno + " + .number").text()) +
+			$(".like" + this.props.postno + " .number").text(
+				parseInt($(".like" + this.props.postno + " .number").text()) +
 					1
 			);
 
@@ -50,8 +51,8 @@ class Post extends Component {
 	};
 	share = () => {
 		this.props.fun.share(this.props.postno);
-		$(".share" + this.props.postno + " + .number").text(
-			parseInt($(".share" + this.props.postno + " + .number").text()) + 1
+		$(".share" + this.props.postno + "  .number").text(
+			parseInt($(".share" + this.props.postno + "  .number").text()) + 1
 		);
 	};
 	re(caption) {
@@ -72,6 +73,14 @@ class Post extends Component {
 		});
 		return li.join(" ");
 	}
+	FocusPost(id)
+	{
+		$('html,body').animate({
+    scrollTop: ($("#"+id).offset().top)-150});
+		$('.Post').css({"margin-top":"3vw","margin-bottom":"3vw"})
+
+		$('#'+id).css({"margin-top":"8vw","margin-bottom":"8vw"})
+	}
 	componentDidMount() {
 		console.log("mounted");
 		if (this.props.likes.includes(this.props.fun.state.user.id)) {
@@ -90,7 +99,7 @@ class Post extends Component {
 	}
 	render() {
 		return (
-			<div className="Post" id={this.props.postno}>
+			<div className="Post" id={this.props.postno} onClick={()=>this.FocusPost(this.props.postno)}>
 				<div className="post">
 					<div className="user-name-div"><span className="blur-user-name">{this.props.user}</span><span className="user-name">{this.props.user}</span></div>
 					<img

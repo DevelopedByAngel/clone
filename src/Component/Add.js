@@ -19,6 +19,7 @@ class Add extends Component {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
+		console.log("posting")
 		fetch("http://localhost:3000/upload", {
 			method: "POST",
 			body: formData,
@@ -30,7 +31,7 @@ class Add extends Component {
 			.then((res) => res.json())
 			.then((r) => {
 				console.log(r.path);
-				this.props.fun.feeds();
+				this.props.fun.RouteChange("profile");
 			});
 	}
 	render() {

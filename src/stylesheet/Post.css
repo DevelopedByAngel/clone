@@ -1,6 +1,9 @@
 .hashtag {
 	color: blue;
 }
+*
+{
+}
 .post-img {
 	width: 100%;
 
@@ -16,13 +19,16 @@
 }
 .Post {
 	background: rgba(255, 255, 255, 1);
-	border-bottom-left-radius: 7vw;
-	border-bottom-right-radius: 7vw;
+	border-bottom-left-radius: 10vw;
+	border-top-right-radius: 10vw;
 	overflow: hidden;
 	box-shadow: inset 5px 5px 10px 0px rgba(255, 255, 255, 0.5),
 		inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5);
-
+	transition: all 0.25s linear;
+	margin:3vw;
 	width: 90vw;
+	border:2px solid black;
+	box-shadow:0px 5px 10px 0px rgba(0,0,0,0.5)
 }
 .user-name-div {
 	position:absolute;
@@ -54,9 +60,10 @@
 }
 .details {
 	width: 100vw;
-	display: none;
-	background: rgb(145, 201, 163);
-	border: 1vw solid white;
+	background: white;
+		border: 1vw solid white;
+		transition: all 0.25s linear;
+
 	padding: 0px 0vw 0px 15vw;
 }
 .PostList {

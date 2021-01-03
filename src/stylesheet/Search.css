@@ -10,6 +10,8 @@
 	background:rgba(255,255,255,0.95);
 	border-radius:1vw;
 	padding:1vw;
+		display:none;
+
 }
 .profile
 {
