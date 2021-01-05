@@ -55,9 +55,10 @@ class UploadDP extends Component {
 	}
 	render() {
 		return (
-			<div className="Add" id={this.props.uid}>
+			<div className="UploadDP " id={this.props.uid}>
 				<div className="preview">
 					<img
+					alt="preview"
 						src={this.state.preview}
 						className="preview-img"
 						onClick={() => this.handlePreview()}

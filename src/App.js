@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loader from "./Component/Loader.js";
 import Signup from "./Component/Signup.js";
 import Login from "./Component/Login.js";
 import UploadDP from "./Component/UploadDP.js";
@@ -21,6 +22,7 @@ class App extends Component {
 
     this.state = {
       route: "home",
+      loading: false,
       user: {
         name: "",
         profileImg: "https://developedbyangel.github.io/SAS/logo.PNG",
@@ -80,6 +82,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   hashtags = (hashtag) => {
+    this.loading(true)
     fetch("http://localhost:3000/hashtags/" + hashtag, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -181,6 +184,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   feeds = () => {
+     this.loading(true)
     console.log("feed", this.state.user);
     fetch("http://localhost:3000/feeds/" + this.state.user._id, {
       method: "GET",
@@ -190,6 +194,7 @@ class App extends Component {
       .then((r) => {
         console.log(r);
         this.setState({ postList: r });
+        this.RouteChange("feed")
       })
       .catch((err) => alert(err.message));
   };
@@ -247,6 +252,7 @@ class App extends Component {
           });
           this.setState({ postList: postList });
           $(".input-comment").val("");
+          $('.Addcomment .svg').css({"left":"2vw"})
         }
       })
       .catch((err) => alert(err.message));
@@ -297,11 +303,13 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   RouteChange = (route) => {
+     this.loading(false)
     this.prevState = this.state;
     console.log("routing to " + route);
     this.setState({ route: route });
   };
   search = (e, q) => {
+     this.loading(true)
     e.preventDefault();
     if (q[0] === "#") {
       this.hashtags(q.slice(1));
@@ -324,6 +332,7 @@ class App extends Component {
     }
   };
   viewProfile(user) {
+     this.loading(true)
     console.log("going to view profile");
     fetch("http://localhost:3000/getUser", {
       method: "POST",
@@ -344,6 +353,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   }
   getUser = () => {
+     this.loading(true)
     console.log("going to view your profile");
     fetch("http://localhost:3000/getUser", {
       method: "POST",
@@ -378,7 +388,19 @@ class App extends Component {
     console.log(this.prevState);
     this.setState(this.prevState);
   }
-
+  loading(check)
+  {
+    if(check)
+    {
+      $('.Loader').css('display','flex');
+      this.setState({loading:true})
+    }
+    else
+    {
+      $('.Loader').css('display','none');
+      this.setState({loading:false})
+    }
+  }
   render() {
     return (
       <div className="App">
@@ -392,6 +414,7 @@ class App extends Component {
             position: "fixed",
           }}
         ></div>
+        <Loader loading={this.state.loading}/>
         {this.state.route === "home" ? (
           <Login fun={this} />
         ) : this.state.route === "uploadDP" ? (
@@ -435,7 +458,7 @@ class App extends Component {
             ) : this.state.route === "profile" ? (
               <div>
                 <ProfileHeader user={this.state.user} fun={this} />
-                <div className="PostList">
+                <div className="PostList profilePostList">
                   <PostList
                     postList={this.state.postList}
                     user={this.state.user}

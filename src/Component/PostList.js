@@ -1,8 +1,23 @@
 import React,{Component} from 'react';
 import Post from './Post.js'
-
+import $ from 'jquery';
 class PostList extends Component
 {
+	componentDidMount()
+	{
+		console.log(this.props.fun.state.route)
+
+		if(this.props.fun.state.route==="profile")
+		{    
+    		$('.PostList').attr('class', 'PostList profilePostList');
+    		$('.Post').attr('class','Post profilePost');
+		}
+		else
+		{
+			$('.PostList').attr('class', 'PostList');
+			$('.Post').attr('class', 'Post')
+		}
+	}
   render()
   {
     return(

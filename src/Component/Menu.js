@@ -35,14 +35,14 @@ const Menu=(props)=>
 				      </span>
 			      </button>
 		      </div>
-	      <p className='nav-link Feed' onClick={()=>routeFeed(route,fun)}>Feed</p>
-	      <p className='nav-link Profile' onClick={()=>fun.getUser()}>Profile</p>
-	      <p className='nav-link Hashtag' onClick={()=>route('hashtags')}>Hashtag</p>
-	      <form onSubmit={(e)=>fun.search(e,'#'+query)}>
+	      <p className='nav-link Feed' onClick={()=>{ok();routeFeed(route,fun)}}>Feed</p>
+	      <p className='nav-link Profile' onClick={()=>{ok();fun.getUser()}}>Profile</p>
+	      <p className='nav-link Hashtag' onClick={()=>{ok();route('hashtags')}}>Hashtag</p>
+	      <form onSubmit={(e)=>{ok();fun.search(e,'#'+query)}}>
 	      <input className="search-nav" onChange={(e)=>query=e.target.value} type="text" required />
 	      </form>
-	      <p className='nav-link Settings' onClick={()=>route('settings')}>Settings</p>
-	      <p className='nav-link Store' onClick={()=>route('store')}>Store</p>
+	      <p className='nav-link Settings' onClick={()=>{ok();route('settings')}}>Settings</p>
+	      <p className='nav-link Store' onClick={()=>{ok();route('store')}}>Store</p>
 	      </div>
 	    );
 
@@ -50,7 +50,6 @@ const Menu=(props)=>
 const routeFeed=(route,fun)=>
 {
 	fun.feeds();
-	route('feed')
 }
 export default Menu;
 

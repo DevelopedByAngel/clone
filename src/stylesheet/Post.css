@@ -1,15 +1,12 @@
-.hashtag {
+.Post .hashtag {
 	color: blue;
 }
-*
-{
+* {
 }
-.post-img {
+.Post .post-img {
 	width: 100%;
-
-	/*visibility:hidden;*/
 }
-.post {
+.Post .post {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -25,73 +22,110 @@
 	box-shadow: inset 5px 5px 10px 0px rgba(255, 255, 255, 0.5),
 		inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5);
 	transition: all 0.25s linear;
-	margin:3vw;
+	margin-bottom: 3vw;
+	margin-top: 10vw;
 	width: 90vw;
-	border:2px solid black;
-	box-shadow:0px 5px 10px 0px rgba(0,0,0,0.5)
+	box-shadow: -5px 7px 10px 0px rgba(0, 0, 0, 0.5);
 }
-.user-name-div {
-	position:absolute;
-	left:0px;
+.Post .user-name-div {
+	position: absolute;
+	left: 0px;
 	display: flex;
 	width: 100%;
 	justify-content: flex-start;
 }
-.blur-user-name
-{
-	    padding: 0.5rem;
-    background: rgba(255 ,255, 255 ,0.5);
-    border: 0px solid transparent;
-    border-bottom: 2px solid white;
-    border-right: 2px solid white;
-    border-bottom-right-radius: 1rem;
-    filter: blur(1px);
-    color: transparent;
+.Post .blur-user-name {
+	padding: 0.5rem;
+	background: rgba(255, 255, 255, 0.5);
+	border: 0px solid transparent;
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	border-bottom-right-radius: 1rem;
+	filter: blur(1px);
+	color: transparent;
 }
-.user-name {
-	    position: absolute;
-	    padding:0.5rem;
-    border-bottom: 2px solid white;
-    border-right: 2px solid white;
-    border-bottom-right-radius: 1rem;
-    text-shadow: 0 0 0px white, 0 0 3px white, 0 0 5px white,
-		0 0px 10px white;
-		font-weight:bolder;
+.Post .user-name {
+	position: absolute;
+	padding: 0.5rem;
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	border-bottom-right-radius: 1rem;
+	text-shadow: 0 0 0px white, 0 0 3px white, 0 0 5px white, 0 0px 10px white;
+	font-weight: bolder;
 }
-.details {
-	width: 100vw;
+.Post .details {
+	width: 100%;
 	background: white;
-		border: 1vw solid white;
-		transition: all 0.25s linear;
-
-	padding: 0px 0vw 0px 15vw;
+	border-top: 1vw solid white;
+	transition: all 0.25s linear;
+	display: flex;
 }
 .PostList {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
-.details-inner {
-	font-weight: bold;
+.Post [class^="caption"] {
+	width: 80%;
+	padding-left: 1rem;
+	font-size: 0.9rem;
+	line-height: 1.5rem;
 }
-.details-inner span:first-child {
+.Post .details-inner {
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+	background: #dcedc8;
+	margin-top: -1vw;
+	margin-right: auto;
+	margin-bottom: 0px;
+}
+.Post .details-inner span:first-child {
 	position: relative;
 }
-.details-inner .number {
-	color: white;
+.Post .details-inner .number {
+	color: rgb(58, 156, 126);
 	font-weight: bold;
 }
-.like,
-.comment {
+.Post .like,
+.Post .comment {
 	font-style: italic;
 }
-.liked-svg {
+.Post .liked-svg {
 	fill: green;
 }
-.details-inner > span {
-	margin-right: 1.5rem;
+.Post .details-inner > span {
+	margin: 0.5rem;
+	display: flex;
+	align-items: center;
 }
-.details-inner > span > svg {
+.Post .details-inner > span > svg {
 	height: 1.5rem;
 	width: 1.5rem;
+}
+
+.profilePost {
+	border-radius: 0px;
+	box-shadow: unset;
+	width: calc(97vw / 3);
+	margin: 0.5vw;
+}
+.profilePost .user-name-div {
+	display: none;
+}
+.profilePost .details {
+	display: none;
+}
+.profilePostList {
+	flex-direction: row;
+	width: 100vw;
+	flex-wrap: wrap;
+	border-top: 1px solid black;
+	justify-content:center;
+}
+.profilePost .post-img {
+	width: auto;
+	height: calc(100vw / 3);
 }

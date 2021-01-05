@@ -77,9 +77,7 @@ class Post extends Component {
 	{
 		$('html,body').animate({
     scrollTop: ($("#"+id).offset().top)-150});
-		$('.Post').css({"margin-top":"3vw","margin-bottom":"3vw"})
 
-		$('#'+id).css({"margin-top":"8vw","margin-bottom":"8vw"})
 	}
 	componentDidMount() {
 		console.log("mounted");
@@ -98,14 +96,16 @@ class Post extends Component {
 		);
 	}
 	render() {
+		console.log(this.props.location)
 		return (
-			<div className="Post" id={this.props.postno} onClick={()=>this.FocusPost(this.props.postno)}>
+			<div className="Post profilePost" id={this.props.postno} >
 				<div className="post">
 					<div className="user-name-div"><span className="blur-user-name">{this.props.user}</span><span className="user-name">{this.props.user}</span></div>
 					<img
 						className="post-img"
 						alt=""
 						src={"http://localhost:3000/" + this.props.path}
+						onClick={()=>this.FocusPost(this.props.postno)}
 					/>
 					<div className="details">
 						<p

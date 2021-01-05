@@ -16,7 +16,7 @@
   transition:all 0.25s linear;
   z-index:2;
 }
-.nav-link,.search-nav
+.Menu .nav-link,.search-nav
 {
   /*border-bottom:1px solid black;*/
   width:100%;
@@ -25,7 +25,7 @@
   background-image: linear-gradient(to bottom,transparent,rgba(149, 209 ,173, 0.6));
   text-align: center;
 }
-.menubutton
+.Menu .menubutton
 {
   position:fixed;
   top:20px;
@@ -37,14 +37,14 @@
   z-index:3;
   padding: 14px;
 }
-.menu
+.Menu .menu
 {
   display:block;
   position:relative;
   width:22px;
   height:22px;
 }
-.dot
+.Menu .dot
 {
   position:absolute;
   top:0;
@@ -55,19 +55,19 @@
   background:black;
   transition: transform 0.5s;
 }
-.dot:nth-child(1)
+.Menu .dot:nth-child(1)
 {
   transform:translateY(0px);
 }
-.dot:nth-child(2)
+.Menu .dot:nth-child(2)
 {
   transform:translateY(8px);
 }
-.dot:nth-child(3)
+.Menu .dot:nth-child(3)
 {
   transform:translateY(17px);
 }
-.line
+.Menu .line
 {
   position:absolute;
   top:50%;
@@ -80,7 +80,7 @@
   transition-property:opacity ,height;
   transition-duration:0.5s;
 }
-.line1
+.Menu .line1
 {
   transform:translate(-50%, -50%) rotate(45deg);
 }

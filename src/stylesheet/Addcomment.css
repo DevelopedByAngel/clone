@@ -1,0 +1,33 @@
+.Addcomment
+{
+	padding:10px;
+	margin-top:3rem;
+}
+.Addcomment .user-name
+{
+	font-weight:bold;
+}
+.Addcomment .form
+{
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	margin-top:1rem;
+}
+.Addcomment .input-comment
+{
+	background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    width:70vw;
+}
+.Addcomment input[type="submit"]
+{
+	display: none;
+}
+.Addcomment .svg
+{
+	position: relative;
+	left:2vw;
+}

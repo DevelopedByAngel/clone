@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-.DPform
+.UploadDP .DPform
 {
 	display:none;
 }
-.preview
+.UploadDP .preview
 {
 	width:90vw;
 	height:90vw;
@@ -12,16 +12,16 @@
 	overflow: hidden;
 	border:5px solid green;
 }
-.preview img
+.UploadDP .preview img
 {
 	width:100%;
 }
-.user-details .id
+.UploadDP .user-details .id
 {
 	font-family: 'Sacramento', cursive !important;
 	font-size:4rem;
 }
-.Add
+.UploadDP .Add
 {
 	display: flex;
 	flex-direction:column;
