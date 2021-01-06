@@ -72,7 +72,7 @@ class Comment extends Component {
 		var reply = [];
 		if (this.props.reply && !this.state.isReply) {
 			this.props.reply.map((r) => {
-				reply.push(<div className="reply">{r.reply}</div>);
+				reply.push(<div className="reply-div"><span className="reply-user-name">{r.user}</span><span className="reply">{r.reply}</span></div>);
 				return r;
 			});
 			reply.push(
@@ -102,7 +102,7 @@ class Comment extends Component {
 					<div className="details">
 						<p className="comment">{this.props.comment}</p>
 						<p className="details-inner">
-							<span
+							{/*<span
 								className={
 									"like" +
 									this.props.id +
@@ -116,7 +116,7 @@ class Comment extends Component {
 								<span className="number">
 									{this.props.like}{" "}
 								</span>
-							</span>
+							</span>*/}
 							<span className={"reply" + this.props.id}>
 								<GoReply />{" "}
 								<span className="number">

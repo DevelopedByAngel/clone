@@ -5,6 +5,7 @@ import { RiLeafLine } from "react-icons/ri";
 import { RiLeafFill } from "react-icons/ri";
 import { BiCommentEdit } from "react-icons/bi";
 import { HiShare } from "react-icons/hi";
+import { FcLike } from "react-icons/fc";
 class Post extends Component {
 	constructor(props) {
 		super(props);
@@ -27,21 +28,13 @@ class Post extends Component {
 			);
 
 			$(".like" + this.props.postno + " .like-svg").css({
-				transform: "scale3d(2, 2, 2)",
+				filter: "drop-shadow(0px 0px 2px red)",
+				transform: "scale(1.5)",
 				opacity: "0",
-				position: "absolute",
-				fill: "green",
-				left: "0px",
-				top: "0px",
 			});
 			$(".like" + this.props.postno + " .liked-svg").css({
 				display: "inline",
 			});
-			setTimeout(() => {
-				$(".like" + this.props.postno + " .like-svg").css({
-					display: "none",
-				});
-			}, 250);
 			this.setState({ liked: true });
 		}
 	};
@@ -83,12 +76,8 @@ class Post extends Component {
 		console.log("mounted");
 		if (this.props.likes.includes(this.props.fun.state.user.id)) {
 			console.log("likes" + this.props.postno);
-			$(".like" + this.props.postno + " .like-svg").css({
-				display: "none",
-			});
-			$(".like" + this.props.postno + " .liked-svg").css({
-				display: "inline",
-			});
+			$(".like" + this.props.postno + " .like-svg").css("opacity", "0");
+			$(".like" + this.props.postno + " .liked-svg").css("display", "inline");
 			this.setState({ liked: true });
 		}
 		$(".caption" + this.props.uid + "_" + this.props.postno).html(
@@ -123,11 +112,11 @@ class Post extends Component {
 								className={"like" + this.props.postno}
 								onClick={() => this.like()}
 							>
-								<RiLeafFill
+								<FcLike
 									className="liked-svg"
 									style={{ display: "none" }}
 								/>
-								<RiLeafLine className="like-svg" />
+								<FcLike className="like-svg" />
 								<span className="number">
 									{this.props.like}{" "}
 								</span>{" "}

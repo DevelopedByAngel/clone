@@ -102,8 +102,9 @@
 	align-items: center;
 }
 .Post .details-inner > span > svg {
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 1.25rem;
+	width: 1.25rem;
+	margin-right:0.25rem;
 }
 
 .profilePost {
@@ -128,4 +129,25 @@
 .profilePost .post-img {
 	width: auto;
 	height: calc(100vw / 3);
+}
+
+.Post .like-svg 
+{
+	height: 0.75rem;
+    width: 0.75rem;
+    filter: drop-shadow(0px 0px 2px black);
+}
+.Post .like-svg > path
+{
+	    fill: #fdfddf;
+}
+.Post .liked-svg 
+{
+	position: absolute;
+    display:none;
+	filter: drop-shadow(0px 0px 5px red);
+}
+.Post .liked-svg > path
+{
+	fill:red;
 }
