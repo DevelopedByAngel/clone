@@ -252,7 +252,7 @@ class App extends Component {
           });
           this.setState({ postList: postList });
           $(".input-comment").val("");
-          $('.Addcomment .svg').css({"left":"2vw"})
+          $('.Addcomment .svg').css({"animation-name":"o"})
         }
       })
       .catch((err) => alert(err.message));

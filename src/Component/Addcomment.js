@@ -13,7 +13,11 @@ class Addcomment extends Component {
 		this.setState({ comment: c.target.value });
 	};
 	submitted(e) {
-		$('.Addcomment .svg').css({"left":"20vw"})
+		$('.Addcomment .svg').css({"animation-name":"send"})
+		setTimeout(()=>
+		{
+			$('.Addcomment .svg').css({"animation-name":"o"})
+		},250)
 		e.preventDefault();
 		this.props.fun.comment(this.state.comment);
 	}
@@ -37,7 +41,11 @@ class Addcomment extends Component {
 					<IoSend
 						className="send-svg svg"
 						onClick={() => {
-							$('.Addcomment .svg').css({"left":"20vw"})
+							$('.Addcomment .svg').css({"animation-name":"send"})
+							setTimeout(()=>
+		{
+			$('.Addcomment .svg').css({"animation-name":"o"})
+		},250)
 							$('.Addcomment input[type="submit"]').click();
 						}}
 					/>

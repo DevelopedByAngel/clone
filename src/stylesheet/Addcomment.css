@@ -30,4 +30,16 @@
 {
 	position: relative;
 	left:2vw;
+	-webkit-animation: o 0.25s linear  0s 1;
+	        animation: o 0.25s linear  0s 1;
+}
+@-webkit-keyframes send
+{
+	from {left:2vw;}
+	to{left:;}
+}
+@keyframes send
+{
+	from {left:2vw;}
+	to{left:20vw;}
 }
