@@ -1,27 +1,21 @@
-.post-submit
-{
+.post-submit {
 	/*display:none;*/
 }
-.input-post
-{
-	display:none;
+.input-post {
+	display: none;
 }
-.Add
-{
-	width:100vw;
-	height:100vh;
-	position:fixed;
-	top:0;
-	left:0;
-	background:rgba(0,0,0,0.5);
-	display:flex;
+.Add {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
 	justify-content: center;
 	align-items: flex-end;
 }
-.add-div
-{
-	
+.add-div {
 }
 .add-div textarea {
-	
 }
