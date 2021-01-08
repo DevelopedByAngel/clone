@@ -47,6 +47,7 @@ class Add extends Component {
 						className="input-caption"
 						onChange={(e) => this.handleCaptions(e)}
 						placeholder="Enter about your post"
+						maxlength="200"
 					>
 					</textarea>
 					<input
