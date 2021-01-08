@@ -20,8 +20,12 @@
 {
   display: flex;
     width: 100vw;
-    /* justify-content: space-evenly; */
+     justify-content: space-evenly; 
     height: 2rem;
+}
+.menu-div div[class$="button"]
+{
+  width: 100%;
 }
 .Menu svg {
     width: 1.75rem;
@@ -47,9 +51,7 @@
 }
 .Menu .menubutton
 {
-  position:fixed;
-  top:20px;
-  right:5px;
+  
   border-radius:50%;
   outline:none;
   border-color:transparent;
