@@ -32,6 +32,10 @@
       position: absolute;
     left: 50vw;
 }
+.Menu .button
+{
+      transform: rotateZ(90deg);
+}
 .Menu .nav-link,.search-nav
 {
   /*border-bottom:1px solid black;*/
