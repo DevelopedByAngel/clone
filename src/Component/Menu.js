@@ -26,6 +26,7 @@ const Menu = (props) => {
 	};
 	return (
 		<div className="Menu">
+			<div className="menu-div">
 			<div className="button">
 				<button className="menubutton" onClick={() => ok()}>
 					<span className="menu">
@@ -95,6 +96,7 @@ const Menu = (props) => {
 			>
 				Store
 			</p>
+			</div>
 		</div>
 	);
 };
