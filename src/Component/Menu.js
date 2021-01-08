@@ -33,6 +33,7 @@ const Menu = (props) => {
 			<AiFillAppstore/>
 			</div>
 			<div className="store-button">
+			<MdLocalGroceryStore/>
 			</div>
 			<div className="add-button">
 			</div>
