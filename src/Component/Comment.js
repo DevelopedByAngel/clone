@@ -133,9 +133,8 @@ class Comment extends Component {
 			>
 				<div className="Comment-div">
 					<span className="user-name">{this.props.user}</span>
-					
 					<div className="details">
-
+					
 						<p className="comment">{this.props.comment}</p>
 						<p className="details-inner">
 							{/*<span
