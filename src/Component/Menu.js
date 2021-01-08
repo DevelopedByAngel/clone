@@ -27,6 +27,14 @@ const Menu = (props) => {
 	return (
 		<div className="Menu">
 			<div className="menu-div">
+			<div className="feed-button">
+			</div>
+			<div className="store-button">
+			</div>
+			<div className="add-button">
+			</div>
+			<div className="profile-button">
+			</div>			
 			<div className="button">
 				<button className="menubutton" onClick={() => ok()}>
 					<span className="menu">
