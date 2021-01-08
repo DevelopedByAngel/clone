@@ -18,6 +18,25 @@
 }
 .add-div {
 }
+.add-div .form
+{
+	    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.add-div button ,.add-div .post-submit{
+	width: 7rem;
+    height: 2rem;
+    border: 0px solid transparent;
+    border-radius: 0.25rem;
+    margin: 2.5px;
+}
 .add-div textarea {
-	height:10vh;
+	    height: 10vh;
+    width: 90vw;
+    background: rgba(255,255,255,0.9);
+    border: 0px solid transparent;
+    border-radius: 0.25rem;
 }
