@@ -42,9 +42,10 @@
 }
 .add-div textarea {
 	    height: 10vh;
-    width: 90vw;
+    width: 88vw;
     background: rgba(255,255,255,0.9);
     border: 0px solid transparent;
     border-radius: 0.25rem;
     resize: none;
+    padding: 2vw;
 }
