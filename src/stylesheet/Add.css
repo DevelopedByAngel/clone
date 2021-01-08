@@ -17,6 +17,13 @@
 	align-items: flex-end;
 }
 .add-div {
+	
+    padding: 15px;
+    border: 2px solid white;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background: black;
+
 }
 .add-div .form
 {
