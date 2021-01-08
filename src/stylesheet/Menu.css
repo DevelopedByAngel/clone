@@ -16,6 +16,13 @@
   transition:all 0.25s linear;
   z-index:2;
 }
+.menu-div
+{
+  display: flex;
+    width: 100vw;
+    /* justify-content: space-evenly; */
+    height: 2rem;
+}
 .Menu .nav-link,.search-nav
 {
   /*border-bottom:1px solid black;*/
