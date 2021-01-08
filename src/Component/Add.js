@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import "../stylesheet/Post.css";
+import "../stylesheet/Add.css";
 class Add extends Component {
 	constructor(props) {
 		super(props);
@@ -47,18 +47,18 @@ class Add extends Component {
 						className="input-caption"
 						onChange={(e) => this.handleCaptions(e)}
 						placeholder="Enter about your post"
-						maxlength="200"
 					>
 					</textarea>
 					<input
 						type="file"
-						className="input-file"
+						className="input-post"
 						accept="image/*"
 						name="myFile"
 						single="true"
 						onChange={(e) => this.handleFile(e)}
 					/>
-					<input type="submit" />
+					<button className="post-img" onClick={()=>$('.input-post').click()}>Upload Image</button>
+					<input type="submit" className="post-submit"/>
 				</form>
 			</div>
 		);
