@@ -28,7 +28,7 @@ class Comment extends Component {
 			$(
 				".like" + this.props.id + "_" + this.props.uid + " .liked-svg"
 			).css("display", "inline");
-			
+
 			this.props.likes.push(this.props.uid);
 			this.props.fun.likeComment(this.props.id);
 			$(
@@ -48,16 +48,19 @@ class Comment extends Component {
 		}
 	};
 	handleReply = (e) => {
-		this.setState({ reply: e.target.value });
+		this.setState({ reply: e.target.value.replaceAll(/\n/g,"<br/>") });
 	};
 	reply() {
 		this.setState({ isReply: true });
 	}
 	onSubmit(e) {
+		$(".replies").css("display", "none");
 		e.preventDefault();
 		this.props.fun.reply(this.props.id, this.state.reply);
 	}
 	componentDidMount() {
+		
+		console.log($('#replies'+this.props.index+' .reply').html());
 		if (this.props.likes && this.props.likes.includes(this.props.uid)) {
 			$(
 				".like" + this.props.id + "_" + this.props.uid + " .like-svg"
@@ -71,32 +74,55 @@ class Comment extends Component {
 	render() {
 		var reply = [];
 		if (this.props.reply && !this.state.isReply) {
-			this.props.reply.map((r) => {
-				reply.push(<div className="reply-div"><span className="reply-user-name">{r.user}</span><span className="reply">{r.reply}</span></div>);
+			this.props.reply.map((r,i) => {
+				reply.push(
+					<div className="reply-div">
+						<span className="reply-user-name">
+							{r.user + " - "}
+						</span>
+						<span className="reply" id={"reply"+this.props.index+"_"+i}>{r.reply}</span>
+					</div>
+				);
 				return r;
 			});
 			reply.push(
-
 				<form
 					className="form"
 					id="form"
 					onSubmit={(e) => this.onSubmit(e)}
 				>
-				<span className="reply-user-name">{this.props.fun.state.user.id} : </span>
-				<div className="inputs">
-					<input
-						type="text"
-						className="input-reply"
-						onChange={(e) => this.handleReply(e)}
-						placeholder="Reply here"
-					/>
-					<input type="submit" value="Reply" />
+					<span className="reply-user-name">
+						{this.props.fun.state.user.id} :{" "}
+					</span>
+					<div className="inputs">
+						<textarea
+							type="text"
+							className="input-reply"
+							onChange={(e) => this.handleReply(e)}
+							placeholder="Reply here"
+						>
+						</textarea>
+						<input type="submit" value="Reply" />
 					</div>
+					<br/>
 				</form>
 			);
 		}
 		return (
-			<div className="Comment" id={this.props.postno}>
+			<div
+				className="Comment"
+				id={this.props.postno}
+				onClick={() => {
+					console.log('comment clicked',$('#'+this.props.index).attr('id'));
+					$(".replies").css("display", "none");
+					$('#replies'+this.props.index).css("display", "block");
+					if (this.props.reply && !this.state.isReply) {
+			this.props.reply.map((r,i) => {
+				$("#reply"+this.props.index+"_"+i).html($("#reply"+this.props.index+"_"+i).text())
+			});
+					
+				}}}
+			>
 				<div className="Comment-div">
 					<span className="user-name">{this.props.user}</span>
 					<div className="details">
@@ -126,7 +152,7 @@ class Comment extends Component {
 						</p>
 					</div>
 				</div>
-				<div className="replies">{reply}</div>
+				<div className="replies" id={"replies"+this.props.index}>{reply}</div>
 			</div>
 		);
 	}
