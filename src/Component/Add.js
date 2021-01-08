@@ -37,6 +37,7 @@ class Add extends Component {
 	render() {
 		return (
 			<div className="Add" id={this.props.uid}>
+			<div className="add-div">
 				<form
 					className="form"
 					id="form"
@@ -60,6 +61,7 @@ class Add extends Component {
 					<button className="post-img" onClick={()=>$('.input-post').click()}>Upload Image</button>
 					<input type="submit" className="post-submit"/>
 				</form>
+				</div>
 			</div>
 		);
 	}
