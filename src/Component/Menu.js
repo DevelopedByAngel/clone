@@ -39,6 +39,7 @@ const Menu = (props) => {
 			<div className="add-button">
 			</div>
 			<div className="profile-button">
+			<BsPersonFill/>
 			</div>			
 			<div className="button">
 				<button className="menubutton" onClick={() => ok()}>
