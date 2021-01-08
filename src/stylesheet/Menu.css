@@ -23,6 +23,10 @@
     /* justify-content: space-evenly; */
     height: 2rem;
 }
+.Menu svg {
+    width: 1.75rem;
+    height: 1.75rem;
+}
 .Menu .nav-link,.search-nav
 {
   /*border-bottom:1px solid black;*/
