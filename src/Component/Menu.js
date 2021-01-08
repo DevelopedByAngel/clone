@@ -3,6 +3,7 @@ import $ from "jquery";
 import "../stylesheet/Menu.css";
 import {AiFillAppstore} from "react-icons/ai"
 import {MdLocalGroceryStore} from "react-icons/md"
+import {BsPersonFill} from "react-icons/bs"
 const Menu = (props) => {
 	const { route, fun } = props;
 	var query = "";
