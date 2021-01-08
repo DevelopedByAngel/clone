@@ -42,12 +42,13 @@ class Add extends Component {
 					id="form"
 					onSubmit={(e) => this.submitted(e)}
 				>
-					<input
+					<textarea
 						type="text"
 						className="input-caption"
 						onChange={(e) => this.handleCaptions(e)}
 						placeholder="Enter about your post"
-					/>
+					>
+					</textarea>
 					<input
 						type="file"
 						className="input-file"

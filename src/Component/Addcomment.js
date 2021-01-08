@@ -31,13 +31,15 @@ class Addcomment extends Component {
 					id="form"
 					onSubmit={(e) => this.submitted(e)}
 				>	
-					<input
+					<textarea
 						type="text"
 						className="input-comment"
 						required="true"
 						onChange={(e) => this.handleCaptions(e)}
 						placeholder="Your thoughts here"
-					/>
+						maxlength="100"
+					>
+					</textarea>
 					<IoSend
 						className="send-svg svg"
 						onClick={() => {

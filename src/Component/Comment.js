@@ -48,13 +48,12 @@ class Comment extends Component {
 		}
 	};
 	handleReply = (e) => {
-		this.setState({ reply: e.target.value.replaceAll(/\n/g,"<br/>") });
+		this.setState({ reply: e.target.value });
 	};
 	reply() {
 		this.setState({ isReply: true });
 	}
 	onSubmit(e) {
-		$(".replies").css("display", "none");
 		e.preventDefault();
 		this.props.fun.reply(this.props.id, this.state.reply);
 	}
@@ -100,6 +99,7 @@ class Comment extends Component {
 							className="input-reply"
 							onChange={(e) => this.handleReply(e)}
 							placeholder="Reply here"
+							maxlength="100"
 						>
 						</textarea>
 						<input type="submit" value="Reply" />
@@ -116,12 +116,9 @@ class Comment extends Component {
 					console.log('comment clicked',$('#'+this.props.index).attr('id'));
 					$(".replies").css("display", "none");
 					$('#replies'+this.props.index).css("display", "block");
-					if (this.props.reply && !this.state.isReply) {
-			this.props.reply.map((r,i) => {
-				$("#reply"+this.props.index+"_"+i).html($("#reply"+this.props.index+"_"+i).text())
-			});
 					
-				}}}
+					
+				}}
 			>
 				<div className="Comment-div">
 					<span className="user-name">{this.props.user}</span>

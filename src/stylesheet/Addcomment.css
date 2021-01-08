@@ -16,11 +16,13 @@
 }
 .Addcomment .input-comment
 {
+	resize:none;
 	background: transparent;
     outline: none;
     border: none;
     border-bottom: 1px solid black;
     width:70vw;
+    height:7vh;
 }
 .Addcomment input[type="submit"]
 {

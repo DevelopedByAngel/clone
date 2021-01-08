@@ -43,6 +43,7 @@
 	padding-left: 5px;
 	font-size: 0.75rem;
 	margin: 0px;
+	white-space: pre-line;
 }
 .Comment svg {
 	height: 0.75rem;
@@ -80,6 +81,9 @@
 	border: none;
 	border-bottom: 1px solid black;
 	width: 70vw;
+	resize: none;
+	height: 5vh;
+	
 }
 .replies .form {
 	width: 100%;
@@ -109,4 +113,5 @@
 .replies .reply
 {
 	font-size:0.75rem;
+	white-space: pre-line;
 }
