@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/Menu.css";
+import {AiFillAppstore} from "react-icons/ai"
 const Menu = (props) => {
 	const { route, fun } = props;
 	var query = "";
@@ -8,7 +9,7 @@ const Menu = (props) => {
 		if ($(".line").css("height") !== "25px") {
 			$(".line").css({ height: "25px" });
 			$(".dot").css("transform", "translateY(8px)");
-			$(".Menu").css({
+			$(".Menu-side").css({
 				right: "0vw",
 				"box-shadow":
 					"-10px 0px 30px 10px rgba(0,0,0,0.6),-100vw 0px 30px 100vw rgba(0,0,0,0.3)",
@@ -18,7 +19,7 @@ const Menu = (props) => {
 			$(".dot:nth-child(1)").css("transform", "translateY(0px)");
 			$(".dot:nth-child(2)").css("transform", "translateY(8px)");
 			$(".dot:nth-child(3)").css("transform", "translateY(17px)");
-			$(".Menu").css({
+			$(".Menu-side").css({
 				right: "-50vw",
 				"box-shadow": "0px 0px 0px 0px transparent",
 			});
@@ -26,8 +27,9 @@ const Menu = (props) => {
 	};
 	return (
 		<div className="Menu">
-			<div className="menu-div">
+		<div className="menu-div">
 			<div className="feed-button">
+			<AiFillAppstore/>
 			</div>
 			<div className="store-button">
 			</div>
@@ -46,6 +48,9 @@ const Menu = (props) => {
 					</span>
 				</button>
 			</div>
+			</div>
+		<div className="Menu-side">
+
 			<p
 				className="nav-link Feed"
 				onClick={() => {
