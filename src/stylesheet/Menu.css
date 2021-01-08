@@ -27,6 +27,11 @@
     width: 1.75rem;
     height: 1.75rem;
 }
+.Menu .add-button
+{
+      position: absolute;
+    left: 50vw;
+}
 .Menu .nav-link,.search-nav
 {
   /*border-bottom:1px solid black;*/
