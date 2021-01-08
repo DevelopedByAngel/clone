@@ -55,7 +55,6 @@ class Comment extends Component {
 	}
 	onSubmit(e) {
 		$(".replies").css("display", "none");
-		
 		e.preventDefault();
 		this.props.fun.reply(this.props.id, this.state.reply);
 	}
