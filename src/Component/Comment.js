@@ -69,7 +69,6 @@ class Comment extends Component {
 				".like" + this.props.id + "_" + this.props.uid + " .liked-svg"
 			).css("display", "inline");
 			this.setState({ liked: true });
-
 		}
 	}
 	render() {
