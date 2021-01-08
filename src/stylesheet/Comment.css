@@ -1,5 +1,5 @@
 .Comment {
-	margin: 5px;
+	margin: 10px;
 	padding: 5px;
 	background: #fff9c452;
 	border: 1px solid white;
@@ -83,7 +83,7 @@
 	width: 70vw;
 	resize: none;
 	height: 5vh;
-	
+
 }
 .replies .form {
 	width: 100%;
