@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/Menu.css";
 import {AiFillAppstore} from "react-icons/ai"
+import {MdLocalGroceryStore} from "react-icons/md"
 const Menu = (props) => {
 	const { route, fun } = props;
 	var query = "";
