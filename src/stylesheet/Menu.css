@@ -22,8 +22,11 @@
     width: 100vw;
      justify-content: space-evenly; 
     height: 2rem;
+    z-index: 3;
+    position: relative;
+    background: red;
 }
-.menu-div div[class$="button"]
+.menu-div div[class$="-button"]
 {
   width: 100%;
 }
