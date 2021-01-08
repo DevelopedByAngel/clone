@@ -37,6 +37,7 @@ const Menu = (props) => {
 			<MdLocalGroceryStore/>
 			</div>
 			<div className="add-button">
+			<IoAddCircle/>
 			</div>
 			<div className="profile-button">
 			<BsPersonFill/>
