@@ -86,7 +86,7 @@
   width:5px;
   height:5px;
   border-radius:50%;
-  background:black;
+  background:#dcedc8;
   transition: transform 0.5s;
 }
 .Menu .dot:nth-child(1)
@@ -110,7 +110,7 @@
   width:4px;
   height:0px;
   border-radius:2px;
-  background:black;
+  background:#dcedc8;
   transition-property:opacity ,height;
   transition-duration:0.5s;
 }
