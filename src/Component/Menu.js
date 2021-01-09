@@ -33,13 +33,11 @@ const Menu = (props) => {
 		<div className="menu-div">
 			<div className="feed-button menuButton">
 			<AiFillAppstore onClick={() => {
-					ok();
 					routeFeed(route, fun);
 				}}/>
 			</div>
 			<div className="store-button menuButton">
 			<MdLocalGroceryStore 	onClick={() => {
-					ok();
 					route("store");
 				}}/>
 			</div>
@@ -48,7 +46,6 @@ const Menu = (props) => {
 			</div>
 			<div className="profile-button menuButton">
 			<BsPersonFill onClick={() => {
-					ok();
 					fun.getUser();
 				}}/>
 			</div>		
