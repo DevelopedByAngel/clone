@@ -1,121 +1,113 @@
-.Menu-side
-{
-  width:40vw;
-  height:100vh;
-  position:fixed;
-  right:-50vw;
-  top:0px;
-  background:#00997f;
-  box-shadow:10px 0px 30px 10px rgba(0,0,0,0.6),100vw 0px 30px 10vw rgba(0,0,0,0.3);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  font-family: 'Roboto Slab', serif;
-  overflow: hidden;
-  transition:all 0.25s linear;
-  z-index:2;
-}
-.menu-div
-{
-  position:fixed;
-  bottom:0px;
-      display: flex;
-    width: 100vw;
-    justify-content: space-evenly;
-    height: 2rem;
-    z-index: 3;
-    background: #585858;
-}
-.Menu .add-button
-{
-    position: absolute;
-    left: 50vw;
-    width: auto;
-    display: none;
-}
-.menu-div .menuButton
-{
+.Menu-side {
+  width: 40vw;
+  height: 100vh;
+  position: fixed;
+  right: -50vw;
+  top: 0px;
+  background: #00997f;
+  box-shadow: 10px 0px 30px 10px rgba(0, 0, 0, 0.6),
+    100vw 0px 30px 10vw rgba(0, 0, 0, 0.3);
   display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    background: #333333;
-    margin: 1px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Slab", serif;
+  overflow: hidden;
+  transition: all 0.25s linear;
+  z-index: 2;
+}
+.menu-div {
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  height: 2rem;
+  z-index: 3;
+  background: #585858;
+}
+.Menu .add-button {
+  position: absolute;
+  left: 50vw;
+  width: auto;
+  display: none;
+}
+.menu-div .menuButton {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #333333;
+  margin: 1px;
 }
 .Menu svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: rgb(220,237,200);
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: rgb(220, 237, 200);
 }
 
-.Menu .button
-{
-      transform: rotateZ(90deg);
+.Menu .button {
+  transform: rotateZ(90deg);
 }
-.Menu .nav-link,.search-nav
-{
+.Menu .nav-link,
+.search-nav {
   /*border-bottom:1px solid black;*/
-  width:100%;
-  font-size:1.3rem;
-  padding-bottom:15%;
-  background-image: linear-gradient(to bottom,transparent,rgba(149, 209 ,173, 0.6));
+  width: 100%;
+  font-size: 1.3rem;
+  padding-bottom: 15%;
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(149, 209, 173, 0.6)
+  );
   text-align: center;
 }
-.Menu .menubutton
-{
-  
-  border-radius:50%;
-  outline:none;
-  border-color:transparent;
+.Menu .menubutton {
+  border-radius: 50%;
+  outline: none;
+  border-color: transparent;
   background: transparent;
-  z-index:3;
+  z-index: 3;
   padding: 14px;
 }
-.Menu .menu
-{
-  display:block;
-  position:relative;
-  width:22px;
-  height:22px;
+.Menu .menu {
+  display: block;
+  position: relative;
+  width: 22px;
+  height: 22px;
 }
-.Menu .dot
-{
-  position:absolute;
-  top:0;
-  left:calc(40%);
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:#dcedc8;
+.Menu .dot {
+  position: absolute;
+  top: 0;
+  left: calc(40%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #dcedc8;
   transition: transform 0.5s;
 }
-.Menu .dot:nth-child(1)
-{
-  transform:translateY(0px);
+.Menu .dot:nth-child(1) {
+  transform: translateY(0px);
 }
-.Menu .dot:nth-child(2)
-{
-  transform:translateY(8px);
+.Menu .dot:nth-child(2) {
+  transform: translateY(8px);
 }
-.Menu .dot:nth-child(3)
-{
-  transform:translateY(17px);
+.Menu .dot:nth-child(3) {
+  transform: translateY(17px);
 }
-.Menu .line
-{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%) rotate(-45deg);
-  width:4px;
-  height:0px;
-  border-radius:2px;
-  background:#dcedc8;
-  transition-property:opacity ,height;
-  transition-duration:0.5s;
+.Menu .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 4px;
+  height: 0px;
+  border-radius: 2px;
+  background: #dcedc8;
+  transition-property: opacity, height;
+  transition-duration: 0.5s;
 }
-.Menu .line1
-{
-  transform:translate(-50%, -50%) rotate(45deg);
+.Menu .line1 {
+  transform: translate(-50%, -50%) rotate(45deg);
 }
+
