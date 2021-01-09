@@ -17,7 +17,6 @@ class UploadDP extends Component {
 	}
 	handleFile(file) {
 		file.preventDefault();
-		console.log(file.target.files[0].result);
 		if (file.target.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function (e) {
@@ -25,8 +24,6 @@ class UploadDP extends Component {
 			};
 			reader.readAsDataURL(file.target.files[0]);
 		}
-		console.log(file);
-
 		this.setState({ file: file.target });
 	}
 	handleUpload() {

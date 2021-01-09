@@ -73,9 +73,7 @@ class Post extends Component {
 
 	}
 	componentDidMount() {
-		console.log("mounted");
 		if (this.props.likes.includes(this.props.fun.state.user.id)) {
-			console.log("likes" + this.props.postno);
 			$(".like" + this.props.postno + " .like-svg").css("opacity", "0");
 			$(".like" + this.props.postno + " .liked-svg").css("display", "inline");
 			this.setState({ liked: true });
@@ -85,7 +83,6 @@ class Post extends Component {
 		);
 	}
 	render() {
-		console.log(this.props.location)
 		return (
 			<div className="Post profilePost" id={this.props.postno} >
 				<div className="post">

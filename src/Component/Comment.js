@@ -59,7 +59,6 @@ class Comment extends Component {
 	}
 	componentDidMount() {
 		
-		console.log($('#replies'+this.props.index+' .reply').html());
 		if (this.props.likes && this.props.likes.includes(this.props.uid)) {
 			$(
 				".like" + this.props.id + "_" + this.props.uid + " .like-svg"
@@ -113,7 +112,6 @@ class Comment extends Component {
 				className="Comment"
 				id={this.props.postno}
 				onClick={() => {
-					console.log('comment clicked',$('#'+this.props.index).attr('id'));
 					$(".replies").css("display", "none");
 					$('#replies'+this.props.index).css("display", "block");
 					

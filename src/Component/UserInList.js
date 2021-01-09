@@ -13,7 +13,6 @@ class UserInList extends Component
 	}
 	click(status)
 	{
-		console.log(status);
 		if (status=="Request")
 		{
 			this.props.fun.request(this.props.user.id)
@@ -28,7 +27,6 @@ class UserInList extends Component
 		}
 		else if (status=="Unfriend")
 		{
-			console.log("Ok")
 			var a=window.confirm("remove from friends")
 			if(a)
 			{
@@ -39,7 +37,6 @@ class UserInList extends Component
 		}
 		else if(status == "Request Pending")
 		{
-			console.log("sending request")
 			this.props.fun.cancelRequest(this.props.user.id)
 			$('.status'+this.props.user.id).text("⚠️ ")
 		}
@@ -59,7 +56,6 @@ class UserInList extends Component
 	}
   render()
   {
-  	console.log(this.props.user.pending)
   	var status = ''
 	if(this.props.user.id === this.props.userID)
 		status="Me"
@@ -71,7 +67,6 @@ class UserInList extends Component
 		status="Accept Request"
 	else
 		status="Request"
-	console.log(status)
     return(
     	<div><span onClick={()=>this.props.fun.viewProfile(this.props.user.id)}>{this.props.user.id}   </span>
     	<span className={"status"+this.props.user.id} onClick={() => this.click($('.status'+this.props.user.id).text())}>{status}</span>

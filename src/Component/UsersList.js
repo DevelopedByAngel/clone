@@ -5,7 +5,6 @@ class UsersList extends Component
 
   render()
   {
-  	console.log(this.props.users)
     return(
      this.props.users.map((u,i)=>
      {

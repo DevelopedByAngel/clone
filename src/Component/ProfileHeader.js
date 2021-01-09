@@ -71,22 +71,19 @@ const ProfileHeader = (props) => {
 };
 const friends = (fun, user) => {
 	if (user.length > 0) {
-		console.log("friends");
-		console.log(user);
+
 		fun.updateUsers(user);
 		fun.RouteChange("friends");
 	}
 };
 const pending = (fun, user) => {
 	if (user.length > 0) {
-		console.log("pending");
 		fun.updateUsers(user);
 		fun.RouteChange("friends");
 	}
 };
 const accept = (fun, user) => {
 	if (user.length > 0) {
-		console.log("accept");
 		fun.updateUsers(user);
 		fun.RouteChange("friends");
 	}

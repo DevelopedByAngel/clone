@@ -55,7 +55,6 @@ class App extends Component {
         if (r.error) {
           alert(r.error);
         } else {
-          console.log(r);
           this.setState({ user: r.user });
           this.setState({ postList: r.post });
           this.RouteChange("profile");
@@ -63,7 +62,7 @@ class App extends Component {
       });
   };
   signup = (id, email, password) => {
-    console.log("log");
+    console.log("signup");
     fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -95,7 +94,6 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   request = (requestName) => {
-    console.log(requestName);
     fetch("http://localhost:3000/request", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -111,13 +109,11 @@ class App extends Component {
         state.pending.push(requestName);
         this.setState({ user: state });
         $(".status" + requestName).text("Request Pending");
-        console.log(r);
         return r;
       })
       .catch((err) => alert(err.message));
   };
   acceptRequest = (requestName) => {
-    console.log(requestName);
     fetch("http://localhost:3000/acceptRequest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -133,14 +129,12 @@ class App extends Component {
         state.pending.splice(state.request.indexOf(requestName), 1);
         state.friends.push(requestName);
         this.setState({ user: state });
-        console.log(r);
         $(".status" + requestName).text("Unfriend");
         return r;
       })
       .catch((err) => alert(err.message));
   };
   cancelRequest = (requestName) => {
-    console.log("ok", requestName);
     fetch("http://localhost:3000/cancelRequest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -155,14 +149,12 @@ class App extends Component {
         var state = this.state.user;
         state.pending.splice(state.pending.indexOf(requestName), 1);
         this.setState({ user: state });
-        console.log(r);
         $(".status" + requestName).text("Request");
         return r;
       })
       .catch((err) => alert(err.message));
   };
   Unfriend = (friendName) => {
-    console.log(friendName);
     fetch("http://localhost:3000/Unfriend", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -177,7 +169,6 @@ class App extends Component {
         var state = this.state.user;
         state.friends.splice(state.pending.indexOf(friendName), 1);
         this.setState({ user: state });
-        console.log(r);
         $(".status" + friendName).text("Request");
         return r;
       })
@@ -192,7 +183,6 @@ class App extends Component {
     })
       .then((res) => res.json())
       .then((r) => {
-        console.log(r);
         this.setState({ postList: r });
         this.RouteChange("feed")
       })
@@ -241,7 +231,6 @@ class App extends Component {
       .then((res) => res.json())
       .then((r) => {
         if (r) {
-          console.log(r);
           var postList = this.state.postList;
           postList.map((post) => {
             var p = post;
@@ -271,7 +260,6 @@ class App extends Component {
       .then((res) => res.json())
       .then((r) => {
         if (r) {
-          console.log(r);
           var post = this.state.post;
           post.comments.map((c) => {
             var p = c;
@@ -314,7 +302,6 @@ class App extends Component {
     if (q[0] === "#") {
       this.hashtags(q.slice(1));
     } else {
-      console.log(q);
       fetch("http://localhost:3000/search/" + q, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -322,7 +309,6 @@ class App extends Component {
         .then((res) => res.json())
         .then((r) => {
           if (r) {
-            console.log(r);
             this.setState({ users: r });
             this.RouteChange("usersList");
             $(".search-field").val("");
@@ -344,7 +330,6 @@ class App extends Component {
       .then((res) => res.json())
       .then((r) => {
         if (r) {
-          console.log(r.user);
           this.setState({ viewProfile: r.user });
           this.setState({ postList: r.post });
           this.RouteChange("viewProfile");
@@ -365,7 +350,6 @@ class App extends Component {
       .then((res) => res.json())
       .then((r) => {
         if (r) {
-          console.log(r.user);
           this.setState({ postList: r.post });
           this.RouteChange("profile");
         }
@@ -376,16 +360,13 @@ class App extends Component {
     this.setState({ user: user });
   }
   updateUsers(users) {
-    console.log(users);
     this.setState({ users: users });
   }
   updatePost(post) {
-    console.log(post);
     this.setState({ post: post });
     console.log(this.state);
   }
   back() {
-    console.log(this.prevState);
     this.setState(this.prevState);
   }
   loading(check)

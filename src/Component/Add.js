@@ -31,7 +31,7 @@ class Add extends Component {
 			.then((res) => res.json())
 			.then((r) => {
 				console.log(r.path);
-				this.props.fun.RouteChange("profile");
+				// this.props.fun.RouteChange("profile");
 			});
 	}
 	render() {
