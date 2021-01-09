@@ -32,16 +32,25 @@ const Menu = (props) => {
 		<div className="Menu">
 		<div className="menu-div">
 			<div className="feed-button menuButton">
-			<AiFillAppstore/>
+			<AiFillAppstore onClick={() => {
+					ok();
+					routeFeed(route, fun);
+				}}/>
 			</div>
 			<div className="store-button menuButton">
-			<MdLocalGroceryStore/>
+			<MdLocalGroceryStore 	onClick={() => {
+					ok();
+					route("store");
+				}}/>
 			</div>
 			<div className="add-button">
 			<IoAddCircle/>
 			</div>
 			<div className="profile-button menuButton">
-			<BsPersonFill/>
+			<BsPersonFill onClick={() => {
+					ok();
+					fun.getUser();
+				}}/>
 			</div>		
 			<div className="other-button menuButton">
 			<div className="button">
@@ -60,24 +69,7 @@ const Menu = (props) => {
 			</div>
 		<div className="Menu-side">
 
-			<p
-				className="nav-link Feed"
-				onClick={() => {
-					ok();
-					routeFeed(route, fun);
-				}}
-			>
-				Feed
-			</p>
-			<p
-				className="nav-link Profile"
-				onClick={() => {
-					ok();
-					fun.getUser();
-				}}
-			>
-				Profile
-			</p>
+			
 			<p
 				className="nav-link Hashtag"
 				onClick={() => {
