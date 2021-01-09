@@ -18,27 +18,36 @@
 }
 .menu-div
 {
-  display: flex;
+      display: flex;
     width: 100vw;
-     justify-content: space-evenly; 
+    justify-content: space-evenly;
     height: 2rem;
     z-index: 3;
     position: relative;
-    background: red;
-}
-.menu-div div[class$="-button"]
-{
-  width: 100%;
-}
-.Menu svg {
-    width: 1.75rem;
-    height: 1.75rem;
+    background: #585858;
 }
 .Menu .add-button
 {
-      position: absolute;
+    position: absolute;
     left: 50vw;
+    width: auto;
+    display: none;
 }
+.menu-div .menuButton
+{
+  display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    margin: 1px;
+}
+.Menu svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: rgb(220,237,200);
+}
+
 .Menu .button
 {
       transform: rotateZ(90deg);
