@@ -31,19 +31,19 @@ const Menu = (props) => {
 	return (
 		<div className="Menu">
 		<div className="menu-div">
-			<div className="feed-button">
+			<div className="feed-button menuButton">
 			<AiFillAppstore/>
 			</div>
-			<div className="store-button">
+			<div className="store-button menuButton">
 			<MdLocalGroceryStore/>
 			</div>
 			<div className="add-button">
 			<IoAddCircle/>
 			</div>
-			<div className="profile-button">
+			<div className="profile-button menuButton">
 			<BsPersonFill/>
 			</div>		
-			<div className="other-button">
+			<div className="other-button menuButton">
 			<div className="button">
 				<button className="menubutton" onClick={() => ok()}>
 					<span className="menu">
