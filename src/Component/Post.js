@@ -15,7 +15,6 @@ class Post extends Component {
 		};
 	}
 	like = () => {
-
 		console.log("liking");
 		if (
 			!this.props.likes.includes(this.props.fun.state.user.id) &&
@@ -23,8 +22,7 @@ class Post extends Component {
 		) {
 			this.props.fun.like(this.props.postno);
 			$(".like" + this.props.postno + " .number").text(
-				parseInt($(".like" + this.props.postno + " .number").text()) +
-					1
+				parseInt($(".like" + this.props.postno + " .number").text()) + 1
 			);
 
 			$(".like" + this.props.postno + " .like-svg").css({
@@ -66,16 +64,18 @@ class Post extends Component {
 		});
 		return li.join(" ");
 	}
-	FocusPost(id)
-	{
-		$('html,body').animate({
-    scrollTop: ($("#"+id).offset().top)-150});
-
+	FocusPost(id) {
+		$("html,body").animate({
+			scrollTop: $("#" + id).offset().top - 150,
+		});
 	}
 	componentDidMount() {
 		if (this.props.likes.includes(this.props.fun.state.user.id)) {
 			$(".like" + this.props.postno + " .like-svg").css("opacity", "0");
-			$(".like" + this.props.postno + " .liked-svg").css("display", "inline");
+			$(".like" + this.props.postno + " .liked-svg").css(
+				"display",
+				"inline"
+			);
 			this.setState({ liked: true });
 		}
 		$(".caption" + this.props.uid + "_" + this.props.postno).html(
@@ -84,14 +84,19 @@ class Post extends Component {
 	}
 	render() {
 		return (
-			<div className="Post profilePost" id={this.props.postno} >
+			<div className="Post profilePost" id={this.props.postno}>
 				<div className="post">
-					<div className="user-name-div"><span className="blur-user-name">{this.props.user}</span><span className="user-name">{this.props.user}</span></div>
+					<div className="user-name-div">
+						<span className="blur-user-name">
+							{this.props.user}
+						</span>
+						<span className="user-name">{this.props.user}</span>
+					</div>
 					<img
 						className="post-img"
 						alt=""
 						src={"http://localhost:3000/" + this.props.path}
-						onClick={()=>this.FocusPost(this.props.postno)}
+						onClick={() => this.FocusPost(this.props.postno)}
 					/>
 					<div className="details">
 						<p
