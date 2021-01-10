@@ -7,37 +7,36 @@
 body {
 	background: rgb(252 255 236);
 }
-.first
-{
+.first {
 	width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: 10;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    background: whitesmoke;
-    transition: all 0.25s linear;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: 10;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+	background: whitesmoke;
+	transition: all 0.25s linear;
 }
 .Login {
 	display: flex;
 	flex-direction: row;
 }
 .overlay {
-	    position: absolute;
-    top: 0px;
-    z-index: 1;
-    height: auto;
-    /*background-image: url(https://i.postimg.cc/5NzK5tdZ/logo.png);*/
-    background-position: center;
-    width: 100vw;
-    background-size: 70%;
-    /* backdrop-filter: opacity(1%); */
-    background-repeat: no-repeat;
-    transition: all 0.5s linear;
+	position: absolute;
+	top: 0px;
+	z-index: 1;
+	height: auto;
+	/*background-image: url(https://i.postimg.cc/5NzK5tdZ/logo.png);*/
+	background-position: center;
+	width: 100vw;
+	background-size: 70%;
+	/* backdrop-filter: opacity(1%); */
+	background-repeat: no-repeat;
+	transition: all 0.5s linear;
 }
 .circlesvg {
 	overflow: visible;
@@ -49,8 +48,8 @@ ellipse {
 	transition: all 0.5s linear;
 	box-shadow: inset 2px 0px 10px white;
 	transform-origin: 50% 100%;
-	opacity:80%;
-	transform:rotateZ(180deg);
+	opacity: 80%;
+	transform: rotateZ(180deg);
 }
 .login-div {
 	width: 100vw;
@@ -61,31 +60,27 @@ ellipse {
 	flex-direction: row;
 	justify-content: center;
 }
-.choose
-{
+.choose {
 	position: absolute;
-	top:10vh;
+	top: 10vh;
 	display: flex;
 	justify-content: center;
-	align-items:center;
-	width:100vw;
-	height:30vh;
+	align-items: center;
+	width: 100vw;
+	height: 30vh;
 }
-.choose-item
-{
-	padding:3rem;
+.choose-item {
+	padding: 3rem;
 	font-family: "Bitter", serif;
 	font-weight: bolder;
-	letter-spacing:0.1rem;
+	letter-spacing: 0.1rem;
 	color: rgb(58, 156, 126);
 }
-.choose-item:first-child
-{
+.choose-item:first-child {
 	border-right: 5px double rgb(58, 156, 126);
 }
-.div
-{
-	z-index:2;
+.div {
+	z-index: 2;
 }
 .form {
 	width: 100%;
