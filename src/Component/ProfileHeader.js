@@ -43,7 +43,10 @@ const ProfileHeader = (props) => {
 	return (
 		<div className="ProfileHeader">
 			<span className="id">{user.id}</span>
-			<div className="profile-pic" onClick={()=>fun.RouteChange("uploadDP")}>
+			<div
+				className="profile-pic"
+				onClick={() => fun.RouteChange("uploadDP")}
+			>
 				<div className="profile-circle">
 					<div className="profile-mask">
 						<img src={img} />
@@ -71,7 +74,6 @@ const ProfileHeader = (props) => {
 };
 const friends = (fun, user) => {
 	if (user.length > 0) {
-
 		fun.updateUsers(user);
 		fun.RouteChange("friends");
 	}
