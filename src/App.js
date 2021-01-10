@@ -386,7 +386,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <IoMdArrowRoundBack/>
+        <IoMdArrowRoundBack className="back"/>
         <Loader loading={this.state.loading}/>
         {this.state.route === "home" ? (
           <Login fun={this} />
