@@ -6,7 +6,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import "../stylesheet/Login.css";
 import { HiOutlineKey } from "react-icons/hi";
 import { FaUserAlt } from "react-icons/fa";
-import logo from "./../assests/logo.PNG"
+import logo from "./../assests/logo.PNG";
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -71,9 +71,19 @@ class Login extends Component {
 		return (
 			<div className="Login">
 				<div className="main">
-				<div className="first" onLoad={()=>{setTimeout(()=>{$('.first').css('opacity','0%')},2000);setTimeout(()=>{$('.first').hide()},2500)}}>
-				<img className="first-img" src={logo}/>
-				</div>
+					<div
+						className="first"
+						onLoad={() => {
+							setTimeout(() => {
+								$(".first").css("opacity", "0%");
+							}, 2000);
+							setTimeout(() => {
+								$(".first").hide();
+							}, 2500);
+						}}
+					>
+						<img className="first-img" src={logo} />
+					</div>
 					<div className="overlay">
 						<svg className="circlesvg" height="40vh" width="100%">
 							<defs>
