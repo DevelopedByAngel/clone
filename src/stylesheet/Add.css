@@ -1,49 +1,47 @@
 .post-submit {
-	/*display:none;*/
+    /*display:none;*/
 }
 .input-post {
-	display: none;
+    display: none;
 }
 .Add {
-	width: 100vw;
-	height: 0vh;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
-	background: rgba(0, 0, 0, 0.5);
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
+    width: 100vw;
+    height: 0vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 .add-div {
-
     padding: 15px;
     border: 2px solid white;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
     background: black;
-
 }
-.add-div .form
-{
-	    width: 100%;
+.add-div .form {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
 }
-.add-div button ,.add-div .post-submit{
-	width: 7rem;
+.add-div button,
+.add-div .post-submit {
+    width: 7rem;
     height: 2rem;
     border: 0px solid transparent;
     border-radius: 0.25rem;
     margin: 2.5px;
 }
 .add-div textarea {
-	    height: 10vh;
+    height: 10vh;
     width: 88vw;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     border: 0px solid transparent;
     border-radius: 0.25rem;
     resize: none;
