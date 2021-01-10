@@ -13,24 +13,25 @@ class Addcomment extends Component {
 		this.setState({ comment: c.target.value });
 	};
 	submitted(e) {
-		$('.Addcomment .svg').css({"animation-name":"send"})
-		setTimeout(()=>
-		{
-			$('.Addcomment .svg').css({"animation-name":"o"})
-		},250)
+		$(".Addcomment .svg").css({ "animation-name": "send" });
+		setTimeout(() => {
+			$(".Addcomment .svg").css({ "animation-name": "o" });
+		}, 250);
 		e.preventDefault();
 		this.props.fun.comment(this.state.comment);
 	}
 	render() {
 		return (
 			<div className="Addcomment">
-							<span className="user-name">{this.props.fun.state.user.id} : </span>
+				<span className="user-name">
+					{this.props.fun.state.user.id} :{" "}
+				</span>
 
 				<form
 					className="form"
 					id="form"
 					onSubmit={(e) => this.submitted(e)}
-				>	
+				>
 					<textarea
 						type="text"
 						className="input-comment"
@@ -38,16 +39,18 @@ class Addcomment extends Component {
 						onChange={(e) => this.handleCaptions(e)}
 						placeholder="Your thoughts here"
 						maxlength="100"
-					>
-					</textarea>
+					></textarea>
 					<IoSend
 						className="send-svg svg"
 						onClick={() => {
-							$('.Addcomment .svg').css({"animation-name":"send"})
-							setTimeout(()=>
-		{
-			$('.Addcomment .svg').css({"animation-name":"o"})
-		},250)
+							$(".Addcomment .svg").css({
+								"animation-name": "send",
+							});
+							setTimeout(() => {
+								$(".Addcomment .svg").css({
+									"animation-name": "o",
+								});
+							}, 250);
 							$('.Addcomment input[type="submit"]').click();
 						}}
 					/>
