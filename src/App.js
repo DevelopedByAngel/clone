@@ -14,6 +14,7 @@ import Store from "./Component/Store.js";
 import Settings from "./Component/Settings.js";
 import UsersList from "./Component/UsersList.js";
 import FriendsList from "./Component/FriendsList.js";
+import {IoMdArrowRoundBack} from "react-icons/io"
 import $ from "jquery";
 
 class App extends Component {
@@ -385,16 +386,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div
-          className="back"
-          onClick={() => this.back()}
-          style={{
-            width: "10px",
-            height: "10px",
-            backgroundColor: "red",
-            position: "fixed",
-          }}
-        ></div>
+        <IoMdArrowRoundBack/>
         <Loader loading={this.state.loading}/>
         {this.state.route === "home" ? (
           <Login fun={this} />

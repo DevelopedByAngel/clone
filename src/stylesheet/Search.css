@@ -1,16 +1,16 @@
 .Search
 {
 	
-	position:fixed;
-	bottom:0vw;
-	left:6vw;
-	display:flex;
-	align-items:center;
-	width:80vw;
-	background:rgba(255,255,255,0.95);
-	border-radius:1vw;
-	padding:1vw;
-		display:none;
+	position: relative;
+    top: 2vw;
+    left: 10vw;
+    display: flex;
+    align-items: center;
+    width: 85vw;
+    background: rgb(220 237 200);
+    border-radius: 1vw;
+    padding: 1vw;
+    
 
 }
 .Search .profile

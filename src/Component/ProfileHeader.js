@@ -43,7 +43,7 @@ const ProfileHeader = (props) => {
 	return (
 		<div className="ProfileHeader">
 			<span className="id">{user.id}</span>
-			<div className="profile-pic">
+			<div className="profile-pic" onClick={()=>fun.RouteChange("uploadDP")}>
 				<div className="profile-circle">
 					<div className="profile-mask">
 						<img src={img} />
