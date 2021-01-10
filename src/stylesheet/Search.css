@@ -1,8 +1,7 @@
 .Search
 {
 	
-	position: relative;
-    top: 2vw;
+	    position: relative;
     left: 10vw;
     display: flex;
     align-items: center;
@@ -10,6 +9,7 @@
     background: rgb(220 237 200);
     border-radius: 1vw;
     padding: 1vw;
+    margin: 2vw 0vw;
     
 
 }
@@ -40,5 +40,5 @@
 .Search .search-icon
 {
 	position:relative;
-	left:-5vw;
+	left:2vw;
 }
