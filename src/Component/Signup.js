@@ -15,7 +15,7 @@ class Signup extends Component {
 			email: "",
 			id: "",
 			password: "",
-			loading: false
+			loading: false,
 		};
 	}
 	emailchange = (email) => {
@@ -31,7 +31,11 @@ class Signup extends Component {
 		this.setState({ loading: true });
 		$("#signup-text").text("");
 		e.preventDefault();
-		this.props.fun.signup(this.state.id,this.state.email, this.state.password);
+		this.props.fun.signup(
+			this.state.id,
+			this.state.email,
+			this.state.password
+		);
 		setTimeout(() => {
 			$("#signup-text").text("Sign Up");
 			this.setState({ loading: false });
@@ -56,7 +60,7 @@ class Signup extends Component {
 									placeholder="   "
 									name="id"
 									pattern="^[a-zA-Z0-9_.]+$"
-									onChange={(e) =>this.idchange(e)}
+									onChange={(e) => this.idchange(e)}
 									title="ID contains only alphabet, numbers, underscore(_) and dot(.)"
 								></input>
 								<label
@@ -122,7 +126,7 @@ class Signup extends Component {
 								<BiCheckDouble className="check-svg svg" />
 								<input
 									className="input-field"
-									pattern={"^"+this.state.password}
+									pattern={"^" + this.state.password}
 									required="true"
 									placeholder="   "
 									type="password"
@@ -148,21 +152,25 @@ class Signup extends Component {
 								value="Sign Up"
 								id="submit"
 							>
-								<span
-										className="inner-text"
-										id="signup-text"
-									>
-										Sign Up
-									</span>
+								<span className="inner-text" id="signup-text">
+									Sign Up
+								</span>
 								<ClipLoader
-										className="loader"
-										size="1rem"
-										color="rgb(252 255 236)"
-										loading={this.state.loading}
-									/>
+									className="loader"
+									size="1rem"
+									color="rgb(252 255 236)"
+									loading={this.state.loading}
+								/>
 							</button>
 						</form>
-						<span style={{color:'rgb(58, 156, 126)',fontSize:'0.8rem'}}>Already have an account??</span>
+						<span
+							style={{
+								color: "rgb(58, 156, 126)",
+								fontSize: "0.8rem",
+							}}
+						>
+							Already have an account??
+						</span>
 						<button
 							className="login-button submit"
 							type="submit"
