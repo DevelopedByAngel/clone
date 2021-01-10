@@ -15,6 +15,7 @@ import Settings from "./Component/Settings.js";
 import UsersList from "./Component/UsersList.js";
 import FriendsList from "./Component/FriendsList.js";
 import {IoMdArrowRoundBack} from "react-icons/io"
+import  "./App.css"
 import $ from "jquery";
 
 class App extends Component {
