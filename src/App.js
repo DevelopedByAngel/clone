@@ -383,7 +383,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <IoMdArrowRoundBack className="back" />
+        
         <Loader loading={this.state.loading} />
         {this.state.route === "home" ? (
           <Login fun={this} />
@@ -391,12 +391,13 @@ class App extends Component {
           <UploadDP fun={this} />
         ) : (
           <div>
+          <IoMdArrowRoundBack className="back" />
             <Search search={this.search} profileImg={this.state.user.path} />
             <Menu route={this.RouteChange} fun={this} />
             {this.state.route === "viewProfile" ? (
               <div>
                 <ProfileHeader user={this.state.viewProfile} fun={this} />
-                <div className="PostList">
+                <div className="PostList profilePostList">
                   <PostList
                     postList={this.state.postList}
                     user={this.state.viewProfile}
