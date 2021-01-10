@@ -71,7 +71,7 @@
 	border-top: 1px solid rgba(0, 0, 0, 0.25);
 	padding-top: 0.5rem;
 }
-.replies  .reply-div:last-of-type {
+.replies .reply-div:last-of-type {
 	padding-bottom: 0.5rem;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
@@ -83,7 +83,6 @@
 	width: 70vw;
 	resize: none;
 	height: 5vh;
-
 }
 .replies .form {
 	width: 100%;
@@ -110,8 +109,7 @@
 	font-weight: bold;
 	font-size: 90%;
 }
-.replies .reply
-{
-	font-size:0.75rem;
+.replies .reply {
+	font-size: 0.75rem;
 	white-space: pre-line;
 }
