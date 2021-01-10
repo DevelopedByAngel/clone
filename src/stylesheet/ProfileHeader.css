@@ -60,24 +60,20 @@
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
-	margin-top:-7vh;
-	font-size:0.75rem;
+	margin-top: -7vh;
+	font-size: 0.75rem;
 }
 
-.ProfileHeader .people  div
-{
+.ProfileHeader .people div {
 	display: flex;
 	justify-content: space-between;
-	width:95%;
-	margin:2px 0px 2px 0px;
+	width: 95%;
+	margin: 2px 0px 2px 0px;
 }
-.ProfileHeader .people span
-{
-
+.ProfileHeader .people span {
 }
-.ProfileHeader .people  .number
-{
-	margin-left:5px;
-	font-size:0.9rem;
-	font-weight:bolder;
+.ProfileHeader .people .number {
+	margin-left: 5px;
+	font-size: 0.9rem;
+	font-weight: bolder;
 }
