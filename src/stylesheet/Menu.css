@@ -27,10 +27,28 @@
   background: #585858;
 }
 .Menu .add-button {
-  position: absolute;
-  left: 50vw;
-  width: auto;
-  /*display: none;*/
+      position: absolute;
+    left: 46.6vw;
+    width: auto;
+    transform: scale(2);
+    /* display: none; */
+    /* cursor: pointer; */
+    top: -4vw;
+}
+.add-button svg {
+    position: relative;
+    z-index: 3;
+}
+.add-button::before {
+    content: " ";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #fcffec;
+    left: 0px;
+    z-index: 2;
+    border: 0px solid;
+    border-radius: 100px;
 }
 .menu-div .menuButton {
   display: flex;

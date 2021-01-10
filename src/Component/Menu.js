@@ -50,9 +50,12 @@ const Menu = (props) => {
 					{ 
 						console.log($('.Add').css('height'))
 						if($('.Add').css('height')==='0px')
-						$('.Add').css('height','100vh')
+						{
+						$('.Add').css({'height':'100vh','background':'rgba(0,0,0,0.5)'})
+					}
 					else
-						$('.Add').css('height','0vh')
+					{	$('.Add').css({'height':'0vh','background':'rgba(0,0,0,0)'})
+			}
 				}}/>
 				</div>
 				<div className="profile-button menuButton">
