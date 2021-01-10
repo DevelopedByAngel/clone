@@ -58,7 +58,6 @@ class Comment extends Component {
 		this.props.fun.reply(this.props.id, this.state.reply);
 	}
 	componentDidMount() {
-		
 		if (this.props.likes && this.props.likes.includes(this.props.uid)) {
 			$(
 				".like" + this.props.id + "_" + this.props.uid + " .like-svg"
@@ -72,13 +71,18 @@ class Comment extends Component {
 	render() {
 		var reply = [];
 		if (this.props.reply && !this.state.isReply) {
-			this.props.reply.map((r,i) => {
+			this.props.reply.map((r, i) => {
 				reply.push(
 					<div className="reply-div">
 						<span className="reply-user-name">
 							{r.user + " - "}
 						</span>
-						<span className="reply" id={"reply"+this.props.index+"_"+i}>{r.reply}</span>
+						<span
+							className="reply"
+							id={"reply" + this.props.index + "_" + i}
+						>
+							{r.reply}
+						</span>
 					</div>
 				);
 				return r;
@@ -99,11 +103,10 @@ class Comment extends Component {
 							onChange={(e) => this.handleReply(e)}
 							placeholder="Reply here"
 							maxlength="100"
-						>
-						</textarea>
+						></textarea>
 						<input type="submit" value="Reply" />
 					</div>
-					<br/>
+					<br />
 				</form>
 			);
 		}
@@ -113,9 +116,7 @@ class Comment extends Component {
 				id={this.props.postno}
 				onClick={() => {
 					$(".replies").css("display", "none");
-					$('#replies'+this.props.index).css("display", "block");
-					
-					
+					$("#replies" + this.props.index).css("display", "block");
 				}}
 			>
 				<div className="Comment-div">
@@ -147,7 +148,9 @@ class Comment extends Component {
 						</p>
 					</div>
 				</div>
-				<div className="replies" id={"replies"+this.props.index}>{reply}</div>
+				<div className="replies" id={"replies" + this.props.index}>
+					{reply}
+				</div>
 			</div>
 		);
 	}
