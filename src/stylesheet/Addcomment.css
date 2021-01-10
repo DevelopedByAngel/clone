@@ -1,47 +1,47 @@
-.Addcomment
-{
-	padding:10px;
-	margin-top:3rem;
+.Addcomment {
+	padding: 10px;
+	margin-top: 3rem;
 }
-.Addcomment .user-name
-{
-	font-weight:bold;
+.Addcomment .user-name {
+	font-weight: bold;
 }
-.Addcomment .form
-{
+.Addcomment .form {
 	display: flex;
 	align-items: center;
 	flex-direction: row;
-	margin-top:1rem;
+	margin-top: 1rem;
 }
-.Addcomment .input-comment
-{
-	resize:none;
+.Addcomment .input-comment {
+	resize: none;
 	background: transparent;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid black;
-    width:70vw;
-    height:7vh;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid black;
+	width: 70vw;
+	height: 7vh;
 }
-.Addcomment input[type="submit"]
-{
+.Addcomment input[type="submit"] {
 	display: none;
 }
-.Addcomment .svg
-{
+.Addcomment .svg {
 	position: relative;
-	left:2vw;
-	-webkit-animation: o 0.25s linear  0s 1;
-	        animation: o 0.25s linear  0s 1;
+	left: 2vw;
+	-webkit-animation: o 0.25s linear 0s 1;
+	animation: o 0.25s linear 0s 1;
 }
-@-webkit-keyframes send
-{
-	from {left:2vw;}
-	to{left:;}
+@-webkit-keyframes send {
+	from {
+		left: 2vw;
+	}
+	to {
+		left: ;
+	}
 }
-@keyframes send
-{
-	from {left:2vw;}
-	to{left:20vw;}
+@keyframes send {
+	from {
+		left: 2vw;
+	}
+	to {
+		left: 20vw;
+	}
 }
