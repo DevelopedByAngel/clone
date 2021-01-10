@@ -46,7 +46,14 @@ const Menu = (props) => {
 					/>
 				</div>
 				<div className="add-button">
-					<IoAddCircle />
+					<IoAddCircle onClick={() =>
+					{ 
+						console.log($('.Add').css('height'))
+						if($('.Add').css('height')==='0px')
+						$('.Add').css('height','100vh')
+					else
+						$('.Add').css('height','0vh')
+				}}/>
 				</div>
 				<div className="profile-button menuButton">
 					<BsPersonFill
