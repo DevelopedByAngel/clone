@@ -19,7 +19,7 @@ class Add extends Component {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
-		console.log("posting")
+		console.log("posting");
 		fetch("http://localhost:3000/upload", {
 			method: "POST",
 			body: formData,
@@ -37,30 +37,34 @@ class Add extends Component {
 	render() {
 		return (
 			<div className="Add" id={this.props.uid}>
-			<div className="add-div">
-				<form
-					className="form"
-					id="form"
-					onSubmit={(e) => this.submitted(e)}
-				>
-					<textarea
-						type="text"
-						className="input-caption"
-						onChange={(e) => this.handleCaptions(e)}
-						placeholder="Enter about your post"
+				<div className="add-div">
+					<form
+						className="form"
+						id="form"
+						onSubmit={(e) => this.submitted(e)}
 					>
-					</textarea>
-					<input
-						type="file"
-						className="input-post"
-						accept="image/*"
-						name="myFile"
-						single="true"
-						onChange={(e) => this.handleFile(e)}
-					/>
-					<button className="post-img" onClick={()=>$('.input-post').click()}>Upload Image</button>
-					<input type="submit" className="post-submit"/>
-				</form>
+						<textarea
+							type="text"
+							className="input-caption"
+							onChange={(e) => this.handleCaptions(e)}
+							placeholder="Enter about your post"
+						></textarea>
+						<input
+							type="file"
+							className="input-post"
+							accept="image/*"
+							name="myFile"
+							single="true"
+							onChange={(e) => this.handleFile(e)}
+						/>
+						<button
+							className="post-img"
+							onClick={() => $(".input-post").click()}
+						>
+							Upload Image
+						</button>
+						<input type="submit" className="post-submit" />
+					</form>
 				</div>
 			</div>
 		);
