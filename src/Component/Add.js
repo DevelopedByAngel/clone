@@ -57,8 +57,7 @@ class Add extends Component {
 							name="myFile"
 							single="true"
 							onChange={(e) => this.handleFile(e)}
-						/>
-						
+						/>						
 						<input type="submit" className="post-submit" />
 					</form>
 				</div>
