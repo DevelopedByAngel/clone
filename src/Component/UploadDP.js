@@ -24,7 +24,9 @@ class UploadDP extends Component {
 			};
 			reader.readAsDataURL(file.target.files[0]);
 		}
+		console.log(file)
 		this.setState({ file: file.target });
+		console.log(this.state.file);
 	}
 	handleUpload() {
 		$(".DPform input[type=submit]").click();

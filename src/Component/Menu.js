@@ -57,17 +57,18 @@ const Menu = (props) => {
 				<div className="add-button">
 					<IoAddCircle onClick={() =>
 					{ 
-						console.log($('.Add').css('height'))
+						console.log("ok")
 						if($('.Add').css('height')==='0px')
 						{
-							$('.add-button svg::before').css('background','#fcffec')
+							$('.add-button-before').css('background','black')
 						$('.Add').css({'height':'100vh','background':'rgba(0,0,0,0.5)'})
 					}
 					else
-					{	$('.Menu .add-button svg::before').css('background','black')
+					{	$('.Menu .add-button-before').css('background','#fcffec')
 						$('.Add').css({'height':'0vh','background':'rgba(0,0,0,0)'})
 			}
 				}}/>
+				<span className="add-button-before"></span>
 				</div>
 				<div className="profile-button menuButton">
 					<BsPersonFill

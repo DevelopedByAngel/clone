@@ -43,26 +43,21 @@ class Add extends Component {
 						id="form"
 						onSubmit={(e) => this.submitted(e)}
 					>
-						<textarea
+						<input
 							type="text"
 							className="input-caption"
 							onChange={(e) => this.handleCaptions(e)}
 							placeholder="Enter about your post"
-						></textarea>
+						/>
 						<input
 							type="file"
-							className="input-post"
+							className="post-img"
 							accept="image/*"
 							name="myFile"
 							single="true"
 							onChange={(e) => this.handleFile(e)}
 						/>
-						<button
-							className="post-img"
-							onClick={() => $(".input-post").click()}
-						>
-							Upload Image
-						</button>
+						
 						<input type="submit" className="post-submit" />
 					</form>
 				</div>
