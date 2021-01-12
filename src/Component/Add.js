@@ -47,6 +47,7 @@ class Add extends Component {
 							type="text"
 							className="input-caption"
 							onChange={(e) => this.handleCaptions(e)}
+						
 							placeholder="Enter about your post"
 						/>
 						<input
