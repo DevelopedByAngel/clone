@@ -50,6 +50,7 @@ class Add extends Component {
 							placeholder="Enter about your post"
 						/>
 						<input
+						
 							type="file"
 							className="post-img"
 							accept="image/*"
