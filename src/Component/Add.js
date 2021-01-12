@@ -60,7 +60,7 @@ class Add extends Component {
 						
 						<input type="submit" className="post-submit" />
 					</form>
-					
+
 				</div>
 			</div>
 		);
