@@ -187,7 +187,7 @@ class App extends Component {
       .then((r) => {
         this.setState({ postList: r });
         $(".profilePostList").attr("class", "PostList");
-      $(".profilePost").attr("class", "Post");
+        $(".profilePost").attr("class", "Post");
         this.RouteChange("feed");
       })
       .catch((err) => alert(err.message));
@@ -385,7 +385,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
         <Loader loading={this.state.loading} />
         {this.state.route === "home" ? (
           <Login fun={this} />
@@ -393,7 +392,7 @@ class App extends Component {
           <UploadDP fun={this} />
         ) : (
           <div>
-          <IoMdArrowRoundBack className="back" onClick={()=>this.back()}/>
+            <IoMdArrowRoundBack className="back" onClick={() => this.back()} />
             <Search search={this.search} profileImg={this.state.user.path} />
             <Menu route={this.RouteChange} fun={this} />
             {this.state.route === "viewProfile" ? (
@@ -413,8 +412,8 @@ class App extends Component {
                 <CommentList fun={this} comments={this.state.post.comments} />
               </div>
             ) : this.state.route === "friends" ? (
-            <div className="friendsList">
-              <FriendsList users={this.state.users} />
+              <div className="friendsList">
+                <FriendsList users={this.state.users} />
               </div>
             ) : this.state.route === "usersList" ? (
               <UsersList
