@@ -416,11 +416,13 @@ class App extends Component {
                 <FriendsList users={this.state.users} />
               </div>
             ) : this.state.route === "usersList" ? (
+            <div className="usersList">
               <UsersList
                 userID={this.state.user.id}
                 users={this.state.users}
                 fun={this}
               />
+              </div>
             ) : this.state.route === "feed" ? (
               <div className="PostList">
                 <PostList

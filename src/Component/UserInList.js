@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import "../stylesheet/User.css";
 class UserInList extends Component {
 	constructor(props) {
 		super(props);
@@ -55,8 +56,9 @@ class UserInList extends Component {
 			status = "Accept Request";
 		else status = "Request";
 		return (
-			<div>
+			<div className="User">
 				<span
+				className="user-name"
 					onClick={() =>
 						this.props.fun.viewProfile(this.props.user.id)
 					}

@@ -1,0 +1,18 @@
+.User
+{
+	padding: 1rem 0.3rem 0.3rem 0.3rem;
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.usersList
+{
+	    margin: 0rem 2.3rem;
+    display: flex;
+    flex-direction: column;
+    background: #edf7e2;
+    width: 87vw;
+    margin-top: -0.4rem;
+    padding-top: 1rem;
+}
