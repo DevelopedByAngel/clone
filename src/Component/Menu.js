@@ -33,9 +33,9 @@ const Menu = (props) => {
 		<svg>
 		<defs>
     <linearGradient id="grad1" x1="0%" y1="80%" x2="100%" y2="0%">
-      <stop offset="0%" style={{"stop-color":"#28A7EA","stop-opacity":"1"}}/>
-      <stop offset="30%" style={{"stop-color":"#006CBB","stop-opacity":"1"}} />
-      <stop offset="100%" style={{"stop-color":"#034698","stop-opacity":"1"}} />
+      <stop offset="0%" style={{"stopColor":"#28A7EA","stopOpacity":"1"}}/>
+      <stop offset="30%" style={{"stopColor":"#006CBB","stopOpacity":"1"}} />
+      <stop offset="100%" style={{"stopColor":"#034698","stopOpacity":"1"}} />
     </linearGradient>
   </defs>
 		</svg>

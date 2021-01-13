@@ -70,14 +70,15 @@
 	width: 80%;
 	padding-left: 1rem;
 	font-size: 0.9rem;
+	overflow-wrap: anywhere;
 	line-height: 1.5rem;
+	white-space: pre-line;
 }
 .Post .details-inner {
 	font-weight: bold;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 10px;
 	background: #dcedc8;
 	margin-top: -1vw;
 	margin-right: auto;

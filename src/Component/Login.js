@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Signup from "./Signup.js";
 import $ from "jquery";
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 import "../stylesheet/Login.css";
 import { HiOutlineKey } from "react-icons/hi";
@@ -34,7 +34,7 @@ class Login extends Component {
 	};
 	ch() {
 		$("ellipse").css({ opacity: "100%" });
-		if ($(".login-div").css("display") == "flex") {
+		if ($(".login-div").css("display") === "flex") {
 			$("ellipse").css({
 				transform: " rotateZ(180deg)",
 			});
@@ -82,7 +82,7 @@ class Login extends Component {
 							}, 2500);
 						}}
 					>
-						<img className="first-img" src={logo} />
+						<img className="first-img" src={logo} alt="" title="Agro Pro's"/>
 					</div>
 					<div className="overlay">
 						<svg className="circlesvg" height="40vh" width="100%">
@@ -97,15 +97,15 @@ class Login extends Component {
 									<stop
 										offset="0%"
 										style={{
-											"stop-color": "rgb(58,156,126)",
-											"stop-opacity": "1",
+											"stopColor": "rgb(58,156,126)",
+											"stopOpacity": "1",
 										}}
 									/>
 									<stop
 										offset="100%"
 										style={{
-											"stop-color": "rgb(176,241,0)",
-											"stop-opacity": "1",
+											"stopColor": "rgb(176,241,0)",
+											"stopOpacity": "1",
 										}}
 									/>
 								</linearGradient>
@@ -185,10 +185,10 @@ class Login extends Component {
 										type="text"
 										id="email"
 										placeholder="   "
-										required="true"
+										required={true}
 										name="id"
 										pattern="^[a-zA-Z0-9._]+$"
-										spellcheck="false"
+										spellCheck="false"
 										onChange={(e) => this.emailchange(e)}
 									></input>
 									<label
@@ -211,7 +211,7 @@ class Login extends Component {
 										className="input-field"
 										type="password"
 										placeholder="  "
-										required="true"
+										required={true}
 										id="password"
 										name="password"
 										onChange={(e) => this.passwordChange(e)}
@@ -233,9 +233,9 @@ class Login extends Component {
 								<button
 									className="login-button submit"
 									type="submit"
-									required="true"
+									required={true}
 									value="Login"
-									id="submit"
+									id="login-button"
 								>
 									<span
 										className="inner-text"
@@ -263,7 +263,7 @@ class Login extends Component {
 								className="signup-button submit"
 								type="submit"
 								value="Sign up"
-								id="submit"
+								id="login-submit"
 								onClick={() => this.ch()}
 							>
 								Sign Up

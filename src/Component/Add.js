@@ -10,7 +10,8 @@ class Add extends Component {
 		};
 	}
 	handleCaptions = (caption) => {
-		this.setState({ caption: caption.target.value });
+		this.setState({ caption: caption.target.value.replaceAll("\n","~") });
+		console.log(this.state.caption);
 	};
 	handleFile(file) {
 		this.setState({ file: file.target });
@@ -31,6 +32,8 @@ class Add extends Component {
 			.then((res) => res.json())
 			.then((r) => {
 				console.log(r.path);
+				$('.Add .input-caption').attr('value', "")
+				this.props.fun.feeds();
 				// this.props.fun.RouteChange("profile");
 			});
 	}
@@ -43,13 +46,14 @@ class Add extends Component {
 						id="form"
 						onSubmit={(e) => this.submitted(e)}
 					>
-						<input
+						<textarea 
 							type="text"
 							className="input-caption"
 							onChange={(e) => this.handleCaptions(e)}
 						
 							placeholder="Enter about your post"
-						/>
+						>
+						</textarea>
 						<input
 
 							type="file"

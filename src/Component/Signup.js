@@ -56,10 +56,11 @@ class Signup extends Component {
 								<input
 									className="input-field"
 									type="text"
-									required="true"
+									required={true}
 									placeholder="   "
 									name="id"
 									pattern="^[a-zA-Z0-9_.]+$"
+									spellCheck="false"
 									onChange={(e) => this.idchange(e)}
 									title="ID contains only alphabet, numbers, underscore(_) and dot(.)"
 								></input>
@@ -81,7 +82,7 @@ class Signup extends Component {
 								<input
 									className="input-field"
 									placeholder="   "
-									required="true"
+									required={true}
 									type="email"
 									name="email"
 									onChange={(e) => this.emailchange(e)}
@@ -104,7 +105,7 @@ class Signup extends Component {
 								<input
 									className="input-field"
 									placeholder="   "
-									required="true"
+									required={true}
 									type="password"
 									name="password"
 									onChange={(e) => this.passwordchange(e)}
@@ -127,7 +128,7 @@ class Signup extends Component {
 								<input
 									className="input-field"
 									pattern={"^" + this.state.password}
-									required="true"
+									required={true}
 									placeholder="   "
 									type="password"
 									name="password"
@@ -150,7 +151,7 @@ class Signup extends Component {
 								className="signup-button submit"
 								type="submit"
 								value="Sign Up"
-								id="submit"
+								id="signup-button"
 							>
 								<span className="inner-text" id="signup-text">
 									Sign Up
@@ -173,7 +174,7 @@ class Signup extends Component {
 						</span>
 						<button
 							className="login-button submit"
-							type="submit"
+							type="signup-submit"
 							value="Sign up"
 							id="submit"
 							onClick={() => this.props.ch()}
