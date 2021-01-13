@@ -32,7 +32,10 @@ class Add extends Component {
 			.then((res) => res.json())
 			.then((r) => {
 				console.log(r.path);
-				$('.Add .input-caption').attr('value', "")
+				document.querySelector('.Add').querySelector('.input-caption').value="";
+				document.querySelector('.Add').querySelector('.post-img').value=null;
+				$('.Menu .add-button-before').css('background','#fcffec')
+				$('.Add').css({'height':'0vh','background':'rgba(0,0,0,0)'})
 				this.props.fun.feeds();
 				// this.props.fun.RouteChange("profile");
 			});

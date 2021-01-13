@@ -113,7 +113,6 @@ class Comment extends Component {
 		return (
 			<div
 				className="Comment"
-				style={{	paddingBottom: "10vh"}}
 				id={this.props.postno}
 				onClick={() => {
 					$(".replies").css("display", "none");
