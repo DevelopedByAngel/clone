@@ -12,10 +12,11 @@
 	    margin: 0rem 2.3rem;
     display: flex;
     flex-direction: column;
-    
+
     background: #edf7e2;
     width: 87vw;
     margin-top: -0.4rem;
+    
     padding-top: 1rem;
 }
 
