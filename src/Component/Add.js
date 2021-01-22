@@ -10,7 +10,7 @@ class Add extends Component {
 		};
 	}
 	handleCaptions = (caption) => {
-		this.setState({ caption: caption.target.value.replaceAll("\n","~") });
+		this.setState({ caption: caption.target.value.replaceAll("\n"," ~ ") });
 		console.log(this.state.caption);
 	};
 	handleFile(file) {
