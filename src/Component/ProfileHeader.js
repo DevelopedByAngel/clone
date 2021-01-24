@@ -76,11 +76,15 @@ const ProfileHeader = (props) => {
 				{
 					$(".expand").css("display","none");
 					$(".shrink").css("display","block");
+					$(".PostList").attr("class", "PostList");
+					$(".Post").attr("class", "Post");
 				}}/>
 				<RiGridFill className="shrink" onClick={()=>
 					{
 						$(".shrink").css("display","none");
 						$(".expand").css("display","block");
+						$(".PostList").attr("class", "PostList profilePostList");
+						$(".Post").attr("class", "Post profilePost");
 					}}/>
 					</div>
 		</div>
