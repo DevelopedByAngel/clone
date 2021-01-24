@@ -36,8 +36,8 @@ class App extends Component {
         profileImg: "https://developedbyangel.github.io/SAS/logo.PNG",
       },
       post: {},
+      prevState:{}
     };
-    this.prevState = {};
   }
   onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
@@ -296,7 +296,7 @@ class App extends Component {
   };
   RouteChange = (route) => {
     this.loading(false);
-    this.prevState = this.state;
+    this.setState({prevState:this.state});
     console.log("routing to " + route);
     this.setState({ route: route });
   };
@@ -371,7 +371,7 @@ class App extends Component {
     console.log(this.state);
   }
   back() {
-    this.setState(this.prevState);
+    this.setState(this.state.prevState);
   }
   loading(check) {
     if (check) {
