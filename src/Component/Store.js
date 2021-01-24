@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/Menu.css";
 import {BsDropletFill} from "react-icons/bs"
+setInterval(function()
+{
+
+},250)
 const Store = (props) => {
 	return (
 		<div className="Store">
@@ -13,16 +17,8 @@ const Store = (props) => {
 			<div className="drop">
 			<BsDropletFill/>
 			</div>
-			<svg className="drop-svg" id="svg">
-			<path d="M0 0 L10 10 L50 10 Z"/>
-			</svg>
-			<svg height="100vh" width="100vw">
-    <defs>
-        <clipPath id="svgPath">
-            <path fill="#FFFFFF" stroke="#000000" stroke-width="1.5794" stroke-miterlimit="10" d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 01-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 005.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0010 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
-        </clipPath>
-    </defs>
-</svg>
+			<svg style={{"transition":"all 0.25s linear"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,160C384,139,480,85,576,85.3C672,85,768,139,864,138.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+			
 		</div>
 	);
 };

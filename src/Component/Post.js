@@ -68,6 +68,12 @@ class Post extends Component {
 		$("html,body").animate({
 			scrollTop: $("#" + id).offset().top - 150,
 		});
+		console.log(this.props.fun.state.route)
+		if(this.props.fun.state.route === "profile")
+		{
+			$(".PostList").attr("class", "PostList");
+			$(".Post").attr("class", "Post");
+		}
 	}
 	componentDidMount() {
 		if (this.props.likes.includes(this.props.fun.state.user.id)) {
