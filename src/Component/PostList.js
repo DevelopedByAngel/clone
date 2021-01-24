@@ -3,7 +3,7 @@ import Post from "./Post.js";
 import $ from "jquery";
 class PostList extends Component {
 	componentDidMount() {
-		if (this.props.fun.state.route === "profile") {
+		if (this.props.fun.state.route === "profile" || this.props.fun.state.route === "viewProfile") {
 			$(".PostList").attr("class", "PostList profilePostList");
 			$(".Post").attr("class", "Post profilePost");
 		} else {
