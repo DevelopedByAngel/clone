@@ -65,15 +65,21 @@ class Post extends Component {
 		return li.join(" ");
 	}
 	FocusPost(id) {
-		$("html,body").animate({
-			scrollTop: $("#" + id).offset().top - 150,
-		});
+		
 		console.log(this.props.fun.state.route)
 		if(this.props.fun.state.route === "profile" || this.props.fun.state.route === "viewProfile")
 		{
 			$(".PostList").attr("class", "PostList");
 			$(".Post").attr("class", "Post");
+			$(".expand").css("display","none");
+					$(".shrink").css("display","block");
 		}
+		setTimeout(() => {
+			$("html,body").animate({
+			scrollTop: $("#" + id).offset().top - 150,
+		});
+		},250)
+		
 	}
 	componentDidMount() {
 		if (this.props.likes.includes(this.props.fun.state.user.id)) {
