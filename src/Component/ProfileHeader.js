@@ -71,7 +71,8 @@ const ProfileHeader = (props) => {
 				</div>
 				<div className="self">{add}</div>
 			</div>
-			<AiOutlinePicLeft className="stretch" onClick={()=>
+			<div className="swap">
+			<AiOutlinePicLeft className="expand" onClick={()=>
 				{
 					$(".expand").css("display","none");
 					$(".shrink").css("display","block");
@@ -81,6 +82,7 @@ const ProfileHeader = (props) => {
 						$(".shrink").css("display","none");
 						$(".expand").css("display","block");
 					}}/>
+					</div>
 		</div>
 	);
 };

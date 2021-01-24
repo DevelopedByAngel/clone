@@ -77,3 +77,18 @@
 	font-size: 0.9rem;
 	font-weight: bolder;
 }
+.ProfileHeader .swap
+{
+	    display: flex;
+    justify-content: flex-end;
+    width: 95vw;
+}
+.ProfileHeader .swap svg
+{
+	width:1.5rem;
+	height:1.5rem;
+}
+.ProfileHeader .shrink
+{
+	display: none;
+}
