@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/ProfileHeader.css";
+import {AiOutlinePicLeft} from "react-icons/ai"
+import {RiGridFill} from "react-icons/ri"
 const ProfileHeader = (props) => {
 	const { user, fun } = props;
 	var add = [];
@@ -69,6 +71,16 @@ const ProfileHeader = (props) => {
 				</div>
 				<div className="self">{add}</div>
 			</div>
+			<AiOutlinePicLeft className="stretch" onClick={()=>
+				{
+					$(".expand").css("display","none");
+					$(".shrink").css("display","block");
+				}}/>
+				<RiGridFill className="shrink" onClick={()=>
+					{
+						$(".shrink").css("display","none");
+						$(".expand").css("display","block");
+					}}/>
 		</div>
 	);
 };
