@@ -69,7 +69,7 @@ class Post extends Component {
 			scrollTop: $("#" + id).offset().top - 150,
 		});
 		console.log(this.props.fun.state.route)
-		if(this.props.fun.state.route === "profile")
+		if(this.props.fun.state.route === "profile" || this.props.fun.state.route === "viewProfile")
 		{
 			$(".PostList").attr("class", "PostList");
 			$(".Post").attr("class", "Post");
