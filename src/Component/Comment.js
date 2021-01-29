@@ -108,6 +108,7 @@ class Comment extends Component {
 					</div>
 					<br />
 				</form>
+
 				
 			);
 		}
