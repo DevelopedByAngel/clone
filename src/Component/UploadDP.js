@@ -10,10 +10,22 @@ class UploadDP extends Component {
 			caption: "",
 			preview:
 				"https://sites.nicholas.duke.edu/clarklab/files/2011/01/default_profile-d80441a6f25a9a0aac354978c65c8fa9.jpg",
+			address: "",
+			city: "",
+			mobile: "",
 		};
 	}
 	handlePreview() {
 		$(".input-file").click();
+	}
+	handleAddress(address) {
+		this.setState({ address: address.target.value });
+	}
+	handleCity(city) {
+		this.setState({ city: city.target.value });
+	}
+	handleMobile(mobile) {
+		this.setState({ mobile: mobile.target.value });
 	}
 	handleFile(file) {
 		file.preventDefault();
@@ -24,7 +36,7 @@ class UploadDP extends Component {
 			};
 			reader.readAsDataURL(file.target.files[0]);
 		}
-		console.log(file)
+		console.log(file);
 		this.setState({ file: file.target });
 		console.log(this.state.file);
 	}
@@ -41,6 +53,9 @@ class UploadDP extends Component {
 			headers: new Headers({
 				id: this.props.fun.state.user._id,
 				userID: this.props.fun.state.user.id,
+				address: this.props.fun.state.address,
+				city: this.props.fun.state.city,
+				mobile: this.props.fun.state.mobile,
 			}),
 		})
 			.then((res) => res.json())
@@ -76,11 +91,35 @@ class UploadDP extends Component {
 						single="true"
 						onChange={(e) => this.handleFile(e)}
 					/>
-					<input type="submit" />
+					<span className="span">
+						<label className="label">Address</label>
+						<textarea
+							name="address"
+							className="address"
+							onChange={(e) => this.handleAddress(e)}
+						></textarea>
+					</span>
+					<span className="span">
+						<label className="label">City</label>
+						<input
+							name="text"
+							className="city"
+							onChange={(e) => this.handleCity(e)}
+						/>
+					</span>
+					<span className="span">
+						<label className="label">Mobile</label>
+						<input
+							type="tel"
+							className="mobile"
+							onChange={(e) => this.handleMobile(e)}
+						/>
+					</span>
+					<span className="submit-dp">
+						<input type="submit" className="dp-submit" />
+					</span>
 				</form>
-				<div className="upload" onClick={() => this.handleUpload()}>
-					<BsUpload size="20vw" />
-				</div>
+
 				<div className="user-details">
 					<span className="id">{this.props.fun.state.user.id}</span>
 				</div>

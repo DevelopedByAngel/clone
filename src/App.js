@@ -443,8 +443,9 @@ class App extends Component {
       <div className="App">
         <Loader loading={this.state.loading} />
         {this.state.route === "home" ? (
-          <Login fun={this} />
-        ) : this.state.route === "uploadDP" ? (
+          <UploadDP fun={this} />
+        ) : // <Login fun={this} />
+        this.state.route === "uploadDP" ? (
           <UploadDP fun={this} />
         ) : (
           <div>

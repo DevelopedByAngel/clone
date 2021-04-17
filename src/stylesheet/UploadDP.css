@@ -1,6 +1,68 @@
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
-.UploadDP .DPform {
+.UploadDP {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.UploadDP .input-file {
 	display: none;
+}
+.UploadDP .DPform {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 2rem;
+	width: 90vw;
+	justify-content: center;
+}
+.UploadDP input,
+.UploadDP textarea {
+	background: none;
+	height: 1.5rem;
+	width: 90vw;
+	border-radius: 0.1rem;
+	border: none;
+	outline: none;
+	border-bottom: 0.1rem solid rgb(58, 156, 126);
+	color: rgb(58, 156, 126);
+	font-size: 1rem;
+	font-family: "Bitter", serif;
+	margin-bottom: 1rem;
+}
+.UploadDP textarea {
+	height: 2.5rem;
+}
+.UploadDP .submit-dp {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.UploadDP .dp-submit {
+	background: rgb(146 219 34);
+	outline: none;
+	height: 3rem;
+	width: 8rem;
+	margin: 0.5rem;
+	border: none;
+	font-size: 1.5rem;
+	border-radius: 0.25rem;
+	color: rgb(252 255 236);
+	box-shadow: inset 0px -4px 5px green;
+}
+.UploadDP .span {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 0.5rem 0 0.5rem 0;
+}
+.UploadDP .label {
+	font-size: 1.3rem;
+	color: #3a9c7e;
+	cursor: text;
+	transition: all 0.1s linear;
 }
 .UploadDP .preview {
 	width: 90vw;
