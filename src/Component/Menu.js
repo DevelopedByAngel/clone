@@ -30,15 +30,30 @@ const Menu = (props) => {
 	};
 	return (
 		<div className="Menu">
-		<svg>
-		<defs>
-    <linearGradient id="grad1" x1="0%" y1="80%" x2="100%" y2="0%">
-      <stop offset="0%" style={{"stopColor":"#28A7EA","stopOpacity":"1"}}/>
-      <stop offset="30%" style={{"stopColor":"#006CBB","stopOpacity":"1"}} />
-      <stop offset="100%" style={{"stopColor":"#034698","stopOpacity":"1"}} />
-    </linearGradient>
-  </defs>
-		</svg>
+			<svg>
+				<defs>
+					<linearGradient
+						id="grad1"
+						x1="0%"
+						y1="80%"
+						x2="100%"
+						y2="0%"
+					>
+						<stop
+							offset="0%"
+							style={{ stopColor: "#28A7EA", stopOpacity: "1" }}
+						/>
+						<stop
+							offset="30%"
+							style={{ stopColor: "#006CBB", stopOpacity: "1" }}
+						/>
+						<stop
+							offset="100%"
+							style={{ stopColor: "#034698", stopOpacity: "1" }}
+						/>
+					</linearGradient>
+				</defs>
+			</svg>
 			<div className="menu-div">
 				<div className="feed-button menuButton">
 					<AiFillAppstore
@@ -50,25 +65,37 @@ const Menu = (props) => {
 				<div className="store-button menuButton">
 					<MdLocalGroceryStore
 						onClick={() => {
+							fun.product("");
 							route("store");
 						}}
 					/>
 				</div>
 				<div className="add-button">
-					<IoAddCircle onClick={() =>
-					{ 
-						console.log("ok")
-						if($('.Add').css('height')==='0px')
-						{
-							$('.add-button-before').css('background','black')
-						$('.Add').css({'height':'100vh','background':'rgba(0,0,0,0.5)'})
-					}
-					else
-					{	$('.Menu .add-button-before').css('background','#fcffec')
-						$('.Add').css({'height':'0vh','background':'rgba(0,0,0,0)'})
-			}
-				}}/>
-				<span className="add-button-before"></span>
+					<IoAddCircle
+						onClick={() => {
+							console.log("ok");
+							if ($(".Add").css("height") === "0px") {
+								$(".add-button-before").css(
+									"background",
+									"black"
+								);
+								$(".Add").css({
+									height: "100vh",
+									background: "rgba(0,0,0,0.5)",
+								});
+							} else {
+								$(".Menu .add-button-before").css(
+									"background",
+									"#fcffec"
+								);
+								$(".Add").css({
+									height: "0vh",
+									background: "rgba(0,0,0,0)",
+								});
+							}
+						}}
+					/>
+					<span className="add-button-before"></span>
 				</div>
 				<div className="profile-button menuButton">
 					<BsPersonFill
@@ -127,10 +154,10 @@ const Menu = (props) => {
 					className="nav-link Store"
 					onClick={() => {
 						ok();
-						route("store");
+						route("tips");
 					}}
 				>
-					Store
+					Tips
 				</p>
 			</div>
 		</div>

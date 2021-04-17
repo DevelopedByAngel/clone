@@ -1,0 +1,187 @@
+.Product .product-img {
+	width: 100%;
+}
+.Product .product {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.Product {
+	background: rgba(255, 255, 255, 1);
+	border-bottom-left-radius: 10vw;
+	border-top-right-radius: 10vw;
+	overflow: hidden;
+	box-shadow: inset 5px 5px 10px 0px rgba(255, 255, 255, 0.5),
+		inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5);
+	transition: all 0.25s linear;
+	margin-bottom: 3vw;
+	margin-top: 10vw;
+	width: 90vw;
+	box-shadow: -5px 7px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.Product .product-name-div {
+	position: absolute;
+	left: 0px;
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+}
+.Product .blur-product-name {
+	padding: 0.5rem;
+	background: rgba(255, 255, 255, 0.5);
+	border: 0px solid transparent;
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	border-bottom-right-radius: 1rem;
+	filter: blur(1px);
+	color: transparent;
+}
+.Product .product-name {
+	position: absolute;
+	padding: 0.5rem;
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	border-bottom-right-radius: 1rem;
+	text-shadow: 0 0 0px white, 0 0 3px white, 0 0 5px white, 0 0px 10px white;
+	font-weight: bolder;
+}
+.Product .details {
+	width: 100%;
+	background: white;
+	border-top: 1vw solid white;
+	transition: all 0.25s linear;
+	display: flex;
+	justify-content: flex-start;
+}
+.ProductList {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 0rem 0rem 4rem 0rem;
+}
+.Product [class^="desc"] {
+	width: 80%;
+	padding-left: 1rem;
+	font-size: 0.9rem;
+	overflow-wrap: anywhere;
+	line-height: 1.5rem;
+	white-space: pre-line;
+}
+.Product .details-inner {
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: #dcedc8;
+	margin-top: -1vw;
+	margin-right: auto;
+	margin-bottom: 0px;
+}
+.Product .details-inner span:first-child {
+	position: relative;
+}
+.Product .details-inner .number {
+	color: rgb(58, 156, 126);
+	font-weight: bold;
+}
+.Product .like,
+.Product .comment {
+	font-style: italic;
+}
+.Product .liked-svg {
+	fill: green;
+}
+.Product .details-inner > span {
+	margin: 0.5rem;
+	display: flex;
+	align-items: center;
+}
+.Product .details-inner > span > svg {
+	height: 1.25rem;
+	width: 1.25rem;
+	margin-right: 0.25rem;
+}
+
+.profilePost {
+	border-radius: 0px;
+	box-shadow: unset;
+	width: calc(97vw / 3);
+	margin: 0.5vw;
+}
+.profilePost .user-name-div {
+	display: none;
+}
+.profilePost .details {
+	display: none;
+}
+.profilePostList {
+	flex-direction: row;
+	width: 100vw;
+	flex-wrap: wrap;
+	border-top: 1px solid black;
+	justify-content: center;
+}
+.profilePost .post-img {
+	width: auto;
+	height: calc(100vw / 3);
+}
+
+.Product .like-svg {
+	height: 0.75rem;
+	width: 0.75rem;
+	filter: drop-shadow(0px 0px 2px black);
+}
+.Product .like-svg > path {
+	fill: #fdfddf;
+}
+.Product .liked-svg {
+	position: absolute;
+	display: none;
+	filter: drop-shadow(0px 0px 5px red);
+}
+.Product .liked-svg > path {
+	fill: red;
+}
+.Product .desc {
+	width: 80%;
+	padding-left: 1rem;
+	font-size: 0.9rem;
+	overflow-wrap: anywhere;
+	line-height: 1.5rem;
+	margin-bottom: 1.5rem;
+	white-space: pre-line;
+}
+.Product .user-name {
+	width: 90%;
+	font-size: 2rem;
+	color: green;
+	text-decoration: overline;
+}
+.Product .date {
+	width: 90%;
+	font-size: 1rem;
+	color: grey;
+	margin-bottom: 1.2rem;
+}
+.Product .price,
+.Product .qty {
+	width: 90%;
+	font-size: 1.1rem;
+	letter-spacing: 0.15rem;
+}
+.Product .btn {
+	width: 90%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	margin: 0.5rem 0.2rem 2rem 0.2rem;
+}
+.Product button {
+	background: rgb(58, 156, 126);
+	margin: 0.2rem;
+	font-size: 1.2rem;
+	color: white;
+}

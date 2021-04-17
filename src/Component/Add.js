@@ -10,7 +10,9 @@ class Add extends Component {
 		};
 	}
 	handleCaptions = (caption) => {
-		this.setState({ caption: caption.target.value.replaceAll("\n"," ~ ") });
+		this.setState({
+			caption: caption.target.value.replaceAll("\n", " ~ "),
+		});
 		console.log(this.state.caption);
 	};
 	handleFile(file) {
@@ -25,6 +27,7 @@ class Add extends Component {
 			method: "POST",
 			body: formData,
 			headers: {
+				id: this.props.fun.state.user._id,
 				user: this.props.fun.state.user.id,
 				caption: this.state.caption,
 			},
@@ -32,10 +35,14 @@ class Add extends Component {
 			.then((res) => res.json())
 			.then((r) => {
 				console.log(r.path);
-				document.querySelector('.Add').querySelector('.input-caption').value="";
-				document.querySelector('.Add').querySelector('.post-img').value=null;
-				$('.Menu .add-button-before').css('background','#fcffec')
-				$('.Add').css({'height':'0vh','background':'rgba(0,0,0,0)'})
+				document
+					.querySelector(".Add")
+					.querySelector(".input-caption").value = "";
+				document
+					.querySelector(".Add")
+					.querySelector(".post-img").value = null;
+				$(".Menu .add-button-before").css("background", "#fcffec");
+				$(".Add").css({ height: "0vh", background: "rgba(0,0,0,0)" });
 				this.props.fun.feeds();
 				// this.props.fun.RouteChange("profile");
 			});
@@ -49,16 +56,13 @@ class Add extends Component {
 						id="form"
 						onSubmit={(e) => this.submitted(e)}
 					>
-						<textarea 
+						<textarea
 							type="text"
 							className="input-caption"
 							onChange={(e) => this.handleCaptions(e)}
-						
 							placeholder="Enter about your post"
-						>
-						</textarea>
+						></textarea>
 						<input
-
 							type="file"
 							className="post-img"
 							accept="image/*"
@@ -66,14 +70,12 @@ class Add extends Component {
 							single="true"
 							onChange={(e) => this.handleFile(e)}
 						/>
-						
+
 						<input type="submit" className="post-submit" />
 					</form>
-
 				</div>
 			</div>
 		);
 	}
 }
 export default Add;
-

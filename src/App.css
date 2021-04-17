@@ -1,8 +1,12 @@
 .back {
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  fill: #7ebf9e;
-  top: 1rem;
-  left: 0rem;
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	fill: #7ebf9e;
+	top: 1rem;
+	left: 0rem;
+}
+.ProductList {
+	display: flex;
+	justify-content: center;
 }

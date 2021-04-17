@@ -14,6 +14,13 @@ import Store from "./Component/Store.js";
 import Settings from "./Component/Settings.js";
 import UsersList from "./Component/UsersList.js";
 import FriendsList from "./Component/FriendsList.js";
+import Productlist from "./Component/ProductList.js";
+import AddProduct from "./Component/AddProduct.js";
+import Buy from "./Component/Buy.js";
+import EditProduct from "./Component/EditProduct.js";
+import AddReview from "./Component/AddReview.js";
+import ReviewList from "./Component/ReviewList.js";
+import Tips from "./Component/Tips.js";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import "./App.css";
 import $ from "jquery";
@@ -30,13 +37,15 @@ class App extends Component {
         profileImg: "https://developedbyangel.github.io/SAS/logo.PNG",
       },
       postList: [],
+      productList: [],
       users: [],
       viewProfile: {
         name: "",
         profileImg: "https://developedbyangel.github.io/SAS/logo.PNG",
       },
       post: {},
-      prevState:{}
+      product: {},
+      prevState: {},
     };
   }
   onlyUnique(value, index, self) {
@@ -176,6 +185,22 @@ class App extends Component {
       })
       .catch((err) => alert(err.message));
   };
+  product = (product) => {
+    this.loading(true);
+    fetch("http://localhost:3000/product/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        search: product,
+      }),
+    })
+      .then((res) => res.json())
+      .then((r) => {
+        console.log(r);
+        this.setState({ productList: r });
+      })
+      .catch((err) => alert(err.message));
+  };
   feeds = () => {
     this.loading(true);
     console.log("feed", this.state.user);
@@ -250,6 +275,34 @@ class App extends Component {
       })
       .catch((err) => alert(err.message));
   };
+  review = (cmt) => {
+    fetch("http://localhost:3000/review", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: this.state.product._id,
+        userID: this.state.user.id,
+        cmt: cmt,
+      }),
+    })
+      .then((res) => res.json())
+      .then((r) => {
+        if (r) {
+          var postList = this.state.productList;
+          postList.map((post) => {
+            var p = post;
+            if (post._id === this.state.product._id) {
+              p.comments.push(r);
+            }
+            return p;
+          });
+          this.setState({ productList: postList });
+          $(".input-comment").val("");
+          $(".Addcomment .svg").css({ "animation-name": "o" });
+        }
+      })
+      .catch((err) => alert(err.message));
+  };
   reply = (cmtID, reply) => {
     fetch("http://localhost:3000/reply", {
       method: "POST",
@@ -296,7 +349,7 @@ class App extends Component {
   };
   RouteChange = (route) => {
     this.loading(false);
-    this.setState({prevState:this.state});
+    this.setState({ prevState: this.state });
     console.log("routing to " + route);
     this.setState({ route: route });
   };
@@ -370,6 +423,9 @@ class App extends Component {
     this.setState({ post: post });
     console.log(this.state);
   }
+  updateProduct(product) {
+    this.setState({ product: product });
+  }
   back() {
     this.setState(this.state.prevState);
   }
@@ -416,12 +472,12 @@ class App extends Component {
                 <FriendsList users={this.state.users} />
               </div>
             ) : this.state.route === "usersList" ? (
-            <div className="usersList">
-              <UsersList
-                userID={this.state.user.id}
-                users={this.state.users}
-                fun={this}
-              />
+              <div className="usersList">
+                <UsersList
+                  userID={this.state.user.id}
+                  users={this.state.users}
+                  fun={this}
+                />
               </div>
             ) : this.state.route === "feed" ? (
               <div className="PostList">
@@ -444,8 +500,21 @@ class App extends Component {
               </div>
             ) : this.state.route === "settings" ? (
               <Settings />
+            ) : this.state.route === "store" ? (
+              <div>
+                <div className="ProductList">
+                  <Productlist fun={this} list={this.state.productList} />
+                </div>
+                <AddProduct fun={this} />
+                <EditProduct fun={this} product={this.state.product} />
+              </div>
+            ) : this.state.route === "review" ? (
+              <div>
+                <AddReview fun={this} />
+                <ReviewList fun={this} reviews={this.state.product.comments} />
+              </div>
             ) : (
-              <Store />
+              <Tips />
             )}
             <Add fun={this} />
           </div>
