@@ -17,10 +17,13 @@ class Product extends Component {
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
 					id: this.props.product._id,
+					user: this.props.fun.state.user.id,
 					desc: this.props.product.desc,
 					name: this.props.product.name,
 					price: this.props.product.price,
 					qty: this.props.product.qty - qty,
+					qtyBought: qty,
+					isBuy: true,
 				}),
 			})
 				.then((res) => res.json())
@@ -30,6 +33,20 @@ class Product extends Component {
 					this.props.fun.RouteChange("review");
 				});
 		}
+	}
+	view() {
+		fetch("http://localhost:3000/getBuyers", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				id: this.props.product._id,
+			}),
+		})
+			.then((res) => res.json())
+			.then((r) => {
+				this.props.fun.updateUsers(r);
+				this.props.fun.RouteChange("friends");
+			});
 	}
 	edit() {
 		this.props.fun.updateProduct(this.props.product);
@@ -51,6 +68,15 @@ class Product extends Component {
 					onClick={() => this.edit()}
 				>
 					Edit
+				</button>
+			);
+			edit.push(
+				<button
+					type="button"
+					className="edit-product"
+					onClick={() => this.view()}
+				>
+					View Buyers
 				</button>
 			);
 		} else {
@@ -87,7 +113,7 @@ class Product extends Component {
 					<div className="date">
 						{this.props.product.date[0]}-
 						{this.props.product.date[1]}-
-						{this.props.product.date[2]}
+						{this.props.product.date[2] - 100}
 					</div>
 					<div className="price">
 						Price: {"  "}

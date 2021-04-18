@@ -10,3 +10,24 @@
 	display: flex;
 	justify-content: center;
 }
+.Screen {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgb(252 255 236);
+	width: 100vw;
+	height: 100vh;
+	z-index: 5;
+}
+.filter-form {
+	width: 96vw;
+	display: flex;
+	justify-content: flex-end;
+	padding: 2vw;
+}
+@media (min-width: 700px) {
+	.Screen {
+		display: block;
+	}
+}

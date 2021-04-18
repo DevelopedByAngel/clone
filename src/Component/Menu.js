@@ -154,6 +154,7 @@ const Menu = (props) => {
 					className="nav-link Store"
 					onClick={() => {
 						ok();
+						fun.getDoubts();
 						route("tips");
 					}}
 				>

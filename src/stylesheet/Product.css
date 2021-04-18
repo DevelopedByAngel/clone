@@ -181,7 +181,13 @@
 }
 .Product button {
 	background: rgb(58, 156, 126);
-	margin: 0.2rem;
-	font-size: 1.2rem;
-	color: white;
+	outline: none;
+	height: 2.5rem;
+	width: 8rem;
+	margin: 0.5rem;
+	border: none;
+	font-size: 1.5rem;
+	border-radius: 0.25rem;
+	color: rgb(252 255 236);
+	box-shadow: inset 0px -4px 5px green;
 }

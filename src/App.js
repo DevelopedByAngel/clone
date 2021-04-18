@@ -21,6 +21,8 @@ import EditProduct from "./Component/EditProduct.js";
 import AddReview from "./Component/AddReview.js";
 import ReviewList from "./Component/ReviewList.js";
 import Tips from "./Component/Tips.js";
+import DoubtList from "./Component/DoubtList.js";
+import AddDoubt from "./Component/AddDoubt.js";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import "./App.css";
 import $ from "jquery";
@@ -46,6 +48,7 @@ class App extends Component {
       post: {},
       product: {},
       prevState: {},
+      doubtList: [],
     };
   }
   onlyUnique(value, index, self) {
@@ -197,6 +200,7 @@ class App extends Component {
       .then((res) => res.json())
       .then((r) => {
         console.log(r);
+        this.loading(false);
         this.setState({ productList: r });
       })
       .catch((err) => alert(err.message));
@@ -394,6 +398,55 @@ class App extends Component {
       })
       .catch((err) => alert(err.message));
   }
+  postDoubt(doubt) {
+    fetch("http://localhost:3000/doubt", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: this.state.user.id,
+        doubt: doubt,
+      }),
+    })
+      .then((res) => res.json())
+      .then((r) => {
+        var doubtList = this.state.doubtList;
+        doubtList.push(r);
+        this.setState({ doubtList: doubtList });
+        this.RouteChange("tips");
+      });
+  }
+  postAnswer(id, answer) {
+    fetch("http://localhost:3000/answer", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: this.state.user.id,
+        doubtID: id,
+        ans: answer,
+      }),
+    })
+      .then((res) => res.json())
+      .then((r) => {
+        var doubt = this.state.doubtList;
+        doubt.map((d) => {
+          var p = d;
+          if (d._id === id) {
+            p.answers.push(r);
+          }
+          return p;
+        });
+        this.setState({ doubtList: doubt });
+        $(".input-reply").val("");
+      });
+  }
+  getDoubts() {
+    fetch("http://localhost:3000/getdoubt", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((r) => this.setState({ doubtList: r }));
+  }
   getUser = () => {
     this.loading(true);
     console.log("going to view your profile");
@@ -441,11 +494,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="Screen">View on smaller(mobile) screen. </div>
         <Loader loading={this.state.loading} />
         {this.state.route === "home" ? (
-          <UploadDP fun={this} />
-        ) : // <Login fun={this} />
-        this.state.route === "uploadDP" ? (
+          <Login fun={this} />
+        ) : this.state.route === "uploadDP" ? (
           <UploadDP fun={this} />
         ) : (
           <div>
@@ -503,6 +556,18 @@ class App extends Component {
               <Settings />
             ) : this.state.route === "store" ? (
               <div>
+                <form
+                  className="filter-form"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    this.product(
+                      document.getElementsByClassName("filter-query")[0].value
+                    );
+                  }}
+                >
+                  Filter:{"  "}
+                  <input type="text" className="filter-query" />
+                </form>
                 <div className="ProductList">
                   <Productlist fun={this} list={this.state.productList} />
                 </div>
@@ -515,7 +580,11 @@ class App extends Component {
                 <ReviewList fun={this} reviews={this.state.product.comments} />
               </div>
             ) : (
-              <Tips />
+              <div>
+                <Tips fun={this} />
+                <DoubtList fun={this} doubts={this.state.doubtList} />
+                <AddDoubt fun={this} />
+              </div>
             )}
             <Add fun={this} />
           </div>

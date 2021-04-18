@@ -33,10 +33,13 @@ class EditProduct extends Component {
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({
 				id: this.props.product._id,
+				user: this.props.fun.state.user.id,
 				name: this.state.name,
 				desc: this.state.desc,
 				price: this.state.price,
 				qty: this.state.qty,
+				qtyBought: 0,
+				isBuy: false,
 			}),
 		})
 			.then((res) => res.json())

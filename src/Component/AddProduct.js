@@ -66,7 +66,7 @@ class AddProduct extends Component {
 					.querySelector(".AddProduct")
 					.querySelector(".product-img").value = null;
 				this.props.fun.product("");
-				this.props.fun.RouteChange("buy");
+				this.props.fun.RouteChange("store");
 			});
 	}
 	render() {
@@ -81,33 +81,33 @@ class AddProduct extends Component {
 						<label>Name</label>
 						<input
 							type="text"
-							className="product-name"
+							className="product-input product-name"
 							onChange={(e) => this.handleName(e)}
 						/>
 						<label>Description</label>
 						<textarea
 							type="text"
-							className="input-desc"
+							className="product-input input-desc"
 							onChange={(e) => this.handleDesc(e)}
 							placeholder="Enter about your product"
 						></textarea>
-						<label>price</label>
+						<label>Price(per unit)</label>
 						<input
 							type="number"
 							min="0"
-							className="price"
+							className="product-input price"
 							onChange={(e) => this.handlePrice(e)}
 						/>
-						<label>Quantity</label>
+						<label>Quantity(units)</label>
 						<input
 							type="number"
 							min="0"
-							className="qty"
+							className="product-input  qty"
 							onChange={(e) => this.handleQty(e)}
 						/>
 						<input
 							type="file"
-							className="product-img"
+							className="product-input product-img"
 							accept="image/*"
 							name="myFile"
 							single="true"

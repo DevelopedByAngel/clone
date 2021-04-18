@@ -10,6 +10,7 @@
 	align-items: center;
 	flex-direction: column;
 	background: rgba(0, 0, 0, 0.6);
+	color: white;
 }
 .AddProduct {
 	padding-top: 0.2rem;
@@ -18,25 +19,52 @@
 	width: 100vw;
 	justify-content: center;
 	align-items: center;
+	border-top: 8px double rgba(0, 0, 0, 0.3);
+	padding-top: 2rem;
 	flex-direction: column;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(255, 255, 255, 0.5);
+}
+.AddProduct label {
+	color: #3a9c7e;
+	margin: 0.5rem;
+	margin-top: 1rem;
 }
 .EditProduct form,
 .AddProduct form {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	color: white;
 }
 .EditProduct input,
 .EditProduct textarea,
-.AddProduct textarea,
-.AddProduct input {
+.product-input {
 	margin: 0.2rem 0.2rem 1rem 0.2rem;
 	width: 60vw;
 }
+
+.product-input {
+	background: none;
+	height: 1.5rem;
+	width: 90vw;
+	border-radius: 0.1rem;
+	border: none;
+	outline: none;
+	border-bottom: 0.1rem solid rgb(58, 156, 126);
+	color: rgb(58, 156, 126);
+	font-size: 1rem;
+	font-family: "Bitter", serif;
+	margin-bottom: 1rem;
+}
 .product-submit {
-	color: white;
-	width: 30vw;
-	background: rgb(58, 156, 126);
+	background: rgb(146 219 34);
+	outline: none;
+	height: 3rem;
+	width: 8rem;
+	margin: 1.5rem;
+	border: none;
+	font-size: 1.5rem;
+	border-radius: 0.25rem;
+	color: rgb(252 255 236);
+	align-self: center;
+	box-shadow: inset 0px -4px 5px green;
 }
