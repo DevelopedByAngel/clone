@@ -68,6 +68,7 @@ class UploadDP extends Component {
 			.catch((err) => alert(err.message));
 	}
 	render() {
+		console.log(this.props.fun.state);
 		return (
 			<div className="UploadDP " id={this.props.uid}>
 				<div className="preview">
