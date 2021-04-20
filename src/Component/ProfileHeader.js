@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/ProfileHeader.css";
-import {AiOutlinePicLeft} from "react-icons/ai"
-import {RiGridFill} from "react-icons/ri"
+import { AiOutlinePicLeft } from "react-icons/ai";
+import { RiGridFill } from "react-icons/ri";
 const ProfileHeader = (props) => {
 	const { user, fun } = props;
 	var add = [];
 	var img;
 	if (user.path) {
-		img = "http://localhost:3000/" + user.path;
+		img = "https://agroprosapi.herokuapp.com/" + user.path;
 	} else {
 		img = "https://i.postimg.cc/t4LMTMx4/blue-user-head-png-18-1.png";
 	}
@@ -72,21 +72,28 @@ const ProfileHeader = (props) => {
 				<div className="self">{add}</div>
 			</div>
 			<div className="swap">
-			<AiOutlinePicLeft className="expand" onClick={()=>
-				{
-					$(".expand").css("display","none");
-					$(".shrink").css("display","block");
-					$(".PostList").attr("class", "PostList");
-					$(".Post").attr("class", "Post");
-				}}/>
-				<RiGridFill className="shrink" onClick={()=>
-					{
-						$(".shrink").css("display","none");
-						$(".expand").css("display","block");
-						$(".PostList").attr("class", "PostList profilePostList");
+				<AiOutlinePicLeft
+					className="expand"
+					onClick={() => {
+						$(".expand").css("display", "none");
+						$(".shrink").css("display", "block");
+						$(".PostList").attr("class", "PostList");
+						$(".Post").attr("class", "Post");
+					}}
+				/>
+				<RiGridFill
+					className="shrink"
+					onClick={() => {
+						$(".shrink").css("display", "none");
+						$(".expand").css("display", "block");
+						$(".PostList").attr(
+							"class",
+							"PostList profilePostList"
+						);
 						$(".Post").attr("class", "Post profilePost");
-					}}/>
-					</div>
+					}}
+				/>
+			</div>
 		</div>
 	);
 };

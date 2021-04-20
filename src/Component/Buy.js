@@ -15,7 +15,7 @@ class Buy extends Component {
 		e.preventDefault();
 		console.log("posting");
 
-		fetch("http://localhost:3000/editProduct", {
+		fetch("https://agroprosapi.herokuapp.com/editProduct", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({

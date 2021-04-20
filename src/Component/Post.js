@@ -65,21 +65,21 @@ class Post extends Component {
 		return li.join(" ");
 	}
 	FocusPost(id) {
-		
-		console.log(this.props.fun.state.route)
-		if(this.props.fun.state.route === "profile" || this.props.fun.state.route === "viewProfile")
-		{
+		console.log(this.props.fun.state.route);
+		if (
+			this.props.fun.state.route === "profile" ||
+			this.props.fun.state.route === "viewProfile"
+		) {
 			$(".PostList").attr("class", "PostList");
 			$(".Post").attr("class", "Post");
-			$(".expand").css("display","none");
-					$(".shrink").css("display","block");
+			$(".expand").css("display", "none");
+			$(".shrink").css("display", "block");
 		}
 		setTimeout(() => {
 			$("html,body").animate({
-			scrollTop: $("#" + id).offset().top - 150,
-		});
-		},250)
-		
+				scrollTop: $("#" + id).offset().top - 150,
+			});
+		}, 250);
 	}
 	componentDidMount() {
 		if (this.props.likes.includes(this.props.fun.state.user.id)) {
@@ -107,7 +107,10 @@ class Post extends Component {
 					<img
 						className="post-img"
 						alt=""
-						src={"http://localhost:3000/" + this.props.path}
+						src={
+							"https://agroprosapi.herokuapp.com/" +
+							this.props.path
+						}
 						onClick={() => this.FocusPost(this.props.postno)}
 					/>
 					<div className="details">

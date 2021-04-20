@@ -96,7 +96,7 @@ class App extends Component {
   };
   hashtags = (hashtag) => {
     this.loading(true);
-    fetch("http://localhost:3000/hashtags/" + hashtag, {
+    fetch("https://agroprosapi.herokuapp.com/hashtags/" + hashtag, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -108,7 +108,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   request = (requestName) => {
-    fetch("http://localhost:3000/request", {
+    fetch("https://agroprosapi.herokuapp.com/request", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -128,7 +128,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   acceptRequest = (requestName) => {
-    fetch("http://localhost:3000/acceptRequest", {
+    fetch("https://agroprosapi.herokuapp.com/acceptRequest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -149,7 +149,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   cancelRequest = (requestName) => {
-    fetch("http://localhost:3000/cancelRequest", {
+    fetch("https://agroprosapi.herokuapp.com/cancelRequest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -169,7 +169,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   Unfriend = (friendName) => {
-    fetch("http://localhost:3000/Unfriend", {
+    fetch("https://agroprosapi.herokuapp.com/Unfriend", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -190,7 +190,7 @@ class App extends Component {
   };
   product = (product) => {
     this.loading(true);
-    fetch("http://localhost:3000/product/", {
+    fetch("https://agroprosapi.herokuapp.com/product/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -208,7 +208,7 @@ class App extends Component {
   feeds = () => {
     this.loading(true);
     console.log("feed", this.state.user);
-    fetch("http://localhost:3000/feeds/" + this.state.user._id, {
+    fetch("https://agroprosapi.herokuapp.com/feeds/" + this.state.user._id, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -222,7 +222,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   like = (postID) => {
-    fetch("http://localhost:3000/like", {
+    fetch("https://agroprosapi.herokuapp.com/like", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -237,7 +237,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   share = (postID) => {
-    fetch("http://localhost:3000/share", {
+    fetch("https://agroprosapi.herokuapp.com/share", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -252,7 +252,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   comment = (cmt) => {
-    fetch("http://localhost:3000/comment", {
+    fetch("https://agroprosapi.herokuapp.com/comment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -280,7 +280,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   review = (cmt) => {
-    fetch("http://localhost:3000/review", {
+    fetch("https://agroprosapi.herokuapp.com/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -308,7 +308,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   reply = (cmtID, reply) => {
-    fetch("http://localhost:3000/reply", {
+    fetch("https://agroprosapi.herokuapp.com/reply", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -336,7 +336,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   likeComment = (cmtID) => {
-    fetch("http://localhost:3000/likeComment", {
+    fetch("https://agroprosapi.herokuapp.com/likeComment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -363,7 +363,7 @@ class App extends Component {
     if (q[0] === "#") {
       this.hashtags(q.slice(1));
     } else {
-      fetch("http://localhost:3000/search/" + q, {
+      fetch("https://agroprosapi.herokuapp.com/search/" + q, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       })
@@ -381,7 +381,7 @@ class App extends Component {
   viewProfile(user) {
     this.loading(true);
     console.log("going to view profile");
-    fetch("http://localhost:3000/getUser", {
+    fetch("https://agroprosapi.herokuapp.com/getUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -399,7 +399,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   }
   postDoubt(doubt) {
-    fetch("http://localhost:3000/doubt", {
+    fetch("https://agroprosapi.herokuapp.com/doubt", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -416,7 +416,7 @@ class App extends Component {
       });
   }
   postAnswer(id, answer) {
-    fetch("http://localhost:3000/answer", {
+    fetch("https://agroprosapi.herokuapp.com/answer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -440,7 +440,7 @@ class App extends Component {
       });
   }
   getDoubts() {
-    fetch("http://localhost:3000/getdoubt", {
+    fetch("https://agroprosapi.herokuapp.com/getdoubt", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -450,7 +450,7 @@ class App extends Component {
   getUser = () => {
     this.loading(true);
     console.log("going to view your profile");
-    fetch("http://localhost:3000/getUser", {
+    fetch("https://agroprosapi.herokuapp.com/getUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

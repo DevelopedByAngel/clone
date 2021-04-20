@@ -12,7 +12,7 @@ class Product extends Component {
 		if (qty == undefined) {
 			console.log("none");
 		} else {
-			fetch("http://localhost:3000/editProduct", {
+			fetch("https://agroprosapi.herokuapp.com/editProduct", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -35,7 +35,7 @@ class Product extends Component {
 		}
 	}
 	view() {
-		fetch("http://localhost:3000/getBuyers", {
+		fetch("https://agroprosapi.herokuapp.com/getBuyers", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({
@@ -104,7 +104,10 @@ class Product extends Component {
 					<img
 						className="product-img"
 						alt=""
-						src={"http://localhost:3000/" + this.props.product.path}
+						src={
+							"https://agroprosapi.herokuapp.com/" +
+							this.props.product.path
+						}
 					/>
 					<div className="details">
 						<p className="desc">{this.props.product.desc}</p>

@@ -23,7 +23,7 @@ class Add extends Component {
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
 		console.log("posting");
-		fetch("http://localhost:3000/upload", {
+		fetch("https://agroprosapi.herokuapp.com/upload", {
 			method: "POST",
 			body: formData,
 			headers: {

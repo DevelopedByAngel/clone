@@ -28,7 +28,7 @@ class EditProduct extends Component {
 	submitted(e) {
 		e.preventDefault();
 		console.log("editing");
-		fetch("http://localhost:3000/editProduct", {
+		fetch("https://agroprosapi.herokuapp.com/editProduct", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({

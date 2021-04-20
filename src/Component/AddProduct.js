@@ -35,7 +35,7 @@ class AddProduct extends Component {
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
 		console.log("posting");
-		fetch("http://localhost:3000/uploadProduct", {
+		fetch("https://agroprosapi.herokuapp.com/uploadProduct", {
 			method: "POST",
 			body: formData,
 			headers: {

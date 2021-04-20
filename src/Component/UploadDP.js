@@ -47,7 +47,7 @@ class UploadDP extends Component {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
-		fetch("http://localhost:3000/uploadDP", {
+		fetch("https://agroprosapi.herokuapp.com/uploadDP", {
 			method: "POST",
 			body: formData,
 			headers: new Headers({

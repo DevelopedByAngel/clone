@@ -11,7 +11,7 @@ const Search = (props) => {
 			<div className="profile">
 				<img
 					className="dp image"
-					src={"http://localhost:3000/" + profileImg}
+					src={"https://agroprosapi.herokuapp.com/" + profileImg}
 				/>
 			</div>
 			<div className="search">
