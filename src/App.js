@@ -56,7 +56,7 @@ class App extends Component {
   }
   login = (id, password) => {
     console.log("log");
-    fetch("http://localhost:3000/login", {
+    fetch("https://agroprosapi.herokuapp.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -77,7 +77,7 @@ class App extends Component {
   };
   signup = (id, email, password) => {
     console.log("signup");
-    fetch("http://localhost:3000/signup", {
+    fetch("https://agroprosapi.herokuapp.com/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
