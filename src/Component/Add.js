@@ -11,7 +11,7 @@ class Add extends Component {
 	}
 	handleCaptions = (caption) => {
 		this.setState({
-			caption: caption.target.value.replaceAll("\n", " ~ "),
+			caption: caption.target.value,
 		});
 		console.log(this.state.caption);
 	};
