@@ -1,9 +1,6 @@
 import { React, Component } from "react";
 import "../stylesheet/Tips.css";
 class Tips extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		return (
 			<div className="tips-div">

@@ -1,17 +1,17 @@
 import React from "react";
-import $ from "jquery";
 import "../stylesheet/Search.css";
 import { ImSearch } from "react-icons/im";
 
 const Search = (props) => {
-	const { search, profileImg } = props;
+	const { search, profileImg, fun } = props;
 	var query = "";
 	return (
 		<div className="Search">
 			<div className="profile">
 				<img
 					className="dp image"
-					src={"https://agroprosapi.herokuapp.com/" + profileImg}
+					alt="profile picture"
+					src={fun.state.api + "/" + profileImg}
 				/>
 			</div>
 			<div className="search">

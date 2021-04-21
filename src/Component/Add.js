@@ -22,15 +22,16 @@ class Add extends Component {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
+		var additionalInfo = {
+			id: this.props.fun.state.user._id,
+			user: this.props.fun.state.user.id,
+			caption: this.state.caption,
+		};
+		formData.append("data", JSON.stringify(additionalInfo));
 		console.log("posting");
-		fetch("https://agroprosapi.herokuapp.com/upload", {
+		fetch(this.props.fun.state.api + "/upload", {
 			method: "POST",
 			body: formData,
-			headers: {
-				id: this.props.fun.state.user._id,
-				user: this.props.fun.state.user.id,
-				caption: this.state.caption,
-			},
 		})
 			.then((res) => res.json())
 			.then((r) => {

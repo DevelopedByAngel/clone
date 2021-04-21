@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import "../stylesheet/AddProduct.css";
 class Buy extends Component {
 	constructor(props) {
@@ -15,7 +14,7 @@ class Buy extends Component {
 		e.preventDefault();
 		console.log("posting");
 
-		fetch("https://agroprosapi.herokuapp.com/editProduct", {
+		fetch(this.props.fun.state.api + "/editProduct", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({

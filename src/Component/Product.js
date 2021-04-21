@@ -9,10 +9,10 @@ class Product extends Component {
 	buy() {
 		this.props.fun.updateProduct(this.props.product);
 		var qty = prompt("Quantity:");
-		if (qty == undefined) {
+		if (qty === undefined) {
 			console.log("none");
 		} else {
-			fetch("https://agroprosapi.herokuapp.com/editProduct", {
+			fetch(this.props.fun.state.api + "/editProduct", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -35,7 +35,7 @@ class Product extends Component {
 		}
 	}
 	view() {
-		fetch("https://agroprosapi.herokuapp.com/getBuyers", {
+		fetch(this.props.fun.state.api + "/getBuyers", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({
@@ -105,7 +105,8 @@ class Product extends Component {
 						className="product-img"
 						alt=""
 						src={
-							"https://agroprosapi.herokuapp.com/" +
+							this.props.fun.state.api +
+							"/" +
 							this.props.product.path
 						}
 					/>

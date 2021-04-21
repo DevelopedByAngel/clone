@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Loader from "./Component/Loader.js";
-import Signup from "./Component/Signup.js";
 import Login from "./Component/Login.js";
 import UploadDP from "./Component/UploadDP.js";
 import PostList from "./Component/PostList.js";
@@ -10,13 +9,11 @@ import CommentList from "./Component/CommentList.js";
 import Menu from "./Component/Menu.js";
 import Search from "./Component/Search.js";
 import ProfileHeader from "./Component/ProfileHeader.js";
-import Store from "./Component/Store.js";
 import Settings from "./Component/Settings.js";
 import UsersList from "./Component/UsersList.js";
 import FriendsList from "./Component/FriendsList.js";
 import Productlist from "./Component/ProductList.js";
 import AddProduct from "./Component/AddProduct.js";
-import Buy from "./Component/Buy.js";
 import EditProduct from "./Component/EditProduct.js";
 import AddReview from "./Component/AddReview.js";
 import ReviewList from "./Component/ReviewList.js";
@@ -32,6 +29,8 @@ class App extends Component {
     super(props);
 
     this.state = {
+      // api: "https://agroprosapi.herokuapp.com",
+      api: "http://localhost:5000",
       route: "home",
       loading: false,
       user: {
@@ -56,7 +55,7 @@ class App extends Component {
   }
   login = (id, password) => {
     console.log("log");
-    fetch("https://agroprosapi.herokuapp.com/login", {
+    fetch(this.state.api + "/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -77,7 +76,7 @@ class App extends Component {
   };
   signup = (id, email, password) => {
     console.log("signup");
-    fetch("https://agroprosapi.herokuapp.com/signup", {
+    fetch(this.state.api + "/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -88,15 +87,18 @@ class App extends Component {
     })
       .then((res) => res.json())
       .then((r) => {
-        this.setState({ user: r.user });
-        this.setState({ postList: r.post });
-        this.RouteChange("uploadDP");
-      })
-      .catch((err) => alert(err.message));
+        if (r.error) {
+          alert(r.error);
+        } else {
+          this.setState({ user: r.user });
+          this.setState({ postList: r.post });
+          this.RouteChange("uploadDP");
+        }
+      });
   };
   hashtags = (hashtag) => {
     this.loading(true);
-    fetch("https://agroprosapi.herokuapp.com/hashtags/" + hashtag, {
+    fetch(this.state.api + "/hashtags/" + hashtag, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -108,7 +110,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   request = (requestName) => {
-    fetch("https://agroprosapi.herokuapp.com/request", {
+    fetch(this.state.api + "/request", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -128,7 +130,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   acceptRequest = (requestName) => {
-    fetch("https://agroprosapi.herokuapp.com/acceptRequest", {
+    fetch(this.state.api + "/acceptRequest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -149,7 +151,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   cancelRequest = (requestName) => {
-    fetch("https://agroprosapi.herokuapp.com/cancelRequest", {
+    fetch(this.state.api + "/cancelRequest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -169,7 +171,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   Unfriend = (friendName) => {
-    fetch("https://agroprosapi.herokuapp.com/Unfriend", {
+    fetch(this.state.api + "/Unfriend", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -190,7 +192,7 @@ class App extends Component {
   };
   product = (product) => {
     this.loading(true);
-    fetch("https://agroprosapi.herokuapp.com/product/", {
+    fetch(this.state.api + "/product/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -208,7 +210,7 @@ class App extends Component {
   feeds = () => {
     this.loading(true);
     console.log("feed", this.state.user);
-    fetch("https://agroprosapi.herokuapp.com/feeds/" + this.state.user._id, {
+    fetch(this.state.api + "/feeds/" + this.state.user._id, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -222,7 +224,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   like = (postID) => {
-    fetch("https://agroprosapi.herokuapp.com/like", {
+    fetch(this.state.api + "/like", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -237,7 +239,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   share = (postID) => {
-    fetch("https://agroprosapi.herokuapp.com/share", {
+    fetch(this.state.api + "/share", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -252,7 +254,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   comment = (cmt) => {
-    fetch("https://agroprosapi.herokuapp.com/comment", {
+    fetch(this.state.api + "/comment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -280,7 +282,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   review = (cmt) => {
-    fetch("https://agroprosapi.herokuapp.com/review", {
+    fetch(this.state.api + "/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -308,7 +310,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   reply = (cmtID, reply) => {
-    fetch("https://agroprosapi.herokuapp.com/reply", {
+    fetch(this.state.api + "/reply", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -336,7 +338,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   };
   likeComment = (cmtID) => {
-    fetch("https://agroprosapi.herokuapp.com/likeComment", {
+    fetch(this.state.api + "/likeComment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -363,7 +365,7 @@ class App extends Component {
     if (q[0] === "#") {
       this.hashtags(q.slice(1));
     } else {
-      fetch("https://agroprosapi.herokuapp.com/search/" + q, {
+      fetch(this.state.api + "/search/" + q, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       })
@@ -381,7 +383,7 @@ class App extends Component {
   viewProfile(user) {
     this.loading(true);
     console.log("going to view profile");
-    fetch("https://agroprosapi.herokuapp.com/getUser", {
+    fetch(this.state.api + "/getUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -399,7 +401,7 @@ class App extends Component {
       .catch((err) => alert(err.message));
   }
   postDoubt(doubt) {
-    fetch("https://agroprosapi.herokuapp.com/doubt", {
+    fetch(this.state.api + "/doubt", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -416,7 +418,7 @@ class App extends Component {
       });
   }
   postAnswer(id, answer) {
-    fetch("https://agroprosapi.herokuapp.com/answer", {
+    fetch(this.state.api + "/answer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -440,7 +442,7 @@ class App extends Component {
       });
   }
   getDoubts() {
-    fetch("https://agroprosapi.herokuapp.com/getdoubt", {
+    fetch(this.state.api + "/getdoubt", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -450,7 +452,7 @@ class App extends Component {
   getUser = () => {
     this.loading(true);
     console.log("going to view your profile");
-    fetch("https://agroprosapi.herokuapp.com/getUser", {
+    fetch(this.state.api + "/getUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -504,7 +506,11 @@ class App extends Component {
         ) : (
           <div>
             <IoMdArrowRoundBack className="back" onClick={() => this.back()} />
-            <Search search={this.search} profileImg={this.state.user.path} />
+            <Search
+              search={this.search}
+              profileImg={this.state.user.path}
+              fun={this}
+            />
             <Menu route={this.RouteChange} fun={this} />
             {this.state.route === "viewProfile" ? (
               <div>

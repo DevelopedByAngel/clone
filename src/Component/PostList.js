@@ -3,7 +3,10 @@ import Post from "./Post.js";
 import $ from "jquery";
 class PostList extends Component {
 	componentDidMount() {
-		if (this.props.fun.state.route === "profile" || this.props.fun.state.route === "viewProfile") {
+		if (
+			this.props.fun.state.route === "profile" ||
+			this.props.fun.state.route === "viewProfile"
+		) {
 			$(".PostList").attr("class", "PostList profilePostList");
 			$(".Post").attr("class", "Post profilePost");
 		} else {
@@ -38,7 +41,7 @@ class PostList extends Component {
 					user={d.user}
 					postno={d._id}
 					uid={this.props.user.id}
-					caption={caption.replaceAll("~","\n")}
+					caption={caption}
 					like={d.likes.filter(this.props.fun.onlyUnique).length}
 					likes={d.likes}
 					comment={d.comments.length}

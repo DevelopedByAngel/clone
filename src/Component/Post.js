@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/Post.css";
-import { RiLeafLine } from "react-icons/ri";
-import { RiLeafFill } from "react-icons/ri";
 import { BiCommentEdit } from "react-icons/bi";
 import { HiShare } from "react-icons/hi";
 import { FcLike } from "react-icons/fc";
@@ -107,10 +105,7 @@ class Post extends Component {
 					<img
 						className="post-img"
 						alt=""
-						src={
-							"https://agroprosapi.herokuapp.com/" +
-							this.props.path
-						}
+						src={this.props.fun.state.api + "/" + this.props.path}
 						onClick={() => this.FocusPost(this.props.postno)}
 					/>
 					<div className="details">

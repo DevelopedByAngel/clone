@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import "../stylesheet/AddProduct.css";
 class AddProduct extends Component {
 	constructor(props) {
@@ -34,18 +33,19 @@ class AddProduct extends Component {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
+		const additionalInfo = {
+			id: this.props.fun.state.user._id,
+			user: this.props.fun.state.user.id,
+			name: this.state.name,
+			desc: this.state.desc,
+			price: this.state.price,
+			qty: this.state.qty,
+		};
+		formData.append("data", JSON.stringify(additionalInfo));
 		console.log("posting");
-		fetch("https://agroprosapi.herokuapp.com/uploadProduct", {
+		fetch(this.props.fun.state.api + "/uploadProduct", {
 			method: "POST",
 			body: formData,
-			headers: {
-				id: this.props.fun.state.user._id,
-				user: this.props.fun.state.user.id,
-				name: this.state.name,
-				desc: this.state.desc,
-				price: this.state.price,
-				qty: this.state.qty,
-			},
 		})
 			.then((res) => res.json())
 			.then((r) => {

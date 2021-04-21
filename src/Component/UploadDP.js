@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/UploadDP.css";
-import { BsUpload } from "react-icons/bs";
 class UploadDP extends Component {
 	constructor(props) {
 		super(props);
@@ -47,16 +46,18 @@ class UploadDP extends Component {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("imgUploader", this.state.file.files[0]);
-		fetch("https://agroprosapi.herokuapp.com/uploadDP", {
+		const additionalInfo = {
+			id: this.props.fun.state.user._id,
+			address: this.state.address,
+			userid: this.props.fun.state.user.id,
+			city: this.state.city,
+			mobile: this.state.mobile,
+		};
+		console.log(additionalInfo);
+		formData.append("data", JSON.stringify(additionalInfo));
+		fetch(this.props.fun.state.api + "/uploadDP", {
 			method: "POST",
 			body: formData,
-			headers: new Headers({
-				id: this.props.fun.state.user._id,
-				userID: this.props.fun.state.user.id,
-				address: this.props.fun.state.address,
-				city: this.props.fun.state.city,
-				mobile: this.props.fun.state.mobile,
-			}),
 		})
 			.then((res) => res.json())
 			.then((r) => {

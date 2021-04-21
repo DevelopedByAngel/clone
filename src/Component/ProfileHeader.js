@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import $ from "jquery";
 import "../stylesheet/ProfileHeader.css";
 import { AiOutlinePicLeft } from "react-icons/ai";
@@ -8,7 +8,7 @@ const ProfileHeader = (props) => {
 	var add = [];
 	var img;
 	if (user.path) {
-		img = "https://agroprosapi.herokuapp.com/" + user.path;
+		img = fun.state.api + "/" + user.path;
 	} else {
 		img = "https://i.postimg.cc/t4LMTMx4/blue-user-head-png-18-1.png";
 	}
@@ -51,7 +51,7 @@ const ProfileHeader = (props) => {
 			>
 				<div className="profile-circle">
 					<div className="profile-mask">
-						<img src={img} />
+						<img src={img} alt="profile " />
 					</div>
 				</div>
 			</div>

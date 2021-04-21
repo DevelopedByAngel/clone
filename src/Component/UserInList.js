@@ -10,19 +10,19 @@ class UserInList extends Component {
 		};
 	}
 	click(status) {
-		if (status == "Request") {
+		if (status === "Request") {
 			this.props.fun.request(this.props.user.id);
 			$(".status" + this.props.user.id).text("⚠️ ");
-		} else if (status == "Accept Request") {
+		} else if (status === "Accept Request") {
 			this.props.fun.acceptRequest(this.props.user.id);
 			$(".status" + this.props.user.id).text("⚠️ ");
-		} else if (status == "Unfriend") {
+		} else if (status === "Unfriend") {
 			var a = window.confirm("remove from friends");
 			if (a) {
 				this.props.fun.Unfriend(this.props.user.id);
 				$(".status" + this.props.user.id).text("⚠️ ");
 			}
-		} else if (status == "Request Pending") {
+		} else if (status === "Request Pending") {
 			this.props.fun.cancelRequest(this.props.user.id);
 			$(".status" + this.props.user.id).text("⚠️ ");
 		} else {
@@ -31,7 +31,7 @@ class UserInList extends Component {
 	}
 	componentDidMount() {}
 	componentDidUpdate(prevProps) {
-		if (prevProps.user != this.props.user) this.setState({ ok: "ok" });
+		if (prevProps.user !== this.props.user) this.setState({ ok: "ok" });
 	}
 	render() {
 		var status = "";
@@ -58,7 +58,7 @@ class UserInList extends Component {
 		return (
 			<div className="User">
 				<span
-				className="user-name"
+					className="user-name"
 					onClick={() =>
 						this.props.fun.viewProfile(this.props.user.id)
 					}
