@@ -38,7 +38,7 @@ class PostList extends Component {
 					user={d.user}
 					postno={d._id}
 					uid={this.props.user.id}
-					caption={caption.replaceAll("~","\n")}
+					caption={caption}
 					like={d.likes.filter(this.props.fun.onlyUnique).length}
 					likes={d.likes}
 					comment={d.comments.length}
