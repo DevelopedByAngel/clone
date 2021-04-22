@@ -29,8 +29,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      // api: "https://agroprosapi.herokuapp.com",
-      api: "http://localhost:5000",
+      api: "https://agroprosapi.herokuapp.com",
+      // api: "http://localhost:5000",
       route: "home",
       loading: false,
       user: {
