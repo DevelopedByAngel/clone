@@ -37,6 +37,7 @@ class PostList extends Component {
 					fun={this.props.fun}
 					post={d}
 					path={d.path}
+					img={d.img}
 					key={d._id}
 					user={d.user}
 					postno={d._id}

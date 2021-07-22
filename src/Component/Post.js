@@ -105,7 +105,7 @@ class Post extends Component {
 					<img
 						className="post-img"
 						alt=""
-						src={this.props.fun.state.api + "/" + this.props.path}
+						src={"data:image/"+this.props.img.contentType+";base64,"+this.props.img.data.toString('base64')}
 						onClick={() => this.FocusPost(this.props.postno)}
 					/>
 					<div className="details">

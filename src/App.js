@@ -48,8 +48,10 @@ class App extends Component {
       product: {},
       prevState: {},
       doubtList: [],
+      test:""
     };
   }
+
   onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
@@ -65,13 +67,23 @@ class App extends Component {
     })
       .then((res) => res.json())
       .then((r) => {
-        if (r.error) {
+        fetch("http://localhost:5000/new")
+          .then(res=> res.json())
+          .then((rd) =>
+            {
+              console.log(rd.img);
+              this.setState({test:rd.img})
+              if (r.error) {
           alert(r.error);
         } else {
           this.setState({ user: r.user });
           this.setState({ postList: r.post });
           this.RouteChange("profile");
-        }
+
+            }
+          console.log('oo')
+        
+        })
       });
   };
   signup = (id, email, password) => {
@@ -499,7 +511,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="Screen">View on smaller(mobile) screen. </div>
+        <div className="Screen">View on smaller(mobile) screen.
+         </div>
         <Loader loading={this.state.loading} />
         {this.state.route === "home" ? (
           <Login fun={this} />
@@ -516,6 +529,7 @@ class App extends Component {
             <Menu route={this.RouteChange} fun={this} />
             {this.state.route === "viewProfile" ? (
               <div>
+
                 <ProfileHeader user={this.state.viewProfile} fun={this} />
                 <div className="PostList profilePostList">
                   <PostList
@@ -552,6 +566,7 @@ class App extends Component {
               </div>
             ) : this.state.route === "profile" ? (
               <div>
+              <img src={"data:image/"+this.state.test.img.contentType+";base64,"+this.state.test.img.data.toString('base64')} id="test"/>
                 <ProfileHeader user={this.state.user} fun={this} />
                 <div className="PostList profilePostList">
                   <PostList

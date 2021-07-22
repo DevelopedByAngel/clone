@@ -29,7 +29,12 @@ class Add extends Component {
 		};
 		formData.append("data", JSON.stringify(additionalInfo));
 		console.log("posting");
-		fetch(this.props.fun.state.api + "/upload", {
+		// fetch("http://localhost:5000/new",{
+		// 	method:"POST",
+		// 	headers:{id:this.props.fun.state.user.id},
+		// 	body:formData,
+		// });
+		fetch("http://localhost:5000" + "/upload", {
 			method: "POST",
 			body: formData,
 		})
