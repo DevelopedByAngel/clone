@@ -45,6 +45,7 @@ class AddProduct extends Component {
 		console.log("posting");
 		fetch(this.props.fun.state.api + "/uploadProduct", {
 			method: "POST",
+			mode: "no-cors",
 			body: formData,
 		})
 			.then((res) => res.json())

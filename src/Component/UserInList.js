@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import "../stylesheet/User.css";
+import {FiLoader} from "react-icons/fi";
 class UserInList extends Component {
 	constructor(props) {
 		super(props);
@@ -12,7 +13,7 @@ class UserInList extends Component {
 	click(status) {
 		if (status === "Request") {
 			this.props.fun.request(this.props.user.id);
-			$(".status" + this.props.user.id).text("⚠️ ");
+			$(".status" + this.props.user.id).html("<FiLoader/> ");
 		} else if (status === "Accept Request") {
 			this.props.fun.acceptRequest(this.props.user.id);
 			$(".status" + this.props.user.id).text("⚠️ ");

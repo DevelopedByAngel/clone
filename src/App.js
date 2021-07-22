@@ -78,7 +78,10 @@ class App extends Component {
     console.log("signup");
     fetch(this.state.api + "/signup", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
         id: id,
         email: email,
@@ -124,7 +127,7 @@ class App extends Component {
         var state = this.state.user;
         state.pending.push(requestName);
         this.setState({ user: state });
-        $(".status" + requestName).text("Request Pending");
+        $(".status" + requestName).html("Request Pending");
         return r;
       })
       .catch((err) => alert(err.message));
@@ -494,7 +497,6 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <div className="Screen">View on smaller(mobile) screen. </div>
