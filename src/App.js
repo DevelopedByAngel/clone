@@ -57,6 +57,7 @@ class App extends Component {
   login = (id, password) => {
     console.log("log");
     fetch(this.state.api + "/login", {
+      mode: 'no-cors',
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
