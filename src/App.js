@@ -48,7 +48,6 @@ class App extends Component {
       product: {},
       prevState: {},
       doubtList: [],
-      test:""
     };
   }
 
@@ -67,12 +66,7 @@ class App extends Component {
     })
       .then((res) => res.json())
       .then((r) => {
-        fetch("http://localhost:5000/new")
-          .then(res=> res.json())
-          .then((rd) =>
-            {
-              console.log(rd.img);
-              this.setState({test:rd.img})
+        
               if (r.error) {
           alert(r.error);
         } else {
@@ -81,9 +75,7 @@ class App extends Component {
           this.RouteChange("profile");
 
             }
-          console.log('oo')
         
-        })
       });
   };
   signup = (id, email, password) => {
@@ -523,7 +515,7 @@ class App extends Component {
             <IoMdArrowRoundBack className="back" onClick={() => this.back()} />
             <Search
               search={this.search}
-              profileImg={this.state.user.path}
+              profileImg={this.state.user.img}
               fun={this}
             />
             <Menu route={this.RouteChange} fun={this} />
@@ -566,7 +558,6 @@ class App extends Component {
               </div>
             ) : this.state.route === "profile" ? (
               <div>
-              <img src={"data:image/"+this.state.test.img.contentType+";base64,"+this.state.test.img.data.toString('base64')} id="test"/>
                 <ProfileHeader user={this.state.user} fun={this} />
                 <div className="PostList profilePostList">
                   <PostList

@@ -104,12 +104,9 @@ class Product extends Component {
 					<img
 						className="product-img"
 						alt=""
-						src={
-							this.props.fun.state.api +
-							"/" +
-							this.props.product.path
-						}
+						src={"data:image/"+this.props.product.img.contentType+";base64,"+this.props.product.img.data.toString('base64')}
 					/>
+					
 					<div className="details">
 						<p className="desc">{this.props.product.desc}</p>
 					</div>

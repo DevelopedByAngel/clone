@@ -7,8 +7,8 @@ const ProfileHeader = (props) => {
 	const { user, fun } = props;
 	var add = [];
 	var img;
-	if (user.path) {
-		img = fun.state.api + "/" + user.path;
+	if (user.img) {
+		img = "data:image/"+user.img.contentType+";base64,"+user.img.data.toString('base64');
 	} else {
 		img = "https://i.postimg.cc/t4LMTMx4/blue-user-head-png-18-1.png";
 	}

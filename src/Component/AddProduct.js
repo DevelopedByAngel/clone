@@ -41,11 +41,11 @@ class AddProduct extends Component {
 			price: this.state.price,
 			qty: this.state.qty,
 		};
+		
 		formData.append("data", JSON.stringify(additionalInfo));
 		console.log("posting");
 		fetch(this.props.fun.state.api + "/uploadProduct", {
 			method: "POST",
-			mode: "no-cors",
 			body: formData,
 		})
 			.then((res) => res.json())

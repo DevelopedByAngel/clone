@@ -11,7 +11,7 @@ const Search = (props) => {
 				<img
 					className="dp image"
 					alt="profile picture"
-					src={fun.state.api + "/" + profileImg}
+					src={"data:image/"+profileImg.contentType+";base64,"+profileImg.data.toString('base64')}
 				/>
 			</div>
 			<div className="search">

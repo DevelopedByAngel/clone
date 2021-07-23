@@ -13,7 +13,7 @@ class UserInList extends Component {
 	click(status) {
 		if (status === "Request") {
 			this.props.fun.request(this.props.user.id);
-			$(".status" + this.props.user.id).html("<FiLoader/> ");
+			$(".status" + this.props.user.id).text("⚠️ ");
 		} else if (status === "Accept Request") {
 			this.props.fun.acceptRequest(this.props.user.id);
 			$(".status" + this.props.user.id).text("⚠️ ");

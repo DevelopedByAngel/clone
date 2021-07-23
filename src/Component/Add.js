@@ -34,7 +34,7 @@ class Add extends Component {
 		// 	headers:{id:this.props.fun.state.user.id},
 		// 	body:formData,
 		// });
-		fetch("http://localhost:5000" + "/upload", {
+		fetch(this.props.fun.state.api + "/upload", {
 			method: "POST",
 			body: formData,
 		})
