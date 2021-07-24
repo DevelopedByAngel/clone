@@ -163,7 +163,6 @@ const Menu = (props) => {
 				<a
 					className="nav-link Store"
 					href="/"
-					}}
 				>
 					Log Out
 				</a>
