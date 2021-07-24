@@ -212,6 +212,7 @@ class App extends Component {
         console.log(r);
         this.loading(false);
         this.setState({ productList: r });
+        this.RouteChange("store");
       })
       .catch((err) => alert(err.message));
   };

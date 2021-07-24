@@ -66,7 +66,6 @@ const Menu = (props) => {
 					<MdLocalGroceryStore
 						onClick={() => {
 							fun.product("");
-							route("store");
 						}}
 					/>
 				</div>
