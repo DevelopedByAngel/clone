@@ -45,8 +45,16 @@ class Product extends Component {
 		})
 			.then((res) => res.json())
 			.then((r) => {
+				console.log(r)
+				if(r.length > 0)
+				{
 				this.props.fun.updateUsers(r);
-				this.props.fun.RouteChange("friends");
+				this.props.fun.RouteChange("friends");	
+				}
+				else
+				{
+					alert("No buyers!!! Try again later")
+				}
 			});
 	}
 	delete()
