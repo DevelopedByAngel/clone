@@ -15,3 +15,9 @@
 	margin-top: -0.4rem;
 	padding-top: 1rem;
 }
+.friendsList .User .name
+{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}

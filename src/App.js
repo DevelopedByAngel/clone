@@ -40,6 +40,7 @@ class App extends Component {
       postList: [],
       productList: [],
       users: [],
+      userStatus:"",
       viewProfile: {
         name: "",
         profileImg: "https://developedbyangel.github.io/SAS/logo.PNG",
@@ -478,8 +479,8 @@ class App extends Component {
   updateuser(user) {
     this.setState({ user: user });
   }
-  updateUsers(users) {
-    this.setState({ users: users });
+  updateUsers(users,userStatus) {
+    this.setState({ users: users ,userStatus: userStatus});
   }
   updatePost(post) {
     this.setState({ post: post });
@@ -546,7 +547,7 @@ class App extends Component {
               </div>
             ) : this.state.route === "friends" ? (
               <div className="friendsList">
-                <FriendsList users={this.state.users} />
+                <FriendsList users={this.state.users} fun={this} userStatus={this.state.userStatus}/>
               </div>
             ) : this.state.route === "usersList" ? (
               <div className="usersList">

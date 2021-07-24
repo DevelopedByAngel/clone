@@ -99,19 +99,19 @@ const ProfileHeader = (props) => {
 };
 const friends = (fun, user) => {
 	if (user.length > 0) {
-		fun.updateUsers(user);
+		fun.updateUsers(user,"unfriend");
 		fun.RouteChange("friends");
 	}
 };
 const pending = (fun, user) => {
 	if (user.length > 0) {
-		fun.updateUsers(user);
+		fun.updateUsers(user,"pending");
 		fun.RouteChange("friends");
 	}
 };
 const accept = (fun, user) => {
 	if (user.length > 0) {
-		fun.updateUsers(user);
+		fun.updateUsers(user,"accept");
 		fun.RouteChange("friends");
 	}
 };
