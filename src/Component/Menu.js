@@ -160,6 +160,13 @@ const Menu = (props) => {
 				>
 					Tips
 				</p>
+				<a
+					className="nav-link Store"
+					href="/"
+					}}
+				>
+					Log Out
+				</a>
 			</div>
 		</div>
 	);
