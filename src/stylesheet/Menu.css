@@ -88,6 +88,11 @@
   );
   text-align: center;
 }
+.Menu a
+{
+  color: black;
+  text-decoration: none;
+}
 .Menu .menubutton {
   border-radius: 50%;
   outline: none;
