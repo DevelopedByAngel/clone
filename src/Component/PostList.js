@@ -15,15 +15,15 @@ class PostList extends Component {
 		}
 	}
 	render() {
+		const fun=this.props.fun
 		return this.props.postList.reverse().map((d) => {
 			var li = d.caption.split(" ");
 			li = li.map((c) => {
 				var a = c;
 				if (c[0] === "#") {
+					console.log(fun)
 					a =
-						'<a className="hashtag" style="color:blue;text-decoration:none" href="/hashtag/' +
-						c.replace("#", "") +
-						'">' +
+						'<a className="hashtag" style="color:blue;text-decoration:none" onclick={fun.hastags("fv")}>' +
 						c.replace("#", "") +
 						"</a>";
 					return a;

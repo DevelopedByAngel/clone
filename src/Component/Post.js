@@ -50,9 +50,7 @@ class Post extends Component {
 			var a = c;
 			if (c[0] === "#") {
 				a =
-					'<a className="hashtag" style="color:blue;text-decoration:none" href="/hashtag/' +
-					c.replace("#", "") +
-					'">' +
+					'<a className="hashtag" style="color:blue;text-decoration:none" onclick={()=>this.props.fun.hastags("'+c.replace("#", "")+')}">' +
 					c.replace("#", "") +
 					"</a>";
 				return a;

@@ -71,7 +71,26 @@ class Comment extends Component {
 		var reply = [];
 		if (this.props.reply && !this.state.isReply) {
 			this.props.reply.map((r, i) => {
-				reply.push(
+				if(r.user === this.props.fun.state.post.user)
+				{
+					console.log("userreply")
+					reply.push(
+					<div className="reply-div">
+						<span className="reply-user-name">
+							{r.user + " (admin) - "}
+						</span>
+						<span
+							className="reply"
+							id={"reply" + this.props.index + "_" + i}
+						>
+							{r.reply}
+						</span>
+					</div>
+				);
+				}
+				else {
+					console.log("non user reply")
+					reply.push(
 					<div className="reply-div">
 						<span className="reply-user-name">
 							{r.user + " - "}
@@ -84,6 +103,8 @@ class Comment extends Component {
 						</span>
 					</div>
 				);
+				}
+				
 				return r;
 			});
 			reply.push(
@@ -119,7 +140,10 @@ class Comment extends Component {
 				}}
 			>
 				<div className="Comment-div">
-					<span className="user-name">{this.props.user}</span>
+
+					<span className="user-name">{(this.props.user===this.props.fun.state.post.user)?this.props.user+"  (admin)":this.props.user}
+					
+					</span>
 					<div className="details">
 						<p className="comment">{this.props.comment}</p>
 						<p className="details-inner">

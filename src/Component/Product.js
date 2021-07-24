@@ -7,9 +7,10 @@ class Product extends Component {
 		this.state = {};
 	}
 	buy() {
+		console.log(this.props.product.qty)
 		this.props.fun.updateProduct(this.props.product);
 		var qty = prompt("Quantity:");
-		if (qty === undefined) {
+		if (qty === undefined || qty ===null) {
 			console.log("none");
 		} else {
 			fetch(this.props.fun.state.api + "/editProduct", {
@@ -48,9 +49,28 @@ class Product extends Component {
 				this.props.fun.RouteChange("friends");
 			});
 	}
+	delete()
+	{
+		console.log("delet")
+		fetch(this.props.fun.state.api + "/deleteProduct",
+		{
+			method: "POST",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({
+				id:this.props.product._id
+			})
+		})
+		.then((r) =>r.json())
+		.then((r) =>
+		{
+			console.log(r);
+			this.props.fun.product("");
+		})
+	}
 	edit() {
+		console.log(this.props.product,"PPPPPPPPPPPPPPPP")
 		this.props.fun.updateProduct(this.props.product);
-		$(".EditProduct").css("display", "flex");
+		
 	}
 	review() {
 		this.props.fun.updateProduct(this.props.product);
@@ -65,15 +85,15 @@ class Product extends Component {
 				<button
 					type="button"
 					className="edit-product"
-					onClick={() => this.edit()}
+					onClick={() => this.delete()}
 				>
-					Edit
+					Delete
 				</button>
 			);
 			edit.push(
 				<button
 					type="button"
-					className="edit-product"
+					className="view-buyers"
 					onClick={() => this.view()}
 				>
 					View Buyers

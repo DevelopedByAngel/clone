@@ -15,6 +15,7 @@ class EditProduct extends Component {
 		this.setState({
 			desc: desc.target.value.replaceAll("\n", " ~ "),
 		});
+		console.log(this.state,this.props);
 	};
 	handleName = (name) => {
 		this.setState({ name: name.target.value });
@@ -62,7 +63,14 @@ class EditProduct extends Component {
 				this.props.fun.RouteChange("store");
 			});
 	}
+	componentDidMount() {
+		this.setState({name:this.props.product.name});
+
+	}
 	render() {
+		console.log(this.props,"fffffffffff",this.state)
+		var {name,desc,price,qty}=this.props.product
+		
 		return (
 			<div className="EditProduct" id={this.props.uid}>
 				<div className="editproduct-div">
@@ -75,14 +83,14 @@ class EditProduct extends Component {
 						<input
 							type="text"
 							className="product-name"
-							value={this.state.name}
+							value={name} 
 							onChange={(e) => this.handleName(e)}
 						/>
 						<label>Description</label>
 						<textarea
 							type="text"
 							className="input-desc"
-							value={this.state.desc}
+							value={desc}
 							onChange={(e) => this.handleDesc(e)}
 							placeholder="Enter about your product"
 						></textarea>
@@ -90,14 +98,14 @@ class EditProduct extends Component {
 						<input
 							type="number"
 							min="0"
-							value={this.state.price}
+							value={price}
 							className="price"
 							onChange={(e) => this.handlePrice(e)}
 						/>
 						<label>Quantity</label>
 						<input
 							type="number"
-							value={this.state.qty}
+							value={qty}
 							min="0"
 							className="qty"
 							onChange={(e) => this.handleQty(e)}

@@ -4,7 +4,7 @@ class Review extends Component {
 		return (
 			<div className="Comment" id={this.props.postno}>
 				<div className="Comment-div">
-					<span className="user-name">{this.props.user}</span>
+					<span className="user-name">{(this.props.user===this.props.fun.state.product.user)?this.props.user+" (admin)":this.props.user}</span>
 					<div className="details">
 						<p className="comment">{this.props.comment}</p>
 					</div>

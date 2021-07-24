@@ -46,6 +46,7 @@ class App extends Component {
       },
       post: {},
       product: {},
+      editProduct:false,
       prevState: {},
       doubtList: [],
     };
@@ -57,7 +58,6 @@ class App extends Component {
   login = (id, password) => {
     console.log("log");
     fetch(this.state.api + "/login", {
-      mode: 'no-cors',
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -85,7 +85,6 @@ class App extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         id: id,
@@ -488,6 +487,13 @@ class App extends Component {
   }
   updateProduct(product) {
     this.setState({ product: product });
+    this.setState({editProduct:true});
+    $(".EditProduct").css("display", "flex");
+  }
+  updatedProduct()
+  {
+    this.setState({product:{}})
+    this.setState({editProduct:false});
   }
   back() {
     this.setState(this.state.prevState);
@@ -534,6 +540,7 @@ class App extends Component {
               </div>
             ) : this.state.route === "comment" ? (
               <div className="comment-div">
+              <span className="heading">Comments</span>
                 <Addcomment fun={this} />
                 <CommentList fun={this} comments={this.state.post.comments} />
               </div>
@@ -588,10 +595,12 @@ class App extends Component {
                   <Productlist fun={this} list={this.state.productList} />
                 </div>
                 <AddProduct fun={this} />
+                if(this.state.editProduct)
                 <EditProduct fun={this} product={this.state.product} />
               </div>
             ) : this.state.route === "review" ? (
               <div>
+              <span className="heading">Reviews</span>
                 <AddReview fun={this} />
                 <ReviewList fun={this} reviews={this.state.product.comments} />
               </div>
