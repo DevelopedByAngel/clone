@@ -73,7 +73,7 @@ class Signup extends Component {
 									className="input-label id"
 									htmlFor="name"
 								>
-									user ID
+									User ID
 								</label>
 							</span>
 							<span className="email-input input-span">

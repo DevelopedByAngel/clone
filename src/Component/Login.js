@@ -61,9 +61,11 @@ class Login extends Component {
 		if (c === "signup") {
 			$(".signup-div").css({ display: "flex" });
 			$(".login-div").css({ display: "none" });
+			$(".signupform .id-input input").focus();
 		} else {
 			$(".signup-div").css({ display: "none" });
 			$(".login-div").css({ display: "flex" });
+			$(".loginform .id-input input").focus();
 		}
 		$(".choose").css({ display: "none" });
 	}

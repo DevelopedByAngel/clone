@@ -41,3 +41,9 @@
 		display: block;
 	}
 }
+@media (max-width: 700px) and (orientation: landscape) 
+{
+	.Screen{
+		display: block;
+	}
+}
