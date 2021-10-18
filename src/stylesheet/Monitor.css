@@ -1,0 +1,218 @@
+.Monitor
+{
+	height:100vh;
+	background:#323232;
+	z-index:5;
+	position:relative;
+	color:white;
+}
+.Monitor .gaugeflex
+{
+	width:100vw;
+	margin-top:3rem;
+	display:flex;
+	justify-content:center;
+}
+.Monitor .gaugecover
+{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:70vw;
+	width:70vw;
+	background:white;
+	margin:1rem;
+	border:1rem double #323232;
+    border-radius: 50%;
+    clip-path: polygon(0% 0%, 0% 50%,100% 50%,100% 0%);
+    overflow:hidden;
+}
+.Monitor .gaugevalue
+{
+	height:10rem;
+	width:10rem;
+	position:absolute;
+	border-radius:50%;
+	background:black;
+	color:white;
+	font-size:2rem;
+	display:flex;
+	justify-content:center;
+	align-items:flex-start;
+}
+.Monitor .gaugevalue span
+{
+	margin:2rem;
+}
+.Monitor .watersvg
+{
+    width: 70vw;
+    height: 70vw;
+    background: rgb(0 185 255/ 71%);
+    clip-path: polygon(50% 50%,0% 50%,0% 50%,0% 50%,0% 50%);
+    animation-name:waterlevel;
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+    transition:all 2s linear;
+}
+.Monitor .tempcover
+{
+	position:fixed;
+	right:1rem;
+	bottom:1rem;
+	width:5rem;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	filter:drop-shadow(0px 0px 5px white);
+}
+.Monitor .tempLine
+{
+	width:0.6rem;
+	border:1rem solid rgb(0 185 255);
+	height:10rem;
+	background:yellow;
+	display:flex;
+	align-items:flex-end;
+	border-top-right-radius:1rem;
+	border-top-left-radius:1rem;
+}
+.Monitor .tempcover .celsius span
+{
+	font-size:1.2rem;
+	display:block;
+	font-weight:bold;
+	margin-bottom:0.5rem;
+}
+.Monitor .tempLine span
+{
+	width:100%;
+	height:40%;
+	background:red;
+	position:relative;
+	z-index:2;
+	top:1rem;
+}
+.Monitor .tempNobe
+{
+	position:relative;
+	bottom:1rem;
+	width:3rem;
+	height:3rem;
+	border:1rem solid rgb(0 185 255);
+	border-radius:3rem;
+	background:red;
+}
+.Monitor .heading
+{
+	font-size:3rem;
+	margin:0px 2rem;
+}
+.Monitor .pump
+{
+	font-size:1.5rem;
+	margin:1rem;
+	display:flex;
+	justify-content:space-between;
+}
+.Monitor .help-icon
+{
+	font-size:2rem;
+}
+.Monitor .buttons
+{
+	width:70vw;
+	display:flex;
+	flex-direction:column;
+	position:relative;
+	bottom:35vw;
+	height:50vh;
+	justify-content:center;
+}
+.Monitor button
+{
+	width:80%;
+	margin:1rem;
+	height:3rem;
+	font-size:1.2rem;
+	border-radius:7px;
+	font-weight:bold;
+	border:1px solid white;
+	/*filter:drop-shadow(1px 1px 5px rgba(255,255,255,0.3));*/
+}
+.Monitor .auto
+{
+	background:rgb(146 219 34);
+	box-shadow:inset 2px -2px 7px green,2px 2px 5px rgba(255,255,255,0.7);
+}
+.Monitor .update
+{
+	background:white;
+	box-shadow:inset 2px -2px 7px rgba(0,0,0,0.2),2px 2px 5px rgba(255,255,255,0.7);
+}
+.Monitor .AutoMotor
+{
+	background:#4dd0e1;
+	box-shadow:inset 2px -2px 7px #757575, 2px 2px 5px rgb(255 255 255 / 70%);
+}
+.Monitor .note
+{
+	width:80%;
+	line-height:1.7rem;
+	font-size:1rem;
+	padding:1rem 1rem 0rem 1rem;
+}
+.Monitor .note span
+{
+	font-size:2rem;
+}
+.Monitor .help-cover
+{
+	background:rgb(198 198 198 / 80%);
+	height:100vh;
+	width:100vw;
+	position:fixed;
+	left:0;
+	top:0;
+	display:none;
+	flex-direction:column;
+	align-items:flex-end;
+	justify-content:center;
+}
+.Monitor .help-modal
+{
+	margin:2.5vh 2.5vw;
+/*	width:92.5vw;
+	height:92.5vh;
+*/	background:#000857;
+	border:2px solid white;
+	border-radius:0.5rem;
+	font-size:1.2rem;
+	padding:0.5rem;
+}
+.Monitor .help-heading
+{
+	font-size:1.5rem;
+	text-decoration:underline;
+}
+.Monitor .help-close
+{
+	font-size:3rem;
+	width:3rem;
+	height:3rem;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border:5px solid white;
+	border-radius:5rem;
+	color:white;
+	position:relative;
+	top:2rem;
+	background:#000857;
+}
+.Monitor .help-close .close-icon
+{
+	color:white;
+	filter:invert(1);
+}

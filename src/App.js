@@ -20,10 +20,11 @@ import ReviewList from "./Component/ReviewList.js";
 import Tips from "./Component/Tips.js";
 import DoubtList from "./Component/DoubtList.js";
 import AddDoubt from "./Component/AddDoubt.js";
+import Monitor from "./Component/Monitor.js";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import "./App.css";
 import $ from "jquery";
-
+const auth="aaqCQAawYvMh9xT1jZN56Wmg5TdA9ek-";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -514,6 +515,7 @@ class App extends Component {
       <div className="App">
         <div className="Screen">View on smaller(mobile) screen.
          </div>
+         <Monitor auth={auth}/>
         <Loader loading={this.state.loading} />
         {this.state.route === "home" ? (
           <Login fun={this} />
