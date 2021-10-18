@@ -24,7 +24,7 @@ import Monitor from "./Component/Monitor.js";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import "./App.css";
 import $ from "jquery";
-const auth="aaqCQAawYvMh9xT1jZN56Wmg5TdA9ek-";
+const auth = "aaqCQAawYvMh9xT1jZN56Wmg5TdA9ek-";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -41,14 +41,14 @@ class App extends Component {
       postList: [],
       productList: [],
       users: [],
-      userStatus:"",
+      userStatus: "",
       viewProfile: {
         name: "",
         profileImg: "https://developedbyangel.github.io/SAS/logo.PNG",
       },
       post: {},
       product: {},
-      editProduct:false,
+      editProduct: false,
       prevState: {},
       doubtList: [],
     };
@@ -69,16 +69,13 @@ class App extends Component {
     })
       .then((res) => res.json())
       .then((r) => {
-        
-              if (r.error) {
+        if (r.error) {
           alert(r.error);
         } else {
           this.setState({ user: r.user });
           this.setState({ postList: r.post });
           this.RouteChange("profile");
-
-            }
-        
+        }
       });
   };
   signup = (id, email, password) => {
@@ -481,8 +478,8 @@ class App extends Component {
   updateuser(user) {
     this.setState({ user: user });
   }
-  updateUsers(users,userStatus) {
-    this.setState({ users: users ,userStatus: userStatus});
+  updateUsers(users, userStatus) {
+    this.setState({ users: users, userStatus: userStatus });
   }
   updatePost(post) {
     this.setState({ post: post });
@@ -490,13 +487,12 @@ class App extends Component {
   }
   updateProduct(product) {
     this.setState({ product: product });
-    this.setState({editProduct:true});
+    this.setState({ editProduct: true });
     $(".EditProduct").css("display", "flex");
   }
-  updatedProduct()
-  {
-    this.setState({product:{}})
-    this.setState({editProduct:false});
+  updatedProduct() {
+    this.setState({ product: {} });
+    this.setState({ editProduct: false });
   }
   back() {
     this.setState(this.state.prevState);
@@ -513,9 +509,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="Screen">View on smaller(mobile) screen.
-         </div>
-         <Monitor auth={auth}/>
+        <div className="Screen">View on smaller(mobile) screen.</div>
         <Loader loading={this.state.loading} />
         {this.state.route === "home" ? (
           <Login fun={this} />
@@ -532,7 +526,6 @@ class App extends Component {
             <Menu route={this.RouteChange} fun={this} />
             {this.state.route === "viewProfile" ? (
               <div>
-
                 <ProfileHeader user={this.state.viewProfile} fun={this} />
                 <div className="PostList profilePostList">
                   <PostList
@@ -544,13 +537,17 @@ class App extends Component {
               </div>
             ) : this.state.route === "comment" ? (
               <div className="comment-div">
-              <span className="heading">Comments</span>
+                <span className="heading">Comments</span>
                 <Addcomment fun={this} />
                 <CommentList fun={this} comments={this.state.post.comments} />
               </div>
             ) : this.state.route === "friends" ? (
               <div className="friendsList">
-                <FriendsList users={this.state.users} fun={this} userStatus={this.state.userStatus}/>
+                <FriendsList
+                  users={this.state.users}
+                  fun={this}
+                  userStatus={this.state.userStatus}
+                />
               </div>
             ) : this.state.route === "usersList" ? (
               <div className="usersList">
@@ -604,10 +601,12 @@ class App extends Component {
               </div>
             ) : this.state.route === "review" ? (
               <div>
-              <span className="heading">Reviews</span>
+                <span className="heading">Reviews</span>
                 <AddReview fun={this} />
                 <ReviewList fun={this} reviews={this.state.product.comments} />
               </div>
+            ) : this.state.route === "monitor" ? (
+              <Monitor auth={auth} />
             ) : (
               <div>
                 <Tips fun={this} />
