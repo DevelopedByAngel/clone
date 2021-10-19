@@ -5,7 +5,9 @@ import { BiHelpCircle } from "react-icons/bi";
 import {GrFormClose} from "react-icons/gr";
 var timer = null;
 const Monitor = (props) => {
-	const { auth } = props;
+	const { auth,fun } = props;
+	console.log(fun.state.auth);
+
 	const [auto, setAuto] = useState(false);
 	const [waterlevel, setWaterlevel] = useState(0);
 	const [prevWaterlevel, setPrevWaterlevel] = useState(0);
@@ -14,7 +16,7 @@ const Monitor = (props) => {
 	const [pump, setPump] = useState("");
 	const [modal, setModal]=useState(false);
 	const getData = async () => {
-		fetch("https://blynk-cloud.com/" + auth + "/project")
+		fetch("http://blynk-cloud.com/" + auth + "/project")
 			.then((res) => res.json())
 			.then((project) => {
 				var waterRaw = project.widgets[1].value;
@@ -27,7 +29,8 @@ const Monitor = (props) => {
 				setTemp(temp);
 				setPump(project.widgets[4].value);
 				setMotor(project.widgets[3].value == "1" ? true : false);
-			});
+			})
+			.catch(err => console.error(err));
 		// fetch("http://blynk-cloud.com/" + auth + "/get/V1")
 		// .then((data) => data.json())
 		// .then((data) => {
@@ -250,7 +253,11 @@ const Monitor = (props) => {
 	useEffect(() => {
 		$(".Monitor .tempLine span").css("height", temp + 10 + "%");
 	}, [temp]);
-	return (
+	if(!fun.state.user.auth && !fun.state.auth)
+		return authCheck(fun);
+	else
+	{
+		return (
 		<div className="Monitor">
 			<h1 className="heading">Dashboard</h1>
 			<div className="pump">
@@ -347,6 +354,70 @@ const Monitor = (props) => {
 			</div>
 		</div>
 	);
+	}
 };
+const authCheck=(fun)=>
+{
+	var saved = false;
+	const authSubmit=(e)=>
+	{
+		e.preventDefault();
+		// console.log(e)
+		var auth=e.target.auth.value;
+		console.log(e.target.auth.value);
+		fetch("http://blynk-cloud.com/" + auth + "/project")
+		.then((res) => res.json())
+		.then((project) => {
+			console.log(project);
+			if(saved)
+			{
+				fetch("http://localhost:5000/authsave",{
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+				      body: JSON.stringify({
+				        id: fun.state.user._id,
+				        auth:auth,
+				      }),
+				  })
+				.then((r)=>r.json())
+				.then((response)=>
+				{
+					console.log(response)
+					if(response.success)
+					{
+						fun.setAuth(auth);
+						fun.RouteChange("monitor");
 
+					}
+				})			
+			}
+			else
+			{
+				fun.setAuth(auth);
+				fun.RouteChange("monitor");
+			}	
+					
+		})
+		.catch((err) =>
+		{
+			console.log(err);
+			alert("Invalid Authentication token");
+			document.getElementById("auth-input").value="";
+		})
+	}
+	const checkSave=(e)=>
+	{
+		saved=e.target.checked;
+	}
+	return(
+		<div className="Auth">
+			<div className="auth-container">
+				<form className="form-auth" onSubmit={(e)=>authSubmit(e)}>
+					<input type="text" className="auth-input" id="auth-input" name="auth"/>
+					<input type="checkbox" className="auth-save" name="save" onChange={(e)=>checkSave(e)}/>
+				</form>
+			</div>
+		</div>
+		)
+}
 export default Monitor;

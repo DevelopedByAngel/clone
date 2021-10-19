@@ -24,7 +24,7 @@ import Monitor from "./Component/Monitor.js";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import "./App.css";
 import $ from "jquery";
-const auth = "aaqCQAawYvMh9xT1jZN56Wmg5TdA9ek-";
+// const auth = "aaqCQAawYvMh9xT1jZN56Wmg5TdA9ek-";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -51,6 +51,7 @@ class App extends Component {
       editProduct: false,
       prevState: {},
       doubtList: [],
+      auth:null,
     };
   }
 
@@ -494,6 +495,10 @@ class App extends Component {
     this.setState({ product: {} });
     this.setState({ editProduct: false });
   }
+  setAuth(auth)
+  {
+    this.setState({ auth: auth});
+  }
   back() {
     this.setState(this.state.prevState);
   }
@@ -606,7 +611,7 @@ class App extends Component {
                 <ReviewList fun={this} reviews={this.state.product.comments} />
               </div>
             ) : this.state.route === "monitor" ? (
-              <Monitor auth={auth} />
+              <Monitor auth={this.state.auth || this.state.user.auth} fun={this} />
             ) : (
               <div>
                 <Tips fun={this} />
