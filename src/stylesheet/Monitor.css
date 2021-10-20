@@ -216,3 +216,48 @@
 	color:white;
 	filter:invert(1);
 }
+.Auth
+{
+	width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Auth h2
+{
+	margin: 3rem 0rem;
+    padding: 1rem;
+    font-size: 2rem;
+    border-left: 0.2rem solid;
+}
+.Auth .form-auth
+{
+	display: flex;
+	flex-direction:column;
+}
+.Auth .auth-input
+{
+	width: 60vw;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    color: green;
+    font-size: 1.2rem;
+    border-radius: 0px;
+    margin-bottom: 2rem;
+}
+.Auth .check-span
+{
+	display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.Auth .check-span .auth-save
+{
+	transform:scale(1.5);
+	margin:1rem;
+}

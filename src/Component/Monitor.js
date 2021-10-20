@@ -412,9 +412,10 @@ const authCheck=(fun)=>
 	return(
 		<div className="Auth">
 			<div className="auth-container">
+				<h2>Authentication token</h2>
 				<form className="form-auth" onSubmit={(e)=>authSubmit(e)}>
 					<input type="text" className="auth-input" id="auth-input" name="auth"/>
-					<input type="checkbox" className="auth-save" name="save" onChange={(e)=>checkSave(e)}/>
+					<span className="check-span"><input type="checkbox" className="auth-save" name="save" onChange={(e)=>checkSave(e)}/><p>Save token</p></span>
 				</form>
 			</div>
 		</div>

@@ -160,7 +160,7 @@ const Menu = (props) => {
 					Tips
 				</p>
 				<p
-					className="nav-link monitor"
+					className="nav-link monitor-menu"
 					onClick={() => {
 						ok();
 						route("monitor");
