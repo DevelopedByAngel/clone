@@ -16,7 +16,7 @@ const Monitor = (props) => {
 	const [pump, setPump] = useState("");
 	const [modal, setModal]=useState(false);
 	const getData = async () => {
-		fetch("http://blynk-cloud.com/" + auth + "/project")
+		fetch("https://blynk-cloud.com/" + auth + "/project")
 			.then((res) => res.json())
 			.then((project) => {
 				var waterRaw = project.widgets[1].value;
@@ -82,11 +82,11 @@ const Monitor = (props) => {
 	const autoMotor = () => {
 		if (motor) {
 			fetch(
-				"http://blynk-cloud.com/" + auth + "/update/D4?value=1"
+				"https://blynk-cloud.com/" + auth + "/update/D4?value=1"
 			).then((response) => console.log(response));
 		} else {
 			fetch(
-				"http://blynk-cloud.com/" + auth + "/update/D4?value=0"
+				"https://blynk-cloud.com/" + auth + "/update/D4?value=0"
 			).then((response) => console.log(response));
 		}
 		setMotor(!motor);
@@ -365,7 +365,7 @@ const authCheck=(fun)=>
 		// console.log(e)
 		var auth=e.target.auth.value;
 		console.log(e.target.auth.value);
-		fetch("http://blynk-cloud.com/" + auth + "/project")
+		fetch("https://blynk-cloud.com/" + auth + "/project")
 		.then((res) => res.json())
 		.then((project) => {
 			console.log(project);
