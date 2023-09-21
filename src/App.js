@@ -30,7 +30,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      api: "https://agroprosapi.herokuapp.com",
+      api: "https://agro-pros-production.up.railway.app",
       // api: "http://localhost:5000",
       route: "home",
       loading: false,
